@@ -3,6 +3,7 @@ import recipePreviewImage from "../../../assets/product-preview-1.png";
 import aiPreviewImage from "../../../assets/product-preview-2.png";
 import shoppingListPreviewImage from "../../../assets/product-preview-3.png";
 import { GitHubIcon } from "../../../components/GitHubIcon";
+import { Typography } from "../../../components/Typography";
 import type { PersonalProject } from "../../../types/projects";
 
 type PersonalProjectCardProps = {
@@ -79,22 +80,32 @@ export function PersonalProjectCard({
         <div className="flex min-w-0 flex-col items-start gap-5.75 pb-12 lg:col-span-9  flex-1 h-full justify-start">
           <div className="flex w-full flex-col gap-4 md:gap-2.5 ">
             <div className="flex flex-col gap-2.5">
-              <h2
+              <Typography
+                as="h2"
                 id={titleId}
-                className="font-serif-display text-5xl font-bold leading-18.75 tracking-[-0.0975em] -ml-[0.0975em] max-w-sm text-base-content md:text-6xl lg:text-[clamp(3.75rem,5.75vw,5.75rem)]"
+                variant="project-hero-title"
+                className="-ml-[0.0975em] max-w-sm"
               >
                 {project.name}
-              </h2>
+              </Typography>
               {project.period ? (
-                <p className="text-xl leading-tight tracking-[-0.0425em] text-base-content/85 md:text-3xl">
+                <Typography
+                  as="p"
+                  variant="body"
+                  className="text-xl leading-tight tracking-[-0.0425em] text-base-content/85 md:text-3xl"
+                >
                   {project.period}
-                </p>
+                </Typography>
               ) : null}
             </div>
 
-            <p className="leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.03975em]">
+            <Typography
+              as="p"
+              variant="body"
+              className="text-base-content/70 md:text-2xl tracking-[-0.03975em]"
+            >
               {project.description}
-            </p>
+            </Typography>
           </div>
 
           <ul
@@ -122,14 +133,18 @@ export function PersonalProjectCard({
               </div>
 
               <div className="min-w-0 max-w-[200.5px] pr-2.5">
-                <p className=" leading-5.5 text-sm text-base-content/60">
+                <Typography
+                  as="p"
+                  variant="caption"
+                  className="leading-5.5 text-sm text-base-content/60"
+                >
                   <Smartphone
                     className="mr-1 inline size-5 align-[-0.1875em] stroke-[2.1]"
                     aria-hidden="true"
                   />
                   Scannez le QR code pour tester Mealo directement sur votre
                   téléphone.
-                </p>
+                </Typography>
               </div>
             </aside>
           )}
@@ -156,7 +171,9 @@ export function PersonalProjectCard({
                       aria-hidden="true"
                     />
                   )}
-                  <span>{link.label}</span>
+                  <Typography as="span" variant="label">
+                    {link.label}
+                  </Typography>
                 </a>
               );
             })}
@@ -215,15 +232,20 @@ function ProjectFeature({
     >
       <div className="flex items-start gap-3.75">
         <div className="flex flex-col">
-          <h3
+          <Typography
+            as="h3"
             id={`feature-${number}`}
-            className="text-xl leading-tight tracking-[-0.0425em] text-base-content/85 md:text-3xl"
+            variant="feature-title"
           >
             {title}
-          </h3>
-          <p className="leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.04975em]">
+          </Typography>
+          <Typography
+            as="p"
+            variant="body"
+            className="text-base-content/70 md:text-2xl tracking-[-0.04975em]"
+          >
             {description}
-          </p>
+          </Typography>
         </div>
       </div>
 

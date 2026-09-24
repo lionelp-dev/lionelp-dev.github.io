@@ -1,9 +1,8 @@
 import { MailIcon } from "./MailIcon";
+import { Typography } from "./Typography";
 
 const heroClass =
   "relative flex flex-col items-start gap-80 justify-center h-[min(70svh,1000px)] lg:h-[min(90svh,1000px)] md:gap-7";
-const heroTitleClass =
-  "flex flex-col font-serif-display -ml-[0.0975em] text-5xl font-normal leading-[0.855] tracking-[-0.08975em] text-base-content md:text-7xl lg:text-[11em]";
 const heroTextClass =
   "flex flex-col leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.04975em]";
 
@@ -13,29 +12,37 @@ export function PageHero() {
       <div className="flex flex-col gap-11">
         <div className="flex flex-col gap-9.75">
           <div className="flex-col flex gap-3.75">
-            <p className="flex gap-1 text-xl flex-col leading-tight tracking-[-0.0425em] text-base-content/85 md:text-4xl">
+            <Typography
+              as="p"
+              variant="body"
+              className="flex gap-1 text-xl flex-col leading-tight tracking-[-0.0425em] text-base-content/85 md:text-4xl"
+            >
               <span>
                 Hello, je m'appelle Lionel
                 <span role="img" aria-label="main qui salue">
                   👋
                 </span>
               </span>
-              <span className={heroTextClass}>
+              <Typography as="span" variant="body" className={heroTextClass}>
                 je me spécialise aujourd'hui en tant que
-              </span>
-            </p>
+              </Typography>
+            </Typography>
             <div className="flex flex-col gap-6.75">
-              <h1 id="page-title" className={heroTitleClass}>
+            <Typography
+              id="page-title"
+              variant="hero-title"
+              className="-ml-[0.0975em]"
+            >
                 <span>Développeur web</span>
                 <span>full-stack</span>
-              </h1>
-              <p className={heroTextClass}>
+            </Typography>
+            <Typography as="p" variant="body" className={heroTextClass}>
                 <span>
                   Je m’appuie sur plusieurs années d’expérience en freelance
                   dans la réalisation de sites e-commerce et vitrines.
                 </span>
                 <span></span>
-              </p>
+              </Typography>
             </div>
           </div>
         </div>
@@ -52,7 +59,9 @@ export function PageHero() {
             href="mailto:lionelp.dev@gmail.com"
           >
             <MailIcon className="size-4 transition-transform group-hover:scale-110" />
-            <span>Me contacter</span>
+            <Typography as="span" variant="label">
+              Me contacter
+            </Typography>
           </a>
         </div>
       </div>

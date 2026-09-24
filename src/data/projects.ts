@@ -195,7 +195,7 @@ export const techWatchProjects: TechWatchProject[] = [
   {
     name: "RecipeBookSymfony",
     description:
-      "Version Symfony centrée sur API Platform et une architecture API moderne.",
+      "Carnet de recettes construit pour explorer l’écosystème Symfony.",
     image: recipeBookSymfonyImage,
     repositoryUrl:
       "https://github.com/lionelp-dev/RecipeBookSymfony/tree/architecture/api-platform-react",
@@ -212,7 +212,7 @@ export const techWatchProjects: TechWatchProject[] = [
   {
     name: "RecipeBookAspNetCore",
     description:
-      "Implémentation ASP.NET Core pour comparer une stack C# et Angular.",
+      "Carnet de recettes construit pour explorer l’écosystème ASP.NET Core.",
     image: recipeBookDotNetImage,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAspNetCore",
     technologies: [
@@ -227,7 +227,7 @@ export const techWatchProjects: TechWatchProject[] = [
   {
     name: "RecipeBookSpringBoot",
     description:
-      "Version Java Spring Boot pour évaluer Spring Data JPA avec Vue.",
+      "Carnet de recettes construit pour explorer l’écosystème Spring Boot.",
     image: recipeBookSpringBootImage,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookSpringBoot",
     technologies: [

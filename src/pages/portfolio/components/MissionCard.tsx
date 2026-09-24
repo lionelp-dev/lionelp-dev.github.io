@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import type { ComplementaryMission } from "../../../types/projects";
+import { Typography } from "../../../components/Typography";
 
 type MissionCardProps = {
   mission: ComplementaryMission;
@@ -15,14 +16,22 @@ export function MissionCard({ mission }: MissionCardProps) {
         primaryLink ? "hover:bg-base-content/[0.03]" : ""
       }`}
     >
-      <h3 className="flex w-fit items-baseline gap-8.75 text-xl leading-tight tracking-[-0.0175em] font-normal text-base-content/85 md:text-3xl">
+      <Typography
+        as="h3"
+        variant="feature-title"
+        className="flex w-fit items-baseline gap-8.75 tracking-[-0.0175em]"
+      >
         {mission.name}
-      </h3>
+      </Typography>
 
       {mission.description.trim() ? (
-        <p className="leading-normal text-base-content/70 md:text-xl max-lg:row-start-2 max-lg:col-start-1 max-lg:col-end-4 font-normal tracking-[-0.03575em] ">
+        <Typography
+          as="p"
+          variant="body"
+          className="text-base-content/70 md:text-xl max-lg:row-start-2 max-lg:col-start-1 max-lg:col-end-4 font-normal tracking-[-0.03575em]"
+        >
           {mission.description}
-        </p>
+        </Typography>
       ) : (
         <span aria-hidden="true" />
       )}
@@ -35,7 +44,9 @@ export function MissionCard({ mission }: MissionCardProps) {
             rel="noreferrer"
             target="_blank"
           >
-            <span>{primaryLink.label}</span>
+            <Typography as="span" variant="label">
+              {primaryLink.label}
+            </Typography>
             <ArrowRight
               className="size-4.25 flex-none transition-transform group-hover:translate-x-0.5"
               aria-hidden="true"

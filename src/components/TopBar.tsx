@@ -5,11 +5,14 @@ import { GitHubIcon } from "./GitHubIcon";
 import { LogoMark } from "./LogoMark";
 import { MailIcon } from "./MailIcon";
 import { ThemeSwitch } from "./ThemeSwitch";
+import { Typography } from "./Typography";
 
-const navLinks = [
+const portfolioNavigationItems = [
+  { label: "Accueil", sectionId: "home" },
   { label: "Projet personnel", sectionId: "personal-projects" },
   { label: "Projets clients", sectionId: "client-projects" },
-];
+] as const;
+const contactNavigationItem = { label: "Contact", sectionId: "contact" } as const;
 const githubProfileUrl = "https://github.com/lionelp-dev";
 
 export function TopBar() {
@@ -59,15 +62,7 @@ export function TopBar() {
         </Link>
 
         <div className="hidden h-full min-w-0 items-center justify-center gap-8 lg:absolute lg:left-1/2 lg:top-1/2 lg:flex lg:-translate-x-1/2 lg:-translate-y-1/2">
-          <a
-            className={desktopLinkClass(isActive("home"))}
-            href="#/portfolio#home"
-            aria-current={isActive("home") ? "location" : undefined}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Accueil
-          </a>
-          {navLinks.map((link) => (
+          {portfolioNavigationItems.map((link) => (
             <a
               className={desktopLinkClass(isActive(link.sectionId))}
               href={`#/portfolio#${link.sectionId}`}
@@ -75,7 +70,9 @@ export function TopBar() {
               aria-current={isActive(link.sectionId) ? "location" : undefined}
               onClick={() => setIsMenuOpen(false)}
             >
-              {link.label}
+              <Typography as="span" variant="label">
+                {link.label}
+              </Typography>
             </a>
           ))}
           <Link
@@ -83,15 +80,21 @@ export function TopBar() {
             to="/tech-watch"
             aria-current={isActive("tech-watch") ? "page" : undefined}
           >
-            Explorations technologiques
+            <Typography as="span" variant="label">
+              Explorations technologiques
+            </Typography>
           </Link>
           <a
-            className={desktopLinkClass(isActive("contact"))}
-            href="#/portfolio#contact"
-            aria-current={isActive("contact") ? "location" : undefined}
+            className={desktopLinkClass(isActive(contactNavigationItem.sectionId))}
+            href={`#/portfolio#${contactNavigationItem.sectionId}`}
+            aria-current={
+              isActive(contactNavigationItem.sectionId) ? "location" : undefined
+            }
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact
+            <Typography as="span" variant="label">
+              {contactNavigationItem.label}
+            </Typography>
           </a>
         </div>
 
@@ -145,21 +148,16 @@ export function TopBar() {
           id="mobile-navigation"
         >
           <div className="flex h-full flex-col gap-1 border-t border-base-content/10 py-3">
-            <a
-              className="rounded-lg px-3 py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content"
-              href="#/portfolio#home"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Accueil
-            </a>
-            {navLinks.map((link) => (
+            {portfolioNavigationItems.map((link) => (
               <a
                 className="rounded-lg px-3 h-full py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content"
                 href={`#/portfolio#${link.sectionId}`}
                 key={link.sectionId}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.label}
+                <Typography as="span" variant="label">
+                  {link.label}
+                </Typography>
               </a>
             ))}
             <Link
@@ -167,22 +165,28 @@ export function TopBar() {
               to="/tech-watch"
               onClick={() => setIsMenuOpen(false)}
             >
-              Explorations technologiques
+              <Typography as="span" variant="label">
+                Explorations technologiques
+              </Typography>
             </Link>
             <a
               className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content"
-              href="#/portfolio#contact"
+              href={`#/portfolio#${contactNavigationItem.sectionId}`}
               onClick={() => setIsMenuOpen(false)}
             >
               <MailIcon className="size-5 flex-none" />
-              <span>Contact</span>
+              <Typography as="span" variant="label">
+                {contactNavigationItem.label}
+              </Typography>
             </a>
             <a
               className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content"
               href={`mailto:lionelp.dev@gmail.com`}
             >
               <MailIcon className="size-5 flex-none" />
-              <span>Email</span>
+              <Typography as="span" variant="label">
+                Email
+              </Typography>
             </a>
             <a
               className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content"
@@ -191,7 +195,9 @@ export function TopBar() {
               rel="noreferrer"
             >
               <GitHubIcon className="size-5 flex-none" />
-              <span>GitHub</span>
+              <Typography as="span" variant="label">
+                GitHub
+              </Typography>
             </a>
           </div>
         </div>

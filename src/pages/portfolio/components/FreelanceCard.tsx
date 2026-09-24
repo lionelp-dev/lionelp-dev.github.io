@@ -3,10 +3,9 @@ import type { FreelanceProject } from "../../../types/projects";
 
 type FreelanceCardProps = {
   project: FreelanceProject;
-  projectNumber: number;
 };
 
-export function FreelanceCard({ project, projectNumber }: FreelanceCardProps) {
+export function FreelanceCard({ project }: FreelanceCardProps) {
   return (
     <ProjectCard
       title={project.name}
@@ -16,7 +15,6 @@ export function FreelanceCard({ project, projectNumber }: FreelanceCardProps) {
       meta={project.period}
       description={project.description}
       image={project.image}
-      projectNumber={projectNumber}
       badges={[project.type, ...project.technologies]}
       links={project.links}
     />

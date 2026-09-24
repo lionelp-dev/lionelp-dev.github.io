@@ -1,4 +1,5 @@
 import { MailIcon } from "./MailIcon";
+import { Typography } from "./Typography";
 
 const contactEmail = "lionelp.dev@gmail.com";
 
@@ -10,16 +11,24 @@ export function Footer() {
     >
       <div className="mx-auto flex w-[90vw] max-w-[1680px] flex-col gap-12 rounded-4xl bg-base-content px-9 py-18 text-secondary-content md:gap-14 md:px-23 md:py-25">
         <div className="flex flex-col gap-4.75">
-          <h2 className="flex flex-col font-serif-display font-normal leading-9 md:leading-19.75 tracking-[-0.0775em] ml-[-0.0975em] text-2xl md:text-[clamp(3.75rem,6.75vw,5.75rem)]">
+          <Typography
+            as="h2"
+            variant="footer-title"
+            className="ml-[-0.0975em]"
+          >
             <span>Un poste à pourvoir</span>
             <span>en alternance ?</span>
-          </h2>
-          <p className="leading-normal md:text-2xl font-normal tracking-[-0.03475em]">
+          </Typography>
+          <Typography
+            as="p"
+            variant="body"
+            className="md:text-2xl tracking-[-0.03475em]"
+          >
             <span>
               Disponible dès octobre 2026, au rythme de 1 semaine en formation /
               3 semaines en entreprise.
             </span>
-          </p>
+          </Typography>
         </div>
 
         <nav
@@ -31,7 +40,9 @@ export function Footer() {
             href={`mailto:${contactEmail}`}
           >
             <MailIcon className="size-4 flex-none" />
-            <span>{contactEmail}</span>
+            <Typography as="span" variant="label">
+              {contactEmail}
+            </Typography>
           </a>
         </nav>
       </div>
