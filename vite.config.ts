@@ -1,24 +1,24 @@
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'vite'
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   base: getBasePath(),
   plugins: [react(), tailwindcss()],
-})
+});
 
 function getBasePath() {
-  const repository = process.env.GITHUB_REPOSITORY
+  const repository = process.env.GITHUB_REPOSITORY;
 
   if (!repository) {
-    return '/'
+    return "/";
   }
 
-  const repositoryName = repository.split('/').at(1)
+  const repositoryName = repository.split("/").at(1);
 
-  if (!repositoryName || repositoryName.endsWith('.github.io')) {
-    return '/'
+  if (!repositoryName || repositoryName.endsWith(".github.io")) {
+    return "/";
   }
 
-  return `/${repositoryName}/`
+  return `/${repositoryName}/`;
 }

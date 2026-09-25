@@ -1,15 +1,15 @@
-import { cn } from "../../lib/utils";
 import type { ComponentPropsWithoutRef } from "react";
+import { siteConfig } from "../../config/site";
+import { cn } from "../../lib/utils";
 import { GitHubIcon } from "../GitHubIcon";
 import { MailIcon } from "../MailIcon";
 import { Typography } from "../Typography";
-import { siteConfig } from "../../config/site";
+import { NavigationLink } from "./NavigationLink";
 import {
   getNavigationKey,
-  navigationItems,
   type NavigationItem,
+  navigationItems,
 } from "./navigation.config";
-import { NavigationLink } from "./NavigationLink";
 
 type MobileNavigationProps = {
   isOpen: boolean;
@@ -25,14 +25,14 @@ export function MobileNavigation({
   return (
     <div
       className={cn(
-        "absolute top-full left-0 right-0 overflow-hidden bg-base-100/95 backdrop-blur transition-[max-height,opacity] duration-200 ease-out lg:hidden",
+        "absolute top-full right-0 left-0 overflow-hidden bg-base-100/95 backdrop-blur transition-[max-height,opacity] duration-200 ease-out lg:hidden",
         isOpen
-          ? "max-h-[calc(100svh-4rem)] overflow-y-auto border-b border-base-content/10 opacity-100"
+          ? "max-h-[calc(100svh-4rem)] overflow-y-auto border-base-content/10 border-b opacity-100"
           : "pointer-events-none max-h-0 opacity-0",
       )}
       id="mobile-navigation"
     >
-      <div className="flex h-full flex-col gap-1 border-t border-base-content/10 py-3">
+      <div className="flex h-full flex-col gap-1 border-base-content/10 border-t py-3">
         {navigationItems.map((item) => (
           <NavigationLink
             key={getNavigationKey(item)}
@@ -47,7 +47,9 @@ export function MobileNavigation({
           onClick={onClose}
         >
           <MailIcon className="size-5 flex-none" />
-          <Typography as="span" variant="label">Email</Typography>
+          <Typography as="span" variant="label">
+            Email
+          </Typography>
         </MobileActionLink>
         <MobileActionLink
           href={siteConfig.githubUrl}
@@ -55,7 +57,9 @@ export function MobileNavigation({
           rel="noreferrer"
         >
           <GitHubIcon className="size-5 flex-none" />
-          <Typography as="span" variant="label">GitHub</Typography>
+          <Typography as="span" variant="label">
+            GitHub
+          </Typography>
         </MobileActionLink>
       </div>
     </div>
@@ -64,14 +68,11 @@ export function MobileNavigation({
 
 type MobileActionLinkProps = ComponentPropsWithoutRef<"a">;
 
-function MobileActionLink({
-  className,
-  ...props
-}: MobileActionLinkProps) {
+function MobileActionLink({ className, ...props }: MobileActionLinkProps) {
   return (
     <a
       className={cn(
-        "flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-bold leading-tight text-base-content/75 no-underline transition-colors hover:bg-base-200 hover:text-base-content",
+        "flex items-center gap-3 rounded-lg px-3 py-3 font-bold text-base-content/75 text-sm leading-tight no-underline transition-colors hover:bg-base-200 hover:text-base-content",
         className,
       )}
       {...props}

@@ -1,8 +1,8 @@
 import { Menu, X } from "lucide-react";
+import { siteConfig } from "../../config/site";
 import { GitHubIcon } from "../GitHubIcon";
 import { MailIcon } from "../MailIcon";
 import { ThemeSwitch } from "../ThemeSwitch";
-import { siteConfig } from "../../config/site";
 
 type TopBarActionsProps = {
   isMenuOpen: boolean;
@@ -14,7 +14,7 @@ export function TopBarActions({
   onToggleMenu,
 }: TopBarActionsProps) {
   return (
-    <div className="flex items-center justify-end gap-2.75">
+    <div className="flex shrink-0 items-center justify-end gap-2.75">
       <a
         className="btn btn-ghost btn-square hidden h-9 min-h-9 w-9 rounded-full border border-base-content/20 text-base-content transition-colors hover:border-base-content/35 hover:bg-base-200 sm:h-10 sm:min-h-10 sm:w-10 lg:inline-flex"
         href={`mailto:${siteConfig.contactEmail}`}

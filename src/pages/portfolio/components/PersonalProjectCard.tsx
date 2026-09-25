@@ -3,34 +3,16 @@ import recipePreviewImage from "../../../assets/product-preview-1.png";
 import aiPreviewImage from "../../../assets/product-preview-2.png";
 import shoppingListPreviewImage from "../../../assets/product-preview-3.png";
 import { GitHubIcon } from "../../../components/GitHubIcon";
-import { Typography } from "../../../components/Typography";
 import { ProjectActions } from "../../../components/project/ProjectActions";
 import { ProjectBadges } from "../../../components/project/ProjectBadges";
 import { ProjectImage } from "../../../components/project/ProjectImage";
+import { Typography } from "../../../components/Typography";
 import type { PersonalProject } from "../../../types/projects";
 
 type PersonalProjectCardProps = {
   project: PersonalProject;
   titleId?: string;
 };
-
-const supportingFeatures = [
-  {
-    number: "05",
-    title: "Création simplifiée par l’IA",
-    description:
-      "Recette préremplie depuis une idée, puis illustrée à la demande.",
-    className: "md:pr-10 lg:col-span-12 lg:pr-0",
-  },
-  {
-    number: "06",
-    title: "Espaces collaboratifs",
-    description:
-      "Planification à plusieurs et partage des recettes et des listes de courses.",
-    className:
-      "max-md:border-t max-md:border-base-content/10 max-md:pt-5.5 md:border-l md:border-base-content/10 md:pl-10 lg:col-span-12",
-  },
-];
 
 export function PersonalProjectCard({
   project,
@@ -78,13 +60,16 @@ export function PersonalProjectCard({
   const [primaryFeature, ...secondaryFeatures] = features;
   const projectId =
     titleId ??
-    project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    project.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
 
   return (
     <article className="text-base-content">
-      <div className="grid gap-y-5.75 lg:grid-cols-24 lg:items-start gap-13">
-        <div className="flex min-w-0 flex-col items-start gap-5.75 pb-12 lg:col-span-9  flex-1 h-full justify-start">
-          <div className="flex w-full flex-col gap-4 md:gap-2.5 ">
+      <div className="grid gap-13 gap-y-5.75 lg:grid-cols-24 lg:items-start">
+        <div className="flex h-full min-w-0 flex-1 flex-col items-start justify-start gap-5.75 pb-12 lg:col-span-9">
+          <div className="flex w-full flex-col gap-4 md:gap-2.5">
             <div className="flex flex-col gap-2.5">
               <Typography
                 as="h2"
@@ -98,7 +83,7 @@ export function PersonalProjectCard({
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-xl leading-tight tracking-[-0.0425em] text-base-content/85 md:text-3xl"
+                  className="text-base-content/85 text-xl leading-tight tracking-[-0.0425em] md:text-3xl"
                 >
                   {project.period}
                 </Typography>
@@ -108,7 +93,7 @@ export function PersonalProjectCard({
             <Typography
               as="p"
               variant="body"
-              className="text-base-content/70 md:text-2xl tracking-[-0.03975em]"
+              className="text-base-content/70 tracking-[-0.03975em] md:text-2xl"
             >
               {project.description}
             </Typography>
@@ -134,10 +119,10 @@ export function PersonalProjectCard({
                 <Typography
                   as="p"
                   variant="caption"
-                  className="leading-5.5 text-sm text-base-content/60"
+                  className="text-base-content/60 text-sm leading-5.5"
                 >
                   <Smartphone
-                    className="mr-1 inline size-5 align-[-0.1875em] stroke-[2.1]"
+                    className="mr-1 inline size-5 stroke-[2.1] align-[-0.1875em]"
                     aria-hidden="true"
                   />
                   Scannez le QR code pour tester Mealo directement sur votre
@@ -177,23 +162,52 @@ export function PersonalProjectCard({
           ))}
         </div>
 
-        <ProjectSupportingFeatures projectId={projectId} />
+        <ProjectDemoCallToAction project={project} />
       </div>
     </article>
   );
 }
 
-function ProjectSupportingFeatures({ projectId }: { projectId: string }) {
+function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
+  const demoLink = project.links.find(
+    (link) => link.label === "Essayer la démo",
+  );
+
+  if (!demoLink) {
+    return null;
+  }
+
   return (
-    <div className="grid gap-y-15 py-5.75 md:grid-cols-2 md:gap-y-17 md:py-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
-      {supportingFeatures.map((feature) => (
-        <ProjectFeature
-          key={feature.number}
-          {...feature}
-          className="col-span-12"
-          projectId={projectId}
-        />
-      ))}
+    <div className="border-base-content/15 border-t pt-8.75 md:pt-20 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
+      <section className="flex flex-col items-start gap-6.75 lg:col-span-24 lg:flex-row lg:items-center lg:justify-between lg:mr-28">
+        <div className="max-w-3xl">
+          <Typography as="h3" variant="feature-title">
+            Et bien d’autres fonctionnalités à découvrir dans la démo
+          </Typography>
+          <Typography
+            as="p"
+            variant="body"
+            className="text-base-content/70 tracking-[-0.04975em] md:text-2xl"
+          >
+            Espaces collaboratifs, partage de recettes et de listes de courses…
+          </Typography>
+        </div>
+
+        <div className="w-full md:w-[17rem]">
+          <ProjectActions
+            title={project.name}
+            links={[demoLink]}
+            icon={ExternalLink}
+            variant="hero"
+            renderIcon={() => (
+              <ExternalLink
+                className="mb-0.25 size-5 flex-none stroke-[2.1]"
+                aria-hidden="true"
+              />
+            )}
+          />
+        </div>
+      </section>
     </div>
   );
 }
@@ -234,7 +248,7 @@ function ProjectFeature({
           <Typography
             as="p"
             variant="body"
-            className="text-base-content/70 md:text-2xl tracking-[-0.04975em]"
+            className="text-base-content/70 tracking-[-0.04975em] md:text-2xl"
           >
             {description}
           </Typography>

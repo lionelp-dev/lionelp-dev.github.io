@@ -1,6 +1,10 @@
 export const navigationItems = [
   { kind: "anchor", label: "Accueil", sectionId: "home" },
-  { kind: "anchor", label: "Projet personnel", sectionId: "personal-projects" },
+  {
+    kind: "anchor",
+    label: "Projet personnel",
+    sectionId: "personal-projects",
+  },
   { kind: "anchor", label: "Projets clients", sectionId: "client-projects" },
   {
     kind: "route",

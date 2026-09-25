@@ -27,8 +27,8 @@ export function ProjectBadges({
         <li
           className={
             variant === "hero"
-              ? "badge badge-soft rounded-full text-xs text-base-content/75 md:badge-lg"
-              : `badge badge-soft rounded-full text-xs text-base-content/75 badge-sm md:badge-lg ${
+              ? "badge badge-soft md:badge-lg rounded-full text-base-content/75 text-xs"
+              : `badge badge-soft badge-sm md:badge-lg rounded-full text-base-content/75 text-xs ${
                   index === 0 ? highlightedBadgeClass : "badge-soft"
                 }`
           }

@@ -1,9 +1,9 @@
+import { NavigationLink } from "./NavigationLink";
 import {
   getNavigationKey,
-  navigationItems,
   type NavigationItem,
+  navigationItems,
 } from "./navigation.config";
-import { NavigationLink } from "./NavigationLink";
 
 type DesktopNavigationProps = {
   isActive: (item: NavigationItem) => boolean;
@@ -15,7 +15,7 @@ export function DesktopNavigation({
   onNavigate,
 }: DesktopNavigationProps) {
   return (
-    <div className="hidden h-full min-w-0 items-center justify-center gap-8 lg:absolute lg:left-1/2 lg:top-1/2 lg:flex lg:-translate-x-1/2 lg:-translate-y-1/2">
+    <div className="hidden h-full min-w-0 flex-1 flex-wrap items-center justify-center gap-x-8 gap-y-3 lg:flex">
       {navigationItems.map((item) => (
         <NavigationLink
           key={getNavigationKey(item)}

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { FolderGit2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { ProjectCard } from "../../../components/ProjectCard";
 import { fetchLatestCommitDate } from "../../../services/github";
 import type { TechWatchProject } from "../../../types/projects";
