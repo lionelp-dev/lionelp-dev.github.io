@@ -1,5 +1,6 @@
 import { MailIcon } from "./MailIcon";
 import { Typography } from "./Typography";
+import { siteConfig } from "../config/site";
 
 const heroClass =
   "relative flex flex-col items-start gap-80 justify-center h-[min(70svh,1000px)] lg:h-[min(90svh,1000px)] md:gap-7";
@@ -56,7 +57,7 @@ export function PageHero() {
           </p>
           <a
             className="btn md:btn-lg btn-secondary  rounded-full md:text-base pr-8.75 pl-8 gap-2.75 tracking-[-0.0375em] font-normal"
-            href="mailto:lionelp.dev@gmail.com"
+            href={`mailto:${siteConfig.contactEmail}`}
           >
             <MailIcon className="size-4 transition-transform group-hover:scale-110" />
             <Typography as="span" variant="label">

@@ -4,6 +4,9 @@ import aiPreviewImage from "../../../assets/product-preview-2.png";
 import shoppingListPreviewImage from "../../../assets/product-preview-3.png";
 import { GitHubIcon } from "../../../components/GitHubIcon";
 import { Typography } from "../../../components/Typography";
+import { ProjectActions } from "../../../components/project/ProjectActions";
+import { ProjectBadges } from "../../../components/project/ProjectBadges";
+import { ProjectImage } from "../../../components/project/ProjectImage";
 import type { PersonalProject } from "../../../types/projects";
 
 type PersonalProjectCardProps = {
@@ -73,6 +76,9 @@ export function PersonalProjectCard({
   ];
 
   const [primaryFeature, ...secondaryFeatures] = features;
+  const projectId =
+    titleId ??
+    project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
   return (
     <article className="text-base-content">
@@ -108,19 +114,11 @@ export function PersonalProjectCard({
             </Typography>
           </div>
 
-          <ul
-            className="flex max-w-[35rem] flex-wrap gap-2.75"
-            aria-label="Catégories et technologies"
-          >
-            {project.technologies.map((badge) => (
-              <li
-                className="badge badge-soft rounded-full text-xs text-base-content/75 md:badge-lg"
-                key={badge}
-              >
-                {badge}
-              </li>
-            ))}
-          </ul>
+          <ProjectBadges
+            badges={project.technologies}
+            highlightedBadgeVariant="soft"
+            variant="hero"
+          />
 
           {project.demoQrCode && (
             <aside className="hidden w-fit items-center gap-3 rounded-lg border border-base-content/10 bg-base-100 p-1.25 pr-2 lg:flex">
@@ -149,52 +147,43 @@ export function PersonalProjectCard({
             </aside>
           )}
 
-          <div className="mt-1 flex flex-col md:flex-row-reverse w-full max-w-[35rem] gap-5 ">
-            {project.links.map((link) => {
-              const isGithubLink = link.url.includes("github.com");
-
-              return (
-                <a
-                  className={`btn inline-flex md:flex-1 w-full items-center gap-2 font-bold leading-tight no-underline md:py-5.75 ${
-                    isGithubLink ? "btn-soft" : "btn-secondary"
-                  }`}
-                  href={link.url}
-                  key={link.label}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  {isGithubLink ? (
-                    <GitHubIcon className="size-5.75 flex-none" />
-                  ) : (
-                    <ExternalLink
-                      className="size-5 mb-0.25 flex-none stroke-[2.1]"
-                      aria-hidden="true"
-                    />
-                  )}
-                  <Typography as="span" variant="label">
-                    {link.label}
-                  </Typography>
-                </a>
-              );
-            })}
-          </div>
+          <ProjectActions
+            title={project.name}
+            links={project.links}
+            icon={ExternalLink}
+            variant="hero"
+            renderIcon={(link) =>
+              link.url.includes("github.com") ? (
+                <GitHubIcon className="size-5.75 flex-none" />
+              ) : (
+                <ExternalLink
+                  className="mb-0.25 size-5 flex-none stroke-[2.1]"
+                  aria-hidden="true"
+                />
+              )
+            }
+          />
         </div>
 
-        <ProjectFeature {...primaryFeature} />
+        <ProjectFeature {...primaryFeature} projectId={projectId} />
 
         <div className="grid gap-y-15 pt-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
           {secondaryFeatures.map((feature) => (
-            <ProjectFeature key={feature.number} {...feature} />
+            <ProjectFeature
+              key={feature.number}
+              {...feature}
+              projectId={projectId}
+            />
           ))}
         </div>
 
-        <ProjectSupportingFeatures />
+        <ProjectSupportingFeatures projectId={projectId} />
       </div>
     </article>
   );
 }
 
-function ProjectSupportingFeatures() {
+function ProjectSupportingFeatures({ projectId }: { projectId: string }) {
   return (
     <div className="grid gap-y-15 py-5.75 md:grid-cols-2 md:gap-y-17 md:py-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
       {supportingFeatures.map((feature) => (
@@ -202,6 +191,7 @@ function ProjectSupportingFeatures() {
           key={feature.number}
           {...feature}
           className="col-span-12"
+          projectId={projectId}
         />
       ))}
     </div>
@@ -209,6 +199,7 @@ function ProjectSupportingFeatures() {
 }
 
 function ProjectFeature({
+  projectId,
   number,
   title,
   description,
@@ -217,6 +208,7 @@ function ProjectFeature({
   className,
   imageClassName,
 }: {
+  projectId: string;
   number: string;
   title: string;
   description: string;
@@ -228,13 +220,13 @@ function ProjectFeature({
   return (
     <section
       className={`min-w-0 ${className} flex flex-col gap-6.75`}
-      aria-labelledby={`feature-${number}`}
+      aria-labelledby={`${projectId}-feature-${number}`}
     >
       <div className="flex items-start gap-3.75">
         <div className="flex flex-col">
           <Typography
             as="h3"
-            id={`feature-${number}`}
+            id={`${projectId}-feature-${number}`}
             variant="feature-title"
           >
             {title}
@@ -250,15 +242,13 @@ function ProjectFeature({
       </div>
 
       {image && imageAlt ? (
-        <div
-          className={`relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-base-content/15 bg-base-200 shadow-sm lg:aspect-auto ${imageClassName}`}
-        >
-          <img
-            className="h-full w-full object-cover object-left-top"
-            src={image}
-            alt={imageAlt}
-          />
-        </div>
+        <ProjectImage
+          src={image}
+          title={title}
+          alt={imageAlt}
+          className={`aspect-[16/9] lg:aspect-auto ${imageClassName ?? ""}`}
+          imageClassName="object-left-top"
+        />
       ) : null}
     </section>
   );

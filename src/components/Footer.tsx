@@ -1,7 +1,6 @@
 import { MailIcon } from "./MailIcon";
 import { Typography } from "./Typography";
-
-const contactEmail = "lionelp.dev@gmail.com";
+import { siteConfig } from "../config/site";
 
 export function Footer() {
   return (
@@ -37,11 +36,11 @@ export function Footer() {
         >
           <a
             className="btn btn-soft px-6.75 pl-7.75 rounded-full"
-            href={`mailto:${contactEmail}`}
+            href={`mailto:${siteConfig.contactEmail}`}
           >
             <MailIcon className="size-4 flex-none" />
             <Typography as="span" variant="label">
-              {contactEmail}
+              {siteConfig.contactEmail}
             </Typography>
           </a>
         </nav>
