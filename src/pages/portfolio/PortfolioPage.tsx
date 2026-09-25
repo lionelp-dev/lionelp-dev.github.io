@@ -71,6 +71,13 @@ export function PortfolioPage() {
         aria-labelledby="complementary-activities-title"
       >
         <SectionHeader>
+          <Typography
+            as="h2"
+            id="complementary-activities-title"
+            variant="section-title"
+          >
+            Autres savoir-faire
+          </Typography>
           <Typography as="p" variant="section-subtitle">
             Autres savoir-faire mobilisés au cours de mes projets en freelance.
           </Typography>
