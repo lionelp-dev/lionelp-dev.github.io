@@ -1,10 +1,10 @@
 import { ExternalLink, type LucideIcon } from "lucide-react";
-import type { ProjectLink } from "../types/projects";
 import { cn } from "../lib/utils";
-import { Typography } from "./Typography";
+import type { ProjectLink } from "../types/projects";
 import { ProjectActions } from "./project/ProjectActions";
 import { ProjectBadges } from "./project/ProjectBadges";
 import { ProjectImage } from "./project/ProjectImage";
+import { Typography } from "./Typography";
 
 type ProjectCardProps = {
   title: string;
@@ -51,23 +51,23 @@ export function ProjectCard({
         ) : null}
 
         <div
-          className={`min-w-0 h-full w-full flex flex-col items-start justify-center gap-y-3.75 py-3.75 px-8.75 text-left`}
+          className={`flex h-full w-full min-w-0 flex-col items-start justify-center gap-y-3.75 px-8.75 py-3.75 text-left`}
         >
-          <div className="flex w-full flex-col items-start gap-y-3.75 ">
-            <div className="flex w-full flex-col items-start gap-2.75 ">
-              <div className="flex w-full flex-col items-start gap-0.5 ">
+          <div className="flex w-full flex-col items-start gap-y-3.75">
+            <div className="flex w-full flex-col items-start gap-2.75">
+              <div className="flex w-full flex-col items-start gap-0.5">
                 <Typography
                   as="h3"
                   variant="project-title"
                   className="gap-2.25"
                 >
-                  <span className="font-normal inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2">
+                  <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2 font-normal">
                     <Typography as="span" variant="label">
                       {title}
                     </Typography>
                   </span>
                   {titleAside && (
-                    <span className="text-left text-base-content/80 pb-0.5 text-base tracking-[-0.0375em] font-normal leading-tight ">
+                    <span className="pb-0.5 text-left font-normal text-base text-base-content/80 leading-tight tracking-[-0.0375em]">
                       <Typography as="span" variant="label">
                         {titleAside}
                       </Typography>
@@ -75,10 +75,7 @@ export function ProjectCard({
                   )}
                 </Typography>
                 {meta && (
-                  <Typography
-                    as="p"
-                    variant="meta"
-                  >
+                  <Typography as="p" variant="meta">
                     {meta}
                   </Typography>
                 )}
@@ -87,7 +84,7 @@ export function ProjectCard({
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-base-content/70 md:text-lg tracking-[-0.04975em]"
+                  className="text-base-content/70 tracking-[-0.04975em] md:text-lg"
                 >
                   {description}
                 </Typography>

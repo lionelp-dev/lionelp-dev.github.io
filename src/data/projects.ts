@@ -1,9 +1,3 @@
-import type {
-  ComplementaryMission,
-  FreelanceProject,
-  PersonalProject,
-  TechWatchProject,
-} from "../types/projects";
 import beyondDressImage from "../assets/beyond-dress-desktop.jpg";
 import beyondStoreImage from "../assets/beyond-store-desktop.jpg";
 import hairelookingImage from "../assets/hairelooking-desktop.jpg";
@@ -14,6 +8,12 @@ import recipeBookDotNetImage from "../assets/recipe_book_dot_net.png";
 import recipeBookSpringBootImage from "../assets/recipe_book_spring_boot.png";
 import recipeBookSymfonyImage from "../assets/recipe_book_symphony.png";
 import whiscoImage from "../assets/whisco-desktop.jpg";
+import type {
+  ComplementaryMission,
+  FreelanceProject,
+  PersonalProject,
+  TechWatchProject,
+} from "../types/projects";
 
 export const personalProjects: PersonalProject[] = [
   {

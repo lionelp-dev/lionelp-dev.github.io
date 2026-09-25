@@ -3,10 +3,10 @@ import recipePreviewImage from "../../../assets/product-preview-1.png";
 import aiPreviewImage from "../../../assets/product-preview-2.png";
 import shoppingListPreviewImage from "../../../assets/product-preview-3.png";
 import { GitHubIcon } from "../../../components/GitHubIcon";
-import { Typography } from "../../../components/Typography";
 import { ProjectActions } from "../../../components/project/ProjectActions";
 import { ProjectBadges } from "../../../components/project/ProjectBadges";
 import { ProjectImage } from "../../../components/project/ProjectImage";
+import { Typography } from "../../../components/Typography";
 import type { PersonalProject } from "../../../types/projects";
 
 type PersonalProjectCardProps = {
@@ -78,13 +78,16 @@ export function PersonalProjectCard({
   const [primaryFeature, ...secondaryFeatures] = features;
   const projectId =
     titleId ??
-    project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    project.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
 
   return (
     <article className="text-base-content">
-      <div className="grid gap-y-5.75 lg:grid-cols-24 lg:items-start gap-13">
-        <div className="flex min-w-0 flex-col items-start gap-5.75 pb-12 lg:col-span-9  flex-1 h-full justify-start">
-          <div className="flex w-full flex-col gap-4 md:gap-2.5 ">
+      <div className="grid gap-13 gap-y-5.75 lg:grid-cols-24 lg:items-start">
+        <div className="flex h-full min-w-0 flex-1 flex-col items-start justify-start gap-5.75 pb-12 lg:col-span-9">
+          <div className="flex w-full flex-col gap-4 md:gap-2.5">
             <div className="flex flex-col gap-2.5">
               <Typography
                 as="h2"
@@ -98,7 +101,7 @@ export function PersonalProjectCard({
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-xl leading-tight tracking-[-0.0425em] text-base-content/85 md:text-3xl"
+                  className="text-base-content/85 text-xl leading-tight tracking-[-0.0425em] md:text-3xl"
                 >
                   {project.period}
                 </Typography>
@@ -108,7 +111,7 @@ export function PersonalProjectCard({
             <Typography
               as="p"
               variant="body"
-              className="text-base-content/70 md:text-2xl tracking-[-0.03975em]"
+              className="text-base-content/70 tracking-[-0.03975em] md:text-2xl"
             >
               {project.description}
             </Typography>
@@ -134,10 +137,10 @@ export function PersonalProjectCard({
                 <Typography
                   as="p"
                   variant="caption"
-                  className="leading-5.5 text-sm text-base-content/60"
+                  className="text-base-content/60 text-sm leading-5.5"
                 >
                   <Smartphone
-                    className="mr-1 inline size-5 align-[-0.1875em] stroke-[2.1]"
+                    className="mr-1 inline size-5 stroke-[2.1] align-[-0.1875em]"
                     aria-hidden="true"
                   />
                   Scannez le QR code pour tester Mealo directement sur votre
@@ -234,7 +237,7 @@ function ProjectFeature({
           <Typography
             as="p"
             variant="body"
-            className="text-base-content/70 md:text-2xl tracking-[-0.04975em]"
+            className="text-base-content/70 tracking-[-0.04975em] md:text-2xl"
           >
             {description}
           </Typography>

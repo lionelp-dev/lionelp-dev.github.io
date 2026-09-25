@@ -1,15 +1,13 @@
-import { techWatchProjects } from "../../data/projects";
-import { Typography } from "../../components/Typography";
-import { TechWatchCard } from "./components/TechWatchCard";
 import { PageSection } from "../../components/layout/PageSection";
 import { ResponsiveGrid } from "../../components/layout/ResponsiveGrid";
 import { SectionHeader } from "../../components/layout/SectionHeader";
+import { Typography } from "../../components/Typography";
+import { techWatchProjects } from "../../data/projects";
+import { TechWatchCard } from "./components/TechWatchCard";
 
 export function TechWatchPage() {
   return (
-    <PageSection
-      aria-labelledby="technical-explorations-title"
-    >
+    <PageSection aria-labelledby="technical-explorations-title">
       <SectionHeader>
         <Typography
           as="h1"

@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-import { Typography } from "../Typography";
 import type { ProjectLink } from "../../types/projects";
+import { Typography } from "../Typography";
 
 type ProjectActionsProps = {
   title: string;
@@ -31,11 +31,9 @@ export function ProjectActions({
           className={
             variant === "hero"
               ? `btn inline-flex w-full items-center gap-2 font-bold leading-tight no-underline md:flex-1 md:py-5.75 ${
-                  link.url.includes("github.com")
-                    ? "btn-soft"
-                    : "btn-secondary"
+                  link.url.includes("github.com") ? "btn-soft" : "btn-secondary"
                 }`
-              : "btn btn-soft inline-flex w-fit items-center gap-1.5 px-6.25 font-normal leading-tight text-base-content no-underline"
+              : "btn btn-soft inline-flex w-fit items-center gap-1.5 px-6.25 font-normal text-base-content leading-tight no-underline"
           }
           href={link.url}
           target="_blank"

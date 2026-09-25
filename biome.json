@@ -1,0 +1,36 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "files": {
+    "includes": ["**", "!dist"]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.svg"],
+      "linter": {
+        "enabled": false
+      }
+    }
+  ],
+  "linter": {
+    "rules": {
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "options": {
+            "functions": ["cn", "cva"]
+          }
+        }
+      }
+    }
+  }
+}

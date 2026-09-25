@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import type { ComplementaryMission } from "../../../types/projects";
 import { Typography } from "../../../components/Typography";
+import type { ComplementaryMission } from "../../../types/projects";
 
 type MissionCardProps = {
   mission: ComplementaryMission;
@@ -12,7 +12,7 @@ export function MissionCard({ mission }: MissionCardProps) {
 
   return (
     <article
-      className={`group relative grid gap-y-2.25 md:gap-y-3 gap-x-3.5 lg:gap-x-9  grid-cols-1 px-4.75 md:px-8 lg:px-17 py-6.25 md:py-6.25 lg:py-7.75 text-base-content  lg:grid-cols-[3fr_8fr_2fr] items-center lg:gap-5 transition-colors ${
+      className={`group relative grid grid-cols-1 items-center gap-x-3.5 gap-y-2.25 px-4.75 py-6.25 text-base-content transition-colors md:gap-y-3 md:px-8 md:py-6.25 lg:grid-cols-[3fr_8fr_2fr] lg:gap-5 lg:gap-x-9 lg:px-17 lg:py-7.75 ${
         primaryLink ? "hover:bg-base-content/[0.03]" : ""
       }`}
     >
@@ -28,7 +28,7 @@ export function MissionCard({ mission }: MissionCardProps) {
         <Typography
           as="p"
           variant="body"
-          className="text-base-content/70 md:text-xl max-lg:row-start-2 max-lg:col-start-1 max-lg:col-end-4 font-normal tracking-[-0.03575em]"
+          className="font-normal text-base-content/70 tracking-[-0.03575em] max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-2 md:text-xl"
         >
           {mission.description}
         </Typography>
@@ -37,9 +37,9 @@ export function MissionCard({ mission }: MissionCardProps) {
       )}
 
       {primaryLink && (
-        <div className="flex flex-wrap col-start-1 md:col-start-3 md:row-1  max-lg:col-end-4 mt-1.75 row-start-4 justify-start  items-center gap-3.5 lg:justify-end">
+        <div className="col-start-1 row-start-4 mt-1.75 flex flex-wrap items-center justify-start gap-3.5 max-lg:col-end-4 md:col-start-3 md:row-1 lg:justify-end">
           <a
-            className="inline-flex w-fit items-center gap-1.5 text-base md:font-semibold leading-tight text-base-content/75 tracking-[-0.01em] no-underline transition-colors group-hover:text-accent/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent after:absolute after:inset-0"
+            className="inline-flex w-fit items-center gap-1.5 text-base text-base-content/75 leading-tight tracking-[-0.01em] no-underline transition-colors after:absolute after:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 group-hover:text-accent/80 md:font-semibold"
             href={primaryLink.url}
             rel="noreferrer"
             target="_blank"

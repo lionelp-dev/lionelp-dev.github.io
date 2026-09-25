@@ -25,6 +25,12 @@ html {
   --font-serif-display: "Noto Serif Display", ui-serif, Georgia, serif;
 }
 
+.layout-container {
+  width: 100%;
+  max-width: 1680px;
+  margin-inline: auto;
+}
+
 @plugin "daisyui/theme" {
   name: "winter";
   default: false;

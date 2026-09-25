@@ -1,17 +1,17 @@
+import { Divider } from "../../components/layout/Divider";
+import { PageSection } from "../../components/layout/PageSection";
+import { ResponsiveGrid } from "../../components/layout/ResponsiveGrid";
+import { SectionHeader } from "../../components/layout/SectionHeader";
+import { PageHero } from "../../components/PageHero";
+import { Typography } from "../../components/Typography";
 import {
   complementaryMissions,
   freelanceProjects,
   personalProjects,
 } from "../../data/projects";
-import { PageHero } from "../../components/PageHero";
-import { Typography } from "../../components/Typography";
 import { FreelanceCard } from "./components/FreelanceCard";
 import { MissionCard } from "./components/MissionCard";
 import { PersonalProjectCard } from "./components/PersonalProjectCard";
-import { Divider } from "../../components/layout/Divider";
-import { PageSection } from "../../components/layout/PageSection";
-import { ResponsiveGrid } from "../../components/layout/ResponsiveGrid";
-import { SectionHeader } from "../../components/layout/SectionHeader";
 
 export function PortfolioPage() {
   return (
@@ -41,10 +41,7 @@ export function PortfolioPage() {
         <Divider />
       </PageSection>
 
-      <PageSection
-        id="client-projects"
-        aria-labelledby="client-projects-title"
-      >
+      <PageSection id="client-projects" aria-labelledby="client-projects-title">
         <SectionHeader>
           <Typography
             as="h2"
@@ -82,7 +79,7 @@ export function PortfolioPage() {
             Autres savoir-faire mobilisés au cours de mes projets en freelance.
           </Typography>
         </SectionHeader>
-        <div className="divide-y divide-base-content/15 border-y border-base-content/15 mb-[clamp(2rem,4.5svh,10.75rem)]">
+        <div className="mb-[clamp(2rem,4.5svh,10.75rem)] divide-y divide-base-content/15 border-base-content/15 border-y">
           {complementaryMissions.map((mission, index) => (
             <MissionCard
               key={mission.name}

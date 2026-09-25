@@ -32,7 +32,7 @@ export function ThemeSwitch({ className = "" }: ThemeSwitchProps) {
         checked={isDarkTheme}
         onChange={() => setThemeState(nextTheme)}
       />
-      <span className="absolute inset-[3px] z-0 w-[calc(50%_-_3px)] rounded-full bg-base-content transition-transform duration-200 ease-out peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-base-content peer-checked:translate-x-full" />
+      <span className="absolute inset-[3px] z-0 w-[calc(50%_-_3px)] rounded-full bg-base-content transition-transform duration-200 ease-out peer-checked:translate-x-full peer-focus-visible:outline-2 peer-focus-visible:outline-base-content peer-focus-visible:outline-offset-4" />
       <Sun
         className="pointer-events-none relative z-10 mx-auto size-5.5 stroke-[2] text-base-100 transition-colors peer-checked:text-base-content/60"
         aria-hidden="true"

@@ -15,7 +15,7 @@ import { PortfolioPage } from "./pages/portfolio/PortfolioPage";
 import { TechWatchPage } from "./pages/tech-watch/TechWatchPage";
 import "./style.css";
 
-const pageFrameClass = "mx-auto w-[90vw] max-w-[1680px]";
+const pageFrameClass = "layout-container";
 
 function RootLayout() {
   const pathname = useRouterState({
