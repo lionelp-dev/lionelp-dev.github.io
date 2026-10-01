@@ -56,6 +56,7 @@ export const freelanceProjects: FreelanceProject[] = [
     description:
       "Site vitrine WordPress consacré à une marque de boissons artisanales.",
     image: whiscoImage,
+    imageBackgroundColor: "#fbedcf",
     period: "Avril 2023",
     type: "Site vitrine",
     technologies: ["WordPress", "HTML", "CSS", "JavaScript", "PHP"],
@@ -75,6 +76,7 @@ export const freelanceProjects: FreelanceProject[] = [
     description:
       "E-commerce PrestaShop bilingue dédié aux extensions capillaires, perruques et accessoires.",
     image: beyondStoreImage,
+    imageBackgroundColor: "#e8ece7",
     period: "Avril 2019 - novembre 2020",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
@@ -93,6 +95,7 @@ export const freelanceProjects: FreelanceProject[] = [
     name: "Beyond Dress",
     description: "E-commerce PrestaShop de prêt-à-porter féminin.",
     image: beyondDressImage,
+    imageBackgroundColor: "#f7e6ec",
     period: "Octobre 2014 - mars 2015",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
@@ -112,6 +115,7 @@ export const freelanceProjects: FreelanceProject[] = [
     description:
       "E-commerce PrestaShop spécialisé dans les extensions de cheveux naturels et le matériel de pose.",
     image: hairelookingImage,
+    imageBackgroundColor: "#eeeae2",
     period: "Novembre 2013 - avril 2014",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],

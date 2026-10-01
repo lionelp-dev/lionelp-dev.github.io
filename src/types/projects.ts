@@ -8,6 +8,7 @@ export type FreelanceProject = {
   currentName?: string;
   description: string;
   image: string;
+  imageBackgroundColor: string;
   period?: string;
   type: string;
   technologies: string[];

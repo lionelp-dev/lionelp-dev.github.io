@@ -15,6 +15,9 @@ export function FreelanceCard({ project }: FreelanceCardProps) {
       meta={project.period}
       description={project.description}
       image={project.image}
+      imageContainerClassName="px-6 py-5"
+      imageContainerStyle={{ backgroundColor: project.imageBackgroundColor }}
+      imageCaption={project.name}
       badges={[project.type, ...project.technologies]}
       links={project.links}
     />

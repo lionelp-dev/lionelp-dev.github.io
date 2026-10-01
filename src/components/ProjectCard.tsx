@@ -1,3 +1,4 @@
+import { type CSSProperties } from "react";
 import { ExternalLink, type LucideIcon } from "lucide-react";
 import { cn } from "../lib/utils";
 import type { ProjectLink } from "../types/projects";
@@ -13,6 +14,9 @@ type ProjectCardProps = {
   description?: string;
   image?: string;
   imagePosition?: "left" | "right";
+  imageContainerClassName?: string;
+  imageContainerStyle?: CSSProperties;
+  imageCaption?: string;
   badges?: string[];
   highlightedBadgeVariant?: "secondary" | "soft";
   links?: ProjectLink[];
@@ -26,6 +30,9 @@ export function ProjectCard({
   description,
   image,
   imagePosition = "left",
+  imageContainerClassName,
+  imageContainerStyle,
+  imageCaption,
   badges = [],
   highlightedBadgeVariant = "secondary",
   links = [],
@@ -47,7 +54,13 @@ export function ProjectCard({
         )}
       >
         {image && imagePosition === "left" ? (
-          <ProjectImage src={image} title={title} />
+          <ProjectImage
+            src={image}
+            title={title}
+            className={imageContainerClassName}
+            style={imageContainerStyle}
+            caption={imageCaption}
+          />
         ) : null}
 
         <div
@@ -104,7 +117,13 @@ export function ProjectCard({
           )}
         </div>
         {image && imagePosition === "right" ? (
-          <ProjectImage src={image} title={title} />
+          <ProjectImage
+            src={image}
+            title={title}
+            className={imageContainerClassName}
+            style={imageContainerStyle}
+            caption={imageCaption}
+          />
         ) : null}
       </div>
     </article>
