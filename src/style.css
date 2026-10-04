@@ -25,6 +25,117 @@ html {
   --font-serif-display: "Noto Serif Display", ui-serif, Georgia, serif;
 }
 
+@layer utilities {
+  .badge,
+  .btn {
+    --control-font-size: 0.875em;
+    --control-padding-block: 0.75em;
+    --control-padding-inline: 2.375em;
+    line-height: 1.2;
+    font-weight: inherit;
+  }
+
+  .badge {
+    height: auto;
+    min-height: 0;
+    padding: var(--control-padding-block) var(--control-padding-inline);
+    font-size: var(--control-font-size);
+    line-height: 1.2;
+  }
+
+  .btn {
+    font-weight: 500;
+    --fontsize: var(--control-font-size) !important;
+    --btn-p: var(--control-padding-inline) !important;
+  }
+
+  .btn:not(.btn-square, .btn-circle) {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-block: var(--control-padding-block);
+  }
+
+  .badge-xs,
+  .btn-xs {
+    --control-font-size: 0.6875em;
+    --control-padding-inline: 2.125em;
+    --control-padding-block: 0.625em;
+  }
+
+  .badge-sm,
+  .btn-sm {
+    --control-font-size: 0.75em;
+    --control-padding-inline: 2.25em;
+    --control-padding-block: 0.75em;
+  }
+
+  .badge-md,
+  .btn-md {
+    --control-font-size: 0.875em;
+    --control-padding-inline: 2.375em;
+    --control-padding-block: 0.75em;
+  }
+
+  .badge-lg,
+  .btn-lg {
+    --control-font-size: 1em;
+    --control-padding-inline: 2.5em;
+    --control-padding-block: 0.71875em;
+  }
+
+  .badge-xl,
+  .btn-xl {
+    --control-font-size: 1.125em;
+    --control-padding-inline: 2.625em;
+    --control-padding-block: 0.65625em;
+  }
+}
+
+@media (width >= 48rem) {
+  .md\:badge-xs,
+  .md\:btn-xs {
+    --control-font-size: 0.6875em;
+    --control-padding-inline: 2.125em;
+    --control-padding-block: 0.625em;
+  }
+
+  .md\:badge-sm,
+  .md\:btn-sm {
+    --control-font-size: 0.75em;
+    --control-padding-inline: 2.25em;
+    --control-padding-block: 0.75em;
+  }
+
+  .md\:badge-md,
+  .md\:btn-md {
+    --control-font-size: 0.875em;
+    --control-padding-inline: 2.375em;
+    --control-padding-block: 0.75em;
+  }
+
+  .md\:badge-lg,
+  .md\:btn-lg {
+    --control-font-size: 1em;
+    --control-padding-inline: 2.5em;
+    --control-padding-block: 0.71875em;
+  }
+
+  .md\:badge-xl,
+  .md\:btn-xl {
+    --control-font-size: 1.125em;
+    --control-padding-inline: 2.625em;
+    --control-padding-block: 0.65625em;
+  }
+
+  .md\:badge-xs,
+  .md\:badge-sm,
+  .md\:badge-md,
+  .md\:badge-lg,
+  .md\:badge-xl {
+    font-size: var(--control-font-size) !important;
+  }
+}
+
 .layout-container {
   width: 100%;
   max-width: 1680px;
@@ -41,6 +152,17 @@ html {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
   }
 }
 

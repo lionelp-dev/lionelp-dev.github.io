@@ -1,17 +1,21 @@
-import { siteConfig } from "../config/site";
-import { PageSection } from "./layout/PageSection";
-import { MailIcon } from "./MailIcon";
-import { SlideUpIn } from "./SlideUpIn";
-import { Typography } from "./Typography";
+import { PageSection } from "../../../components/layout/PageSection";
+import { MailIcon } from "../../../components/MailIcon";
+import { SlideUpIn } from "../../../components/SlideUpIn";
+import { Typography } from "../../../components/Typography";
+import { siteConfig } from "../../../config/site";
 
 const heroClass =
   "relative flex flex-col items-start gap-80 !justify-center !h-[min(70svh,1000px)] lg:!h-[min(90svh,1000px)] md:gap-7";
 const heroTextClass =
-  "flex flex-col leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.04975em]";
+  "flex flex-col leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.03775em]";
 
-export function PageHero() {
+export function PageHeroSection() {
   return (
-    <PageSection id="home" className={heroClass} aria-labelledby="page-title">
+    <PageSection
+      id="home"
+      contentClassName={heroClass}
+      aria-labelledby="page-title"
+    >
       <div className="flex flex-col gap-11">
         <div className="flex flex-col gap-9.75">
           <div className="flex flex-col gap-3.75">
@@ -61,7 +65,7 @@ export function PageHero() {
         </div>
         <div className="flex flex-col gap-4.25 md:flex-row">
           <SlideUpIn as="span" delay={500}>
-            <p className="badge md:badge-lg badge-soft badge-secondary h-10 w-full gap-3.75 whitespace-nowrap rounded-full px-6.25 pr-7.75 font-normal text-secondary tracking-[-0.0375em] md:h-12 md:w-fit">
+            <p className="badge md:badge-lg badge-soft badge-secondary w-full gap-3.75 whitespace-nowrap rounded-full text-secondary tracking-[-0.0375em] md:w-fit">
               <span
                 className="size-2.25 animate-pulse rounded-full bg-emerald-500"
                 aria-hidden="true"
@@ -71,13 +75,11 @@ export function PageHero() {
           </SlideUpIn>
           <SlideUpIn as="span" delay={550}>
             <a
-              className="btn md:btn-lg btn-secondary gap-2.75 rounded-full pr-8.75 pl-8 font-normal tracking-[-0.0375em] md:text-base"
+              className="btn btn-secondary rounded-full md:btn-lg"
               href={`mailto:${siteConfig.contactEmail}`}
             >
               <MailIcon className="size-4 transition-transform group-hover:scale-110" />
-              <Typography as="span" variant="label">
-                Me contacter
-              </Typography>
+              Me contacter
             </a>
           </SlideUpIn>
         </div>

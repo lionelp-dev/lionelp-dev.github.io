@@ -1,5 +1,6 @@
 import { type CSSProperties, useState } from "react";
 import { cn } from "../../lib/utils";
+import { BrowserFrame } from "./BrowserFrame";
 
 type ProjectImageProps = {
   src: string;
@@ -32,18 +33,7 @@ export function ProjectImage({
       style={style}
     >
       {caption ? (
-        <div className="flex h-full min-h-32 flex-col overflow-hidden rounded-lg bg-base-100">
-          <div className="relative flex shrink-0 items-center justify-center px-4 py-3 text-base-content/70 text-xs">
-            <div
-              className="absolute left-4 flex gap-1"
-              aria-hidden="true"
-            >
-              <span className="size-1.5 rounded-full bg-base-content/20" />
-              <span className="size-1.5 rounded-full bg-base-content/20" />
-              <span className="size-1.5 rounded-full bg-base-content/20" />
-            </div>
-            {caption}
-          </div>
+        <BrowserFrame title={caption}>
           <div className="relative min-h-0 flex-1">
             {!isLoaded && !hasError ? (
               <div className="skeleton absolute inset-0 h-full w-full" />
@@ -55,7 +45,7 @@ export function ProjectImage({
             ) : (
               <img
                 className={cn(
-                  "h-full w-full object-cover object-center transition-opacity duration-200",
+                  "h-full w-full object-cover object-top transition-opacity duration-200",
                   isLoaded ? "opacity-100" : "opacity-0",
                   imageClassName,
                 )}
@@ -66,7 +56,7 @@ export function ProjectImage({
               />
             )}
           </div>
-        </div>
+        </BrowserFrame>
       ) : (
         <>
           {!isLoaded && !hasError ? (

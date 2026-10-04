@@ -43,7 +43,7 @@ export function TechWatchCard({ project }: TechWatchCardProps) {
       meta={meta}
       description={project.description}
       image={project.image}
-      imagePosition="right"
+      imagePosition="top"
       badges={project.technologies}
       highlightedBadgeVariant="soft"
       links={[{ label: "Voir sur GitHub", url: project.repositoryUrl }]}

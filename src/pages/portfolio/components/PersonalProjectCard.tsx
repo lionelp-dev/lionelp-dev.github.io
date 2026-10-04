@@ -3,7 +3,10 @@ import recipePreviewImage from "../../../assets/product-preview-1.png";
 import aiPreviewImage from "../../../assets/product-preview-2.png";
 import shoppingListPreviewImage from "../../../assets/product-preview-3.png";
 import { GitHubIcon } from "../../../components/GitHubIcon";
-import { ProjectActions } from "../../../components/project/ProjectActions";
+import {
+  ProjectActions,
+  type ProjectActionTone,
+} from "../../../components/project/ProjectActions";
 import { ProjectBadges } from "../../../components/project/ProjectBadges";
 import { ProjectImage } from "../../../components/project/ProjectImage";
 import { Typography } from "../../../components/Typography";
@@ -64,6 +67,12 @@ export function PersonalProjectCard({
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "");
+  const actionLinks: Array<
+    PersonalProject["links"][number] & { tone: ProjectActionTone }
+  > = project.links.map((link) => ({
+    ...link,
+    tone: link.url.includes("github.com") ? "soft" : "secondary",
+  }));
 
   return (
     <article className="text-base-content">
@@ -102,7 +111,7 @@ export function PersonalProjectCard({
           <ProjectBadges
             badges={project.technologies}
             highlightedBadgeVariant="soft"
-            variant="hero"
+            className="badge-xs md:badge-md"
           />
 
           {project.demoQrCode && (
@@ -134,7 +143,7 @@ export function PersonalProjectCard({
 
           <ProjectActions
             title={project.name}
-            links={project.links}
+            links={actionLinks}
             icon={ExternalLink}
             variant="hero"
             renderIcon={(link) =>
@@ -178,7 +187,7 @@ function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
   }
 
   return (
-    <div className="border-base-content/15 border-t pt-8.75 md:pt-20 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
+    <div className="border-base-content/15 border-t pt-8.75 md:pt-26 pb-4 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
       <section className="flex flex-col items-start gap-6.75 lg:col-span-24 lg:flex-row lg:items-center lg:justify-between lg:mr-28">
         <div className="max-w-3xl">
           <Typography as="h3" variant="feature-title">
@@ -196,7 +205,7 @@ function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
         <div className="w-full md:w-[17rem]">
           <ProjectActions
             title={project.name}
-            links={[demoLink]}
+            links={[{ ...demoLink, tone: "secondary" }]}
             icon={ExternalLink}
             variant="hero"
             renderIcon={() => (
@@ -260,8 +269,8 @@ function ProjectFeature({
           src={image}
           title={title}
           alt={imageAlt}
-          className={`aspect-[16/9] lg:aspect-auto ${imageClassName ?? ""}`}
-          imageClassName="object-left-top"
+          className={`aspect-[16/9] lg:aspect-auto  ${imageClassName ?? ""}`}
+          imageClassName="object-left-top hover-3d"
         />
       ) : null}
     </section>

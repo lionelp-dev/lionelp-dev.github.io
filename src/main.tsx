@@ -15,8 +15,6 @@ import { PortfolioPage } from "./pages/portfolio/PortfolioPage";
 import { TechWatchPage } from "./pages/tech-watch/TechWatchPage";
 import "./style.css";
 
-const pageFrameClass = "layout-container";
-
 function RootLayout() {
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
@@ -26,7 +24,7 @@ function RootLayout() {
   return (
     <div className="min-h-screen bg-base-100 font-sans text-base-content">
       <TopBar />
-      <main className={pageFrameClass}>
+      <main>
         <Outlet />
       </main>
       {hasFooter && <Footer />}

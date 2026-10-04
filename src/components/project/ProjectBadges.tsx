@@ -1,38 +1,76 @@
+import { cva } from "class-variance-authority";
 import { Typography } from "../Typography";
+
+type BadgeTone = "secondary" | "soft";
+type ProjectBadgesVariant = "default";
 
 type ProjectBadgesProps = {
   badges: string[];
-  highlightedBadgeVariant: "secondary" | "soft";
-  variant?: "default" | "hero";
+  className?: string;
+  highlightedBadgeVariant?: BadgeTone;
+  variant?: ProjectBadgesVariant;
 };
+
+const projectBadgesVariants = cva(
+  "flex flex-wrap max-md:overflow-hidden max-md:h-11",
+  {
+    variants: {
+      variant: {
+        default: "w-full justify-start gap-3.5 gap-x-2.25",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const projectBadgeVariants = cva("badge  rounded-full text-base-content/75", {
+  variants: {
+    variant: {
+      default: "",
+    },
+    tone: {
+      secondary: "badge-secondary",
+      soft: "badge-soft",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    tone: "soft",
+  },
+});
+
+function getBadgeTone(
+  variant: ProjectBadgesVariant,
+  index: number,
+  highlightedBadgeVariant?: BadgeTone,
+): BadgeTone {
+  switch (variant) {
+    case "default":
+      return index === 0 ? (highlightedBadgeVariant ?? "soft") : "soft";
+  }
+}
 
 export function ProjectBadges({
   badges,
+  className,
   highlightedBadgeVariant,
   variant = "default",
 }: ProjectBadgesProps) {
-  const highlightedBadgeClass =
-    highlightedBadgeVariant === "soft" ? "badge-soft" : "badge-secondary";
-
   return (
     <ul
-      className={
-        variant === "hero"
-          ? "flex max-w-[35rem] flex-wrap gap-2.75"
-          : "flex w-full flex-wrap justify-start gap-2.5 gap-x-2.25"
-      }
+      className={projectBadgesVariants({ variant })}
       aria-label="Catégories et technologies"
     >
       {badges.map((badge, index) => (
         <li
-          className={
-            variant === "hero"
-              ? "badge badge-soft md:badge-lg rounded-full text-base-content/75 text-xs"
-              : `badge badge-soft badge-sm md:badge-lg rounded-full text-base-content/75 text-xs ${
-                  index === 0 ? highlightedBadgeClass : "badge-soft"
-                }`
-          }
-          key={badge}
+          className={projectBadgeVariants({
+            variant,
+            tone: getBadgeTone(variant, index, highlightedBadgeVariant),
+            className,
+          })}
+          key={`${badge}-${index}`}
         >
           <Typography as="span" variant="label">
             {badge}

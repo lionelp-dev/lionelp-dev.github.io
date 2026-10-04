@@ -12,6 +12,7 @@ type SlideUpInProps = PropsWithChildren<{
   className?: string;
   duration?: number;
   delay?: number;
+  variant?: "slide-up" | "blur";
 }>;
 
 export function SlideUpIn({
@@ -20,6 +21,7 @@ export function SlideUpIn({
   className,
   duration = 400,
   delay = 200,
+  variant = "slide-up",
 }: SlideUpInProps) {
   const elementRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -55,12 +57,15 @@ export function SlideUpIn({
   return (
     <Element
       ref={elementRef as RefObject<never>}
-      className={cn("relative overflow-hidden", className)}
+      className={cn("relative", className)}
     >
       <Element
         className={cn(
           Element === "span" && "block",
-          isVisible && "animate-[slide-up-in_ease-in-out_both]",
+          isVisible &&
+            (variant === "slide-up"
+              ? "animate-[slide-up-in_ease-in-out_both]"
+              : "animate-[blur-in_ease-in-out_both]"),
         )}
         style={
           isVisible
@@ -71,7 +76,8 @@ export function SlideUpIn({
             : {
                 opacity: 0,
                 filter: "blur(8px)",
-                transform: "translateY(100%)",
+                transform:
+                  variant === "slide-up" ? "translateY(100%)" : undefined,
               }
         }
       >

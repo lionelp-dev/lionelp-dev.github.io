@@ -26,8 +26,8 @@ export function TechWatchPage() {
       </SlideUpIn>
       <ResponsiveGrid
         columns="responsive"
-        spacing="compact"
         aria-label="Projets d'explorations techniques"
+        className="gap-4 lg:gap-25"
       >
         {techWatchProjects.map((project, index) => (
           <SlideUpIn key={project.name} delay={250 + index * 75}>

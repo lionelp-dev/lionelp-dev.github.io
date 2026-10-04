@@ -3,11 +3,17 @@ export type ProjectLink = {
   url: string;
 };
 
+export type FreelanceProjectImages =
+  | [string]
+  | [string, string]
+  | [string, string, string]
+  | [string, string, string, string];
+
 export type FreelanceProject = {
   name: string;
   currentName?: string;
   description: string;
-  image: string;
+  images: FreelanceProjectImages;
   imageBackgroundColor: string;
   period?: string;
   type: string;

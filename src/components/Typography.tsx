@@ -7,16 +7,16 @@ const typographyVariants = cva("", {
       "hero-title":
         "flex flex-col font-normal font-serif-display text-5xl text-base-content leading-[0.8] tracking-[-0.08975em] md:text-7xl lg:text-[11em]",
       "section-title":
-        "font-bold font-serif-display text-4xl text-base-content/85 leading-9.25 -tracking-[0.0575em] md:text-5xl md:leading-tight",
+        "font-bold font-serif-display text-4xl text-base-content/85 leading-9.25 md:leading-15 -tracking-[0.0575em] md:text-6xl  lg:leading-tight",
       "footer-title":
-        "flex flex-col font-normal font-serif-display text-2xl text-secondary-content leading-9 tracking-[-0.0775em] md:text-[clamp(3.75rem,6.75vw,5.75rem)] md:leading-19.75",
+        "flex flex-col font-normal font-serif-display text-4xl text-secondary-content leading-9 tracking-[-0.0775em] md:text-6xl lg:text-[clamp(3.75rem,6.75vw,5.75rem)] md:leading-19.75",
       "project-hero-title":
-        "font-bold font-serif-display text-5xl text-base-content leading-18.75 tracking-[-0.0975em] md:text-6xl lg:text-[clamp(3.75rem,5.75vw,5.75rem)]",
+        "font-bold font-serif-display text-5xl text-base-content leading-17.75 tracking-[-0.0975em] md:text-6xl lg:text-[clamp(3.75rem,4.75vw,6rem)]",
       "project-title":
         "card-title flex w-full items-end font-bold text-base-content/85 leading-tight tracking-[-0.0675em] md:text-3xl",
       "feature-title":
         "text-base-content/85 text-xl leading-tight tracking-[-0.0425em] md:text-3xl",
-      body: "font-normal leading-normal",
+      body: "font-normal leading-normal tracking-[-0.0375em]",
       "body-sm": "font-normal leading-normal",
       "section-subtitle":
         "font-normal text-base-content/70 leading-normal tracking-[-0.04975em] md:text-2xl",

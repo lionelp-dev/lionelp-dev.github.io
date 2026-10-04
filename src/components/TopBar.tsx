@@ -42,7 +42,7 @@ export function TopBar() {
           topBarHeaderContainerRef.current.style.top = `0px`;
         }
         if (window.scrollY > 100) {
-          topBarHeaderContainerRef.current.style.top = `10px`;
+          topBarHeaderContainerRef.current.style.top = `15px`;
           topBarHeaderContainerRef.current.style.borderRadius = `${borderRadius}rem`;
           topBarHeaderContainerRef.current.style.backgroundColor = `${borderRadius}rem`;
           topBarHeaderContainerRef.current.style.width = `${70}%`;
@@ -67,7 +67,7 @@ export function TopBar() {
     >
       <nav
         ref={navBarHeaderContainerRef}
-        className="layout-container relative col-start-2 flex w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-18 md:py-0"
+        className="layout-container relative col-start-2 flex w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0"
         aria-label="Navigation principale"
       >
         <Link

@@ -1,5 +1,10 @@
 import beyondDressImage from "../assets/beyond-dress-desktop.jpg";
+import beyondDressImage2 from "../assets/beyond-dress-desktop-2.png";
+import beyondDressImage3 from "../assets/beyond-dress-desktop-3.png";
 import beyondStoreImage from "../assets/beyond-store-desktop.jpg";
+import beyondStoreImage2 from "../assets/beyond-store-desktop-2.png";
+import beyondStoreImage3 from "../assets/beyond-store-desktop-3.png";
+import beyondStoreImage4 from "../assets/beyond-store-desktop-4.jpg";
 import hairelookingImage from "../assets/hairelooking-desktop.jpg";
 import mealoPlannerImage from "../assets/mealo-planner.png";
 import meteoImage from "../assets/meteo.png";
@@ -8,6 +13,7 @@ import recipeBookDotNetImage from "../assets/recipe_book_dot_net.png";
 import recipeBookSpringBootImage from "../assets/recipe_book_spring_boot.png";
 import recipeBookSymfonyImage from "../assets/recipe_book_symphony.png";
 import whiscoImage from "../assets/whisco-desktop.jpg";
+import whiscoImage2 from "../assets/whisco-desktop-2.png";
 import type {
   ComplementaryMission,
   FreelanceProject,
@@ -55,7 +61,7 @@ export const freelanceProjects: FreelanceProject[] = [
     currentName: "Sinamary",
     description:
       "Site vitrine WordPress consacré à une marque de boissons artisanales.",
-    image: whiscoImage,
+    images: [whiscoImage, whiscoImage2],
     imageBackgroundColor: "#fbedcf",
     period: "Avril 2023",
     type: "Site vitrine",
@@ -75,9 +81,14 @@ export const freelanceProjects: FreelanceProject[] = [
     name: "Beyond Store",
     description:
       "E-commerce PrestaShop bilingue dédié aux extensions capillaires, perruques et accessoires.",
-    image: beyondStoreImage,
+    images: [
+      beyondStoreImage,
+      beyondStoreImage2,
+      beyondStoreImage3,
+      beyondStoreImage4,
+    ],
     imageBackgroundColor: "#e8ece7",
-    period: "Avril 2019 - novembre 2020",
+    period: "Aout 2019 - Janvier 2021",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -94,7 +105,7 @@ export const freelanceProjects: FreelanceProject[] = [
   {
     name: "Beyond Dress",
     description: "E-commerce PrestaShop de prêt-à-porter féminin.",
-    image: beyondDressImage,
+    images: [beyondDressImage, beyondDressImage2, beyondDressImage3],
     imageBackgroundColor: "#f7e6ec",
     period: "Octobre 2014 - mars 2015",
     type: "Boutique e-commerce",
@@ -114,7 +125,7 @@ export const freelanceProjects: FreelanceProject[] = [
     name: "Hairelooking",
     description:
       "E-commerce PrestaShop spécialisé dans les extensions de cheveux naturels et le matériel de pose.",
-    image: hairelookingImage,
+    images: [hairelookingImage],
     imageBackgroundColor: "#eeeae2",
     period: "Novembre 2013 - avril 2014",
     type: "Boutique e-commerce",

@@ -1,19 +1,23 @@
-import { type CSSProperties } from "react";
 import { ExternalLink, type LucideIcon } from "lucide-react";
+import type { CSSProperties } from "react";
 import { cn } from "../lib/utils";
 import type { ProjectLink } from "../types/projects";
-import { ProjectActions } from "./project/ProjectActions";
+import {
+  ProjectActions,
+  type ProjectActionTone,
+} from "./project/ProjectActions";
 import { ProjectBadges } from "./project/ProjectBadges";
 import { ProjectImage } from "./project/ProjectImage";
 import { Typography } from "./Typography";
 
 type ProjectCardProps = {
   title: string;
+  titlePrefix?: string;
   titleAside?: string;
   meta?: string;
   description?: string;
   image?: string;
-  imagePosition?: "left" | "right";
+  imagePosition?: "left" | "right" | "top";
   imageContainerClassName?: string;
   imageContainerStyle?: CSSProperties;
   imageCaption?: string;
@@ -21,10 +25,12 @@ type ProjectCardProps = {
   highlightedBadgeVariant?: "secondary" | "soft";
   links?: ProjectLink[];
   linkIcon?: LucideIcon;
+  actionsVariant?: "client" | "default";
 };
 
 export function ProjectCard({
   title,
+  titlePrefix,
   titleAside,
   meta,
   description,
@@ -34,11 +40,17 @@ export function ProjectCard({
   imageContainerStyle,
   imageCaption,
   badges = [],
-  highlightedBadgeVariant = "secondary",
+  highlightedBadgeVariant = "soft",
   links = [],
   linkIcon: LinkIcon = ExternalLink,
+  actionsVariant = "default",
 }: ProjectCardProps) {
   const hasLinks = links.length > 0;
+  const actionLinks: Array<ProjectLink & { tone: ProjectActionTone }> =
+    links.map((link) => ({
+      ...link,
+      tone: "soft",
+    }));
 
   return (
     <article className="card">
@@ -53,29 +65,42 @@ export function ProjectCard({
             "lg:grid-cols-[minmax(0,1fr)_58%]",
         )}
       >
-        {image && imagePosition === "left" ? (
+        {image && (imagePosition === "left" || imagePosition === "top") ? (
           <ProjectImage
             src={image}
             title={title}
-            className={imageContainerClassName}
+            className={cn(
+              imagePosition === "top" &&
+                "aspect-video !h-auto rounded-b-none border-x-0 border-t-0",
+              imageContainerClassName,
+            )}
             style={imageContainerStyle}
             caption={imageCaption}
           />
         ) : null}
 
         <div
-          className={`flex h-full w-full min-w-0 flex-col items-start justify-center gap-y-3.75 px-8.75 py-3.75 text-left`}
+          className={`flex h-full w-full min-w-0 flex-col items-start justify-center gap-y-3.75 px-1 lg:px-8.75 py-3.75 text-left`}
         >
           <div className="flex w-full flex-col items-start gap-y-3.75">
             <div className="flex w-full flex-col items-start gap-2.75">
               <div className="flex w-full flex-col items-start gap-0.5">
+                {titlePrefix && (
+                  <Typography as="p" variant="meta">
+                    {titlePrefix}
+                  </Typography>
+                )}
                 <Typography
                   as="h3"
                   variant="project-title"
                   className="gap-2.25"
                 >
                   <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2 font-normal">
-                    <Typography as="span" variant="label">
+                    <Typography
+                      as="span"
+                      variant="label"
+                      className="text-2xl md:text-4xl"
+                    >
                       {title}
                     </Typography>
                   </span>
@@ -107,11 +132,17 @@ export function ProjectCard({
               <ProjectBadges
                 badges={badges}
                 highlightedBadgeVariant={highlightedBadgeVariant}
+                className="badge-sm md:badge-md"
               />
             ) : null}
           </div>
           {hasLinks ? (
-            <ProjectActions title={title} links={links} icon={LinkIcon} />
+            <ProjectActions
+              title={title}
+              links={actionLinks}
+              icon={LinkIcon}
+              variant={actionsVariant}
+            />
           ) : (
             <div className="card-actions w-full" aria-hidden="true" />
           )}

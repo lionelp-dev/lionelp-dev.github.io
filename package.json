@@ -8,7 +8,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tailwind:check": "biome lint --only=lint/nursery/useSortedClasses .",
-    "tailwind:sort": "biome lint --write --unsafe --only=lint/nursery/useSortedClasses ."
+    "tailwind:sort": "biome lint --write --unsafe --only=lint/nursery/useSortedClasses .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.14",
@@ -19,7 +21,19 @@
     "daisyui": "^5.7.25",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "storybook": "^10.6.1",
+    "@storybook/tanstack-react": "^10.6.1",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-vitest": "^10.6.1",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/addon-mcp": "^10.6.1",
+    "@tanstack/react-query": "latest",
+    "vitest": "latest",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.170.32",

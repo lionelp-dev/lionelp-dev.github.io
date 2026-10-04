@@ -9,17 +9,17 @@ export function FreelanceCard({ project }: FreelanceCardProps) {
   return (
     <ProjectCard
       title={project.name}
+      titlePrefix={project.type}
       titleAside={
         project.currentName ? `Aujourd'hui ${project.currentName}` : undefined
       }
       meta={project.period}
       description={project.description}
-      image={project.image}
-      imageContainerClassName="px-6 py-5"
-      imageContainerStyle={{ backgroundColor: project.imageBackgroundColor }}
+      image={project.images[0]}
       imageCaption={project.name}
-      badges={[project.type, ...project.technologies]}
+      badges={project.technologies}
       links={project.links}
+      actionsVariant="client"
     />
   );
 }
