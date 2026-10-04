@@ -1,14 +1,10 @@
 import { type RefObject, useEffect, useState } from "react";
 
 function getActiveSlideIndex(section: HTMLElement, slideCount: number) {
-  const { height, top } = section.getBoundingClientRect();
-  const scrollableHeight = height - window.innerHeight;
-  const scrollProgress =
-    scrollableHeight > 0
-      ? Math.min(Math.max(-top / scrollableHeight, 0), 1)
-      : 0;
+  const scrollDistance = Math.max(0, -section.getBoundingClientRect().top);
+  const slideIndex = Math.floor(scrollDistance / window.innerHeight);
 
-  return Math.min(slideCount - 1, Math.floor(scrollProgress * slideCount));
+  return Math.min(slideCount - 1, slideIndex);
 }
 
 export function useActiveSlideIndex(
@@ -51,9 +47,11 @@ export function useActiveSlideIndex(
 
     updateActiveSlide();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
 
       if (animationFrameId !== undefined) {
         window.cancelAnimationFrame(animationFrameId);

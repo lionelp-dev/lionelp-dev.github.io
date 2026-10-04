@@ -45,14 +45,16 @@ const projectVariantByName: Record<
 const isProjectBackgroundEnabled = false;
 
 export function ClientProjectsSection() {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const slides = useMemo(() => createProjectSlides(freelanceProjects), []);
-  const activeIndex = useActiveSlideIndex(carouselRef, slides.length);
+  const activeIndex = useActiveSlideIndex(sectionRef, slides.length);
   const activeSlide = slides[activeIndex];
 
   return (
     <PageSection
+      ref={sectionRef}
       id="client-projects"
+      contentClassName="lg:pt-0"
       className={clientProjectsSectionVariants({
         project:
           isProjectBackgroundEnabled && activeSlide
@@ -84,15 +86,17 @@ export function ClientProjectsSection() {
         </ResponsiveGrid>
       </div>
       {activeSlide && (
-        <div ref={carouselRef} className="hidden lg:block">
-          <div className="sticky top-0 flex h-[100vh] flex-col justify-start gap-13 pt-[12.75vh]">
-            <CarouselHeader />
-            <div className="grid w-full grid-rows-[minmax(0,1fr)_auto] items-center gap-6 lg:grid-cols-[minmax(0,3.5fr)_minmax(8rem,1.775fr)] lg:grid-rows-1 lg:gap-15">
-              <ProjectPreview
-                slide={activeSlide}
-                isFirstSlide={activeIndex === 0}
-              />
-              <ProjectDetails project={activeSlide.project} />
+        <div className="hidden lg:block">
+          <div className="sticky top-0 h-[100vh]">
+            <div className="flex h-full flex-col gap-13 pt-[var(--section-y-padding)]">
+              <CarouselHeader />
+              <div className="grid w-full grid-rows-[minmax(0,1fr)_auto] items-center gap-6 lg:grid-cols-[minmax(0,3.5fr)_minmax(8rem,1.775fr)] lg:grid-rows-1 lg:gap-15">
+                <ProjectPreview
+                  slide={activeSlide}
+                  isFirstSlide={activeIndex === 0}
+                />
+                <ProjectDetails project={activeSlide.project} />
+              </div>
             </div>
           </div>
           {slides.slice(1).map((slide) => (

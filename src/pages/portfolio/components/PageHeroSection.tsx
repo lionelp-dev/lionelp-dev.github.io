@@ -5,7 +5,7 @@ import { Typography } from "../../../components/Typography";
 import { siteConfig } from "../../../config/site";
 
 const heroClass =
-  "relative flex flex-col items-start gap-80 !justify-center !h-[min(70svh,1000px)] lg:!h-[min(90svh,1000px)] md:gap-7";
+  "relative flex flex-col items-start gap-80 !justify-center !h-[min(70svh,1000px)] lg:!h-[min(90svh,1000px)] !py-[clamp(2rem,8.5svh,10.75rem)] md:gap-7";
 const heroTextClass =
   "flex flex-col leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.03775em]";
 
@@ -13,6 +13,7 @@ export function PageHeroSection() {
   return (
     <PageSection
       id="home"
+      className="scroll-mt-[var(--section-scroll-offset)]"
       contentClassName={heroClass}
       aria-labelledby="page-title"
     >

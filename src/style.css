@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --section-scroll-offset: 6rem;
+  --section-y-padding: clamp(4rem, 13svh, 18rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
