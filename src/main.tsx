@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { createRoot } from "react-dom/client";
 import { Footer } from "./components/Footer";
+import { SiteLoader } from "./components/SiteLoader";
 import { TopBar } from "./components/TopBar";
 import { PortfolioPage } from "./pages/portfolio/PortfolioPage";
 import "./style.css";
@@ -16,6 +17,7 @@ import "./style.css";
 function RootLayout() {
   return (
     <div className="min-h-screen bg-base-100 font-sans text-base-content">
+      <SiteLoader />
       <TopBar />
       <main>
         <Outlet />
@@ -41,7 +43,19 @@ const portfolioRoute = createRoute({
   component: PortfolioPage,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, portfolioRoute]);
+const techWatchRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/tech-watch",
+  component: () => (
+    <Navigate to="/portfolio" hash="explorations-techniques" replace />
+  ),
+});
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  portfolioRoute,
+  techWatchRoute,
+]);
 
 const router = createRouter({
   routeTree,

@@ -4,7 +4,7 @@ import beyondDressImage3 from "../assets/beyond-dress-desktop-3.png";
 import beyondStoreImage from "../assets/beyond-store-desktop.jpg";
 import beyondStoreImage2 from "../assets/beyond-store-desktop-2.png";
 import beyondStoreImage3 from "../assets/beyond-store-desktop-3.png";
-import beyondStoreImage4 from "../assets/beyond-store-desktop-4.jpg";
+import beyondStoreImage4 from "../assets/beyond-store-desktop-4.png";
 import hairelookingImage from "../assets/hairelooking-desktop.jpg";
 import mealoPlannerImage from "../assets/mealo-planner.png";
 import meteoImage from "../assets/meteo.png";
@@ -25,7 +25,7 @@ export const personalProjects: PersonalProject[] = [
   {
     name: "Mealo Planner",
     description:
-      "Application web full-stack pour rechercher, consulter et organiser les recettes, planifier les repas, générer les listes de courses et collaborer, avec une assistance IA.",
+      "Application de planification des repas de la semaine, permettant de gérer ses recettes, de créer automatiquement une liste de courses, de planifier à plusieurs et de générer des recettes avec de l'intelligence artificielle.",
     image: mealoPlannerImage,
     demoQrCode: "/mealo-demo-qr-code.png",
     period: "Depuis octobre 2025",
@@ -41,6 +41,9 @@ export const personalProjects: PersonalProject[] = [
       "LangGraph",
       "LangChain",
       "PostgreSQL",
+      "Tests",
+      "Analyse statique",
+      "Intégration continue",
     ],
     links: [
       {
@@ -63,7 +66,7 @@ export const freelanceProjects: FreelanceProject[] = [
       "Site vitrine WordPress consacré à une marque de boissons artisanales.",
     images: [whiscoImage, whiscoImage2],
     imageBackgroundColor: "#fbedcf",
-    period: "Avril 2023",
+    period: "avril 2023",
     type: "Site vitrine",
     technologies: ["WordPress", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -88,7 +91,7 @@ export const freelanceProjects: FreelanceProject[] = [
       beyondStoreImage4,
     ],
     imageBackgroundColor: "#e8ece7",
-    period: "Aout 2019 - Janvier 2021",
+    period: "août 2019 - janvier 2021",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -107,7 +110,7 @@ export const freelanceProjects: FreelanceProject[] = [
     description: "E-commerce PrestaShop de prêt-à-porter féminin.",
     images: [beyondDressImage, beyondDressImage2, beyondDressImage3],
     imageBackgroundColor: "#f7e6ec",
-    period: "Octobre 2014 - mars 2015",
+    period: "octobre 2014 - mars 2015",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -127,7 +130,7 @@ export const freelanceProjects: FreelanceProject[] = [
       "E-commerce PrestaShop spécialisé dans les extensions de cheveux naturels et le matériel de pose.",
     images: [hairelookingImage],
     imageBackgroundColor: "#eeeae2",
-    period: "Novembre 2013 - avril 2014",
+    period: "novembre 2013 - avril 2014",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [

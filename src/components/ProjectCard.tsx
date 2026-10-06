@@ -93,22 +93,15 @@ export function ProjectCard({
                 <Typography
                   as="h3"
                   variant="project-title"
-                  className="gap-2.25"
+                  className="flex-col items-start gap-1"
                 >
-                  <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2">
-                    <Typography
-                      as="span"
-                      variant="project-card-name"
-                    >
-                      {title}
-                    </Typography>
-                  </span>
+                  <Typography as="span" variant="project-card-name">
+                    {title}
+                  </Typography>
                   {titleAside && (
-                    <span className="pb-0.5 text-left">
-                      <Typography as="span" variant="project-card-aside">
-                        {titleAside}
-                      </Typography>
-                    </span>
+                    <Typography as="span" variant="project-card-aside">
+                      {titleAside}
+                    </Typography>
                   )}
                 </Typography>
                 {meta && (

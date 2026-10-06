@@ -31,6 +31,11 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
                   {project.type}
                 </Typography>
               </SlideUpIn>
+              <SlideUpIn key={`${project.name}-title`} delay={75}>
+                <Typography as="h2" variant="project-hero-title">
+                  {project.name}
+                </Typography>
+              </SlideUpIn>
               {project.currentName ? (
                 <SlideUpIn key={`${project.name}-current-name`} delay={75}>
                   <Typography as="p" variant="meta">
@@ -38,11 +43,6 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
                   </Typography>
                 </SlideUpIn>
               ) : null}
-              <SlideUpIn key={`${project.name}-title`} delay={75}>
-                <Typography as="h2" variant="project-hero-title">
-                  {project.name}
-                </Typography>
-              </SlideUpIn>
             </div>
             {project.period ? (
               <SlideUpIn key={`${project.name}-period`} delay={150}>
@@ -53,19 +53,13 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
             ) : null}
           </div>
           <SlideUpIn key={`${project.name}-description`} delay={225}>
-            <Typography
-              as="p"
-              variant="body-md-wide"
-            >
+            <Typography as="p" variant="body-md-wide">
               {project.description}
             </Typography>
           </SlideUpIn>
         </div>
         <SlideUpIn key={`${project.name}-badges`} delay={300}>
-          <ProjectBadges
-            badges={project.technologies}
-            className="badge-sm"
-          />
+          <ProjectBadges badges={project.technologies} className="badge-sm" />
         </SlideUpIn>
       </div>
       <SlideUpIn key={`${project.name}-actions`} delay={375} className="w-full">

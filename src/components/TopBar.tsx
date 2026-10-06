@@ -23,12 +23,14 @@ export function TopBar() {
       topBar.style.removeProperty("width");
       topBar.style.removeProperty("border-radius");
       topBar.style.removeProperty("top");
-      topBar.style.removeProperty("background-color");
     };
 
     const handleScroll = () => {
       const borderRadius = Math.max(0, 0 + window.scrollY * 0.05);
       const windowWidth = window.innerWidth;
+      const topBar = topBarHeaderContainerRef.current;
+
+      topBar?.classList.toggle("is-scrolled", window.scrollY > 12);
 
       if (windowWidth <= 1280) {
         resetTopBar();
@@ -44,7 +46,6 @@ export function TopBar() {
         if (window.scrollY > 100) {
           topBarHeaderContainerRef.current.style.top = `15px`;
           topBarHeaderContainerRef.current.style.borderRadius = `${borderRadius}rem`;
-          topBarHeaderContainerRef.current.style.backgroundColor = `${borderRadius}rem`;
           topBarHeaderContainerRef.current.style.width = `${70}%`;
         }
       }
@@ -63,11 +64,11 @@ export function TopBar() {
   return (
     <header
       ref={topBarHeaderContainerRef}
-      className="sticky top-0 z-20 mx-auto border border-base-content/10 bg-base-100/95 backdrop-blur duration-300 ease-in-out lg:h-16"
+      className="top-bar-glass sticky top-0 z-20 mx-auto duration-300 ease-in-out lg:h-[62px]"
     >
       <nav
         ref={navBarHeaderContainerRef}
-        className="layout-container relative col-start-2 flex h-full w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0"
+        className="layout-container relative col-start-2 flex h-full w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0 lg:min-h-[62px]"
         aria-label="Navigation principale"
       >
         <Link

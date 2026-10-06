@@ -9,6 +9,7 @@ export function ComplementaryActivitiesSection() {
   return (
     <PageSection
       id="complementary-activities"
+      className="paper-surface tech-watch-surface"
       aria-labelledby="complementary-activities-title"
     >
       <SlideUpIn>

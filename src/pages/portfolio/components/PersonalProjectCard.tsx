@@ -25,7 +25,7 @@ export function PersonalProjectCard({
     {
       number: "01",
       title: "Gestion des recettes",
-      description: "Recherche, consultation et organisation des recettes.",
+      description: "Rechercher, consulter et organiser ses recettes.",
       image: recipePreviewImage,
       imageAlt: `Gestion des recettes dans ${project.name}`,
       className: "lg:col-span-15",
@@ -43,7 +43,7 @@ export function PersonalProjectCard({
     {
       number: "03",
       title: "Planification hebdomadaire",
-      description: "Visualisation et organisation des repas sur la semaine.",
+      description: "Visualiser et organiser ses repas sur la semaine.",
       image: project.image,
       imageAlt: `Planification hebdomadaire dans ${project.name}`,
       className: "lg:col-span-9",
@@ -52,7 +52,7 @@ export function PersonalProjectCard({
     {
       number: "04",
       title: "Liste de courses automatique",
-      description: "Généré à partir des repas planifiés.",
+      description: "Créée à partir des repas planifiés.",
       image: shoppingListPreviewImage,
       imageAlt: `Liste de courses automatique dans ${project.name}`,
       className: "lg:col-span-7",
@@ -103,7 +103,7 @@ export function PersonalProjectCard({
           <ProjectBadges
             badges={project.technologies}
             highlightedBadgeVariant="soft"
-            className="badge-xs md:badge-md"
+            className="badge-xs md:badge-sm"
           />
 
           {project.demoQrCode && (
@@ -147,11 +147,7 @@ export function PersonalProjectCard({
           />
         </div>
 
-        <ProjectFeature
-          {...primaryFeature}
-          projectId={projectId}
-          isPrimary
-        />
+        <ProjectFeature {...primaryFeature} projectId={projectId} isPrimary />
 
         <div className="grid gap-y-15 pt-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
           {secondaryFeatures.map((feature) => (
@@ -186,7 +182,7 @@ function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
             Et bien d’autres fonctionnalités à découvrir dans la démo
           </Typography>
           <Typography as="p" variant="body-lg">
-            Espaces collaboratifs, partage de recettes et de listes de courses…
+            Espaces collaboratifs, partage des listes de courses et des recettes.
           </Typography>
         </div>
 

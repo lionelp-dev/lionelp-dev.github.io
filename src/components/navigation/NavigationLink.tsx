@@ -41,7 +41,7 @@ export function NavigationLink({
   return (
     <a
       className={className}
-      href={`#/portfolio#${item.sectionId}`}
+      href={`#/portfolio#${item.anchorId}`}
       aria-current={active ? "location" : undefined}
       onClick={onNavigate}
     >

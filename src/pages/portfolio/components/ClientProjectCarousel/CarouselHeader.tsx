@@ -15,7 +15,7 @@ export function CarouselHeader() {
         </Typography>
 
         <Typography as="p" variant="section-subtitle">
-          Une sélection de projets réalisés pour mes clients.
+          Une sélection de projets réalisés au cours de mon activité de freelance.
         </Typography>
       </SectionHeader>
     </SlideUpIn>

@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { GitHubIcon } from "../../../components/GitHubIcon";
-import { Divider } from "../../../components/layout/Divider";
 import { PageSection } from "../../../components/layout/PageSection";
 import { SectionHeader } from "../../../components/layout/SectionHeader";
 import { ProjectBadges } from "../../../components/project/ProjectBadges";
@@ -45,16 +44,16 @@ function ImplementationRow({
   return (
     <article
       className={cn(
-        "grid gap-5 py-7 md:grid-cols-[1fr_4fr_1fr_1fr] md:items-center md:gap-7 md:py-8",
+        "grid gap-x-5 gap-y-6 py-7 sm:grid-cols-[minmax(8rem,1fr)_minmax(0,2fr)] sm:gap-y-7 lg:grid-cols-[1fr_4fr_1fr_1fr] lg:items-center lg:gap-7 lg:py-8",
         !isFirst && "border-base-content/15 border-t",
         isLast && "border-base-content/15 border-b",
       )}
     >
-      <Typography as="h3" variant="feature-title" className="w-fit">
+      <Typography as="h3" variant="section-subtitle" className="w-fit">
         {project.name}
       </Typography>
       {project.technologies.length > 0 ? (
-        <div className="border-base-content/20 md:border-l md:pl-7">
+        <div className="border-base-content/20 sm:border-l sm:pl-5 lg:pl-7">
           <ProjectBadges
             badges={project.technologies}
             highlightedBadgeVariant="soft"
@@ -62,21 +61,23 @@ function ImplementationRow({
           />
         </div>
       ) : null}
-      <div className="border-base-content/20 md:col-start-3 md:border-l md:pl-7">
-        <LastCommitDate latestCommitDate={latestCommitDate} />
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-3 sm:col-span-2 lg:contents">
+        <div className="lg:col-start-3 lg:border-l lg:pl-7">
+          <LastCommitDate latestCommitDate={latestCommitDate} />
+        </div>
+        <a
+          className="inline-flex w-fit items-center gap-2 no-underline lg:col-start-4 lg:border-l lg:pl-7"
+          href={project.repositoryUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitHubIcon className="size-4 text-base-content" />
+          <Typography as="span" variant="body">
+            Voir sur GitHub
+          </Typography>
+          <ArrowRight className="size-4 stroke-[2]" aria-hidden="true" />
+        </a>
       </div>
-      <a
-        className="inline-flex w-fit items-center gap-2 border-base-content/20 no-underline md:col-start-4 md:border-l md:pl-7"
-        href={project.repositoryUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        <GitHubIcon className="size-4 text-base-content" />
-        <Typography as="span" variant="body">
-          Voir sur GitHub
-        </Typography>
-        <ArrowRight className="size-4 stroke-[2]" aria-hidden="true" />
-      </a>
     </article>
   );
 }
@@ -159,7 +160,7 @@ export function TechWatchSection({
   return (
     <PageSection
       id="explorations-techniques"
-      className="paper-surface"
+      className="paper-surface tech-watch-surface"
       aria-labelledby="explorations-techniques-title"
       contentClassName="gap-14 md:gap-18 lg:gap-0"
     >
@@ -170,18 +171,21 @@ export function TechWatchSection({
             id="explorations-techniques-title"
             variant="section-title"
           >
-            Explorations technologiques
+            Explorations techniques
           </Typography>
           <Typography as="p" variant="section-subtitle">
-            Une même application de gestion de recettes, déclinée dans plusieurs
-            environnements pour comparer les approches et les outils.
+            Des projets pour explorer différents environnements.
           </Typography>
         </SectionHeader>
       </SlideUpIn>
       <SlideUpIn delay={150}>
         <article className="grid items-center gap-9 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14">
           <div className="flex flex-col items-start gap-6 lg:pr-8">
-            <Typography as="h2" variant="exploration-project-title">
+            <Typography
+              as="h2"
+              variant="exploration-project-title"
+              className="text-base-content/83"
+            >
               Recipe Book
             </Typography>
             <Typography as="p" variant="body-lg-compact">
@@ -196,6 +200,7 @@ export function TechWatchSection({
                 src={featuredProject.image}
                 title={featuredProject.name}
                 className="aspect-video h-auto rounded-md"
+                imageClassName="object-top"
               />
               {Array.from({ length: 8 }, (_, index) => (
                 <div key={index} aria-hidden="true" />
@@ -230,7 +235,6 @@ export function TechWatchSection({
           ))}
         </div>
       </section>
-      <Divider />
     </PageSection>
   );
 }

@@ -1,5 +1,4 @@
 import { PageSection } from "../../../components/layout/PageSection";
-import { Divider } from "../../../components/layout/Divider";
 import { ResponsiveGrid } from "../../../components/layout/ResponsiveGrid";
 import { SectionHeader } from "../../../components/layout/SectionHeader";
 import { SlideUpIn } from "../../../components/SlideUpIn";
@@ -9,12 +8,9 @@ import { PersonalProjectCard } from "./PersonalProjectCard";
 
 export function PersonalProjectsSection() {
   return (
-    <PageSection
-      id="projets-personnels"
-      aria-labelledby="projets-personnels-title"
-    >
+    <PageSection id="mealo-planner" aria-labelledby="projets-personnels-title">
       <SlideUpIn>
-        <SectionHeader>
+        <SectionHeader className="scroll-mt-[var(--section-scroll-offset)]">
           <Typography
             as="h2"
             id="projets-personnels-title"
@@ -34,7 +30,6 @@ export function PersonalProjectsSection() {
           </SlideUpIn>
         ))}
       </ResponsiveGrid>
-      <Divider />
     </PageSection>
   );
 }

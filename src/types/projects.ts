@@ -7,7 +7,8 @@ export type FreelanceProjectImages =
   | [string]
   | [string, string]
   | [string, string, string]
-  | [string, string, string, string];
+  | [string, string, string, string]
+  | [string, string, string, string, string];
 
 export type FreelanceProject = {
   name: string;

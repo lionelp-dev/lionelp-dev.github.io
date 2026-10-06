@@ -11,19 +11,16 @@ type ProjectBadgesProps = {
   variant?: ProjectBadgesVariant;
 };
 
-const projectBadgesVariants = cva(
-  "flex flex-wrap max-md:overflow-hidden max-md:h-11",
-  {
-    variants: {
-      variant: {
-        default: "w-full justify-start gap-3.5 gap-x-2.25",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
+const projectBadgesVariants = cva("flex flex-wrap max-md:overflow-hidden ", {
+  variants: {
+    variant: {
+      default: "w-full justify-start gap-3.5 gap-x-2.25",
     },
   },
-);
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
 const projectBadgeVariants = cva("badge rounded-full", {
   variants: {
