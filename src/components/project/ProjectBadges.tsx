@@ -25,7 +25,7 @@ const projectBadgesVariants = cva(
   },
 );
 
-const projectBadgeVariants = cva("badge  rounded-full text-base-content/75", {
+const projectBadgeVariants = cva("badge rounded-full", {
   variants: {
     variant: {
       default: "",
@@ -72,7 +72,7 @@ export function ProjectBadges({
           })}
           key={`${badge}-${index}`}
         >
-          <Typography as="span" variant="label">
+          <Typography as="span" variant="badge-label">
             {badge}
           </Typography>
         </li>

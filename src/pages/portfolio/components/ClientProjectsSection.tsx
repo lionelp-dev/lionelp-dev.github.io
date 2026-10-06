@@ -53,7 +53,7 @@ export function ClientProjectsSection() {
   return (
     <PageSection
       ref={sectionRef}
-      id="client-projects"
+      id="realisations-clients"
       contentClassName="lg:pt-0"
       className={clientProjectsSectionVariants({
         project:
@@ -67,10 +67,10 @@ export function ClientProjectsSection() {
           <SectionHeader>
             <Typography
               as="h2"
-              id="client-projects-title"
+              id="realisations-clients-title"
               variant="section-title"
             >
-              Projets clients
+              Réalisations clients
             </Typography>
             <Typography as="p" variant="section-subtitle">
               Une sélection de projets réalisés pour mes clients.
@@ -106,6 +106,7 @@ export function ClientProjectsSection() {
               key={`${slide.project.name}-${slide.imageIndex}`}
             />
           ))}
+          <div aria-hidden="true" className="h-[100vh]" />
         </div>
       )}
       <Divider />

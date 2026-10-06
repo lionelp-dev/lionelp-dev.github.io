@@ -46,7 +46,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
             </div>
             {project.period ? (
               <SlideUpIn key={`${project.name}-period`} delay={150}>
-                <Typography as="p" variant="meta" className="md:text-2xl">
+                <Typography as="p" variant="meta-lg">
                   {project.period}
                 </Typography>
               </SlideUpIn>
@@ -55,8 +55,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
           <SlideUpIn key={`${project.name}-description`} delay={225}>
             <Typography
               as="p"
-              variant="body"
-              className="text-base-content/70  md:text-xl"
+              variant="body-md-wide"
             >
               {project.description}
             </Typography>

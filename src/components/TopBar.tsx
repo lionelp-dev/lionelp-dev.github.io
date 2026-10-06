@@ -63,11 +63,11 @@ export function TopBar() {
   return (
     <header
       ref={topBarHeaderContainerRef}
-      className="sticky top-0 z-20 mx-auto border-base-content/10 border bg-base-100/95 backdrop-blur duration-300 ease-in-out"
+      className="sticky top-0 z-20 mx-auto border border-base-content/10 bg-base-100/95 backdrop-blur duration-300 ease-in-out lg:h-16"
     >
       <nav
         ref={navBarHeaderContainerRef}
-        className="layout-container relative col-start-2 flex w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0"
+        className="layout-container relative col-start-2 flex h-full w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0"
         aria-label="Navigation principale"
       >
         <Link

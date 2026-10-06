@@ -1,5 +1,6 @@
 import { type CSSProperties, useState } from "react";
 import { cn } from "../../lib/utils";
+import { Typography } from "../Typography";
 import { BrowserFrame } from "./BrowserFrame";
 
 type ProjectImageProps = {
@@ -39,8 +40,10 @@ export function ProjectImage({
               <div className="skeleton absolute inset-0 h-full w-full" />
             ) : null}
             {hasError ? (
-              <div className="flex h-full items-center justify-center p-4 text-center text-base-content/60 text-sm">
-                Aperçu indisponible
+              <div className="flex h-full items-center justify-center p-4 text-center">
+                <Typography as="p" variant="caption-muted">
+                  Aperçu indisponible
+                </Typography>
               </div>
             ) : (
               <img
@@ -63,8 +66,10 @@ export function ProjectImage({
             <div className="skeleton absolute inset-0 h-full w-full" />
           ) : null}
           {hasError ? (
-            <div className="flex h-full min-h-32 items-center justify-center p-4 text-center text-base-content/60 text-sm">
-              Aperçu indisponible
+            <div className="flex h-full min-h-32 items-center justify-center p-4 text-center">
+              <Typography as="p" variant="caption-muted">
+                Aperçu indisponible
+              </Typography>
             </div>
           ) : (
             <img

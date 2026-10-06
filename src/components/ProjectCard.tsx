@@ -95,18 +95,17 @@ export function ProjectCard({
                   variant="project-title"
                   className="gap-2.25"
                 >
-                  <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2 font-normal">
+                  <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2">
                     <Typography
                       as="span"
-                      variant="label"
-                      className="text-2xl md:text-4xl"
+                      variant="project-card-name"
                     >
                       {title}
                     </Typography>
                   </span>
                   {titleAside && (
-                    <span className="pb-0.5 text-left font-normal text-base text-base-content/80 leading-tight tracking-[-0.0375em]">
-                      <Typography as="span" variant="label">
+                    <span className="pb-0.5 text-left">
+                      <Typography as="span" variant="project-card-aside">
                         {titleAside}
                       </Typography>
                     </span>
@@ -121,8 +120,8 @@ export function ProjectCard({
               {description && (
                 <Typography
                   as="p"
-                  variant="body"
-                  className="line-clamp-2 text-base-content/70 tracking-[-0.04975em] md:text-lg"
+                  variant="body-md"
+                  className="line-clamp-2"
                 >
                   {description}
                 </Typography>

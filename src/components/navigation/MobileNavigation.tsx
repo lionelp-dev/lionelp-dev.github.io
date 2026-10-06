@@ -47,7 +47,7 @@ export function MobileNavigation({
           onClick={onClose}
         >
           <MailIcon className="size-5 flex-none" />
-          <Typography as="span" variant="label">
+          <Typography as="span" variant="mobile-navigation-label">
             Email
           </Typography>
         </MobileActionLink>
@@ -57,7 +57,7 @@ export function MobileNavigation({
           rel="noreferrer"
         >
           <GitHubIcon className="size-5 flex-none" />
-          <Typography as="span" variant="label">
+          <Typography as="span" variant="mobile-navigation-label">
             GitHub
           </Typography>
         </MobileActionLink>
@@ -72,7 +72,7 @@ function MobileActionLink({ className, ...props }: MobileActionLinkProps) {
   return (
     <a
       className={cn(
-        "flex items-center gap-3 rounded-lg px-3 py-3 font-bold text-base-content/75 text-sm leading-tight no-underline transition-colors hover:bg-base-200 hover:text-base-content",
+        "group flex items-center gap-3 rounded-lg px-3 py-3 no-underline transition-colors hover:bg-base-200",
         className,
       )}
       {...props}

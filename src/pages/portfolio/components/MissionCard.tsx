@@ -18,8 +18,8 @@ export function MissionCard({ mission }: MissionCardProps) {
     >
       <Typography
         as="h3"
-        variant="feature-title"
-        className="flex w-fit items-baseline gap-8.75 tracking-[-0.0175em]"
+        variant="mission-title"
+        className="flex w-fit items-baseline gap-8.75"
       >
         {mission.name}
       </Typography>
@@ -27,8 +27,8 @@ export function MissionCard({ mission }: MissionCardProps) {
       {mission.description.trim() ? (
         <Typography
           as="p"
-          variant="body"
-          className="font-normal text-base-content/70 tracking-[-0.03575em] max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-2 md:text-xl"
+          variant="mission-description"
+          className="max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-2"
         >
           {mission.description}
         </Typography>
@@ -39,12 +39,12 @@ export function MissionCard({ mission }: MissionCardProps) {
       {primaryLink && (
         <div className="col-start-1 row-start-4 mt-1.75 flex flex-wrap items-center justify-start gap-3.5 max-lg:col-end-4 md:col-start-3 md:row-1 lg:justify-end">
           <a
-            className="inline-flex w-fit items-center gap-1.5 text-base text-base-content/75 leading-tight tracking-[-0.01em] no-underline transition-colors after:absolute after:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 group-hover:text-accent/80 md:font-semibold"
+            className="inline-flex w-fit items-center gap-1.5 no-underline transition-colors after:absolute after:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
             href={primaryLink.url}
             rel="noreferrer"
             target="_blank"
           >
-            <Typography as="span" variant="label">
+            <Typography as="span" variant="mission-action-label">
               {primaryLink.label}
             </Typography>
             <ArrowRight

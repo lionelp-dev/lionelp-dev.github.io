@@ -1,4 +1,5 @@
 import { PageSection } from "../../../components/layout/PageSection";
+import { Divider } from "../../../components/layout/Divider";
 import { MailIcon } from "../../../components/MailIcon";
 import { SlideUpIn } from "../../../components/SlideUpIn";
 import { Typography } from "../../../components/Typography";
@@ -6,8 +7,6 @@ import { siteConfig } from "../../../config/site";
 
 const heroClass =
   "relative flex flex-col items-start gap-80 !justify-center !h-[min(70svh,1000px)] lg:!h-[min(90svh,1000px)] !py-[clamp(2rem,8.5svh,10.75rem)] md:gap-7";
-const heroTextClass =
-  "flex flex-col leading-normal text-base-content/70 md:text-2xl font-normal tracking-[-0.03775em]";
 
 export function PageHeroSection() {
   return (
@@ -22,8 +21,8 @@ export function PageHeroSection() {
           <div className="flex flex-col gap-3.75">
             <Typography
               as="p"
-              variant="body"
-              className="flex flex-col gap-1 text-base-content/85 text-xl leading-tight tracking-[-0.0425em] md:text-4xl"
+              variant="hero-intro"
+              className="flex flex-col gap-1"
             >
               <SlideUpIn as="span" delay={250}>
                 <span className="flex flex-row gap-1">
@@ -34,7 +33,11 @@ export function PageHeroSection() {
                 </span>
               </SlideUpIn>
               <SlideUpIn as="span" delay={300}>
-                <Typography as="span" variant="body" className={heroTextClass}>
+                <Typography
+                  as="span"
+                  variant="hero-description"
+                  className="flex flex-col"
+                >
                   je me spécialise en tant que
                 </Typography>
               </SlideUpIn>
@@ -52,7 +55,11 @@ export function PageHeroSection() {
                   <span>full-stack</span>
                 </SlideUpIn>
               </Typography>
-              <Typography as="p" variant="body" className={heroTextClass}>
+              <Typography
+                as="p"
+                variant="hero-description"
+                className="flex flex-col"
+              >
                 <SlideUpIn as="span" delay={450}>
                   <span>
                     Je m’appuie sur plusieurs années d’expérience en freelance
@@ -66,13 +73,17 @@ export function PageHeroSection() {
         </div>
         <div className="flex flex-col gap-4.25 md:flex-row">
           <SlideUpIn as="span" delay={500}>
-            <p className="badge md:badge-lg badge-soft badge-secondary w-full gap-3.75 whitespace-nowrap rounded-full text-secondary tracking-[-0.0375em] md:w-fit">
+            <Typography
+              as="p"
+              variant="status-label"
+              className="badge md:badge-lg badge-soft badge-secondary w-full gap-3.75 whitespace-nowrap rounded-full md:w-fit"
+            >
               <span
                 className="size-2.25 animate-pulse rounded-full bg-emerald-500"
                 aria-hidden="true"
               />
               À la recherche d’un contrat d’alternance
-            </p>
+            </Typography>
           </SlideUpIn>
           <SlideUpIn as="span" delay={550}>
             <a
@@ -80,15 +91,14 @@ export function PageHeroSection() {
               href={`mailto:${siteConfig.contactEmail}`}
             >
               <MailIcon className="size-4 transition-transform group-hover:scale-110" />
-              Me contacter
+              <Typography as="span" variant="label">
+                Me contacter
+              </Typography>
             </a>
           </SlideUpIn>
         </div>
       </div>
-      <span
-        className="absolute bottom-0 left-0 h-px w-full bg-base-content/15"
-        aria-hidden="true"
-      />
+      <Divider />
     </PageSection>
   );
 }

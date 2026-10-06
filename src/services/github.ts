@@ -13,25 +13,34 @@ function getRepositoryPath(repositoryUrl: string) {
     throw new Error("Unsupported repository host");
   }
 
-  const [owner, repository] = url.pathname
-    .split("/")
-    .filter(Boolean)
-    .slice(0, 2);
+  const pathParts = url.pathname.split("/").filter(Boolean);
+  const [owner, repository] = pathParts;
 
   if (!owner || !repository) {
     throw new Error("Invalid GitHub repository URL");
   }
 
-  return { owner, repository: repository.replace(/\.git$/, "") };
+  const ref =
+    pathParts[2] === "tree" && pathParts.length > 3
+      ? pathParts.slice(3).join("/")
+      : undefined;
+
+  return { owner, repository: repository.replace(/\.git$/, ""), ref };
 }
 
 export async function fetchLatestCommitDate(
   repositoryUrl: string,
   signal?: AbortSignal,
 ) {
-  const { owner, repository } = getRepositoryPath(repositoryUrl);
+  const { owner, repository, ref } = getRepositoryPath(repositoryUrl);
+  const searchParams = new URLSearchParams({ per_page: "1" });
+
+  if (ref) {
+    searchParams.set("sha", ref);
+  }
+
   const response = await fetch(
-    `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository)}/commits?per_page=1`,
+    `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repository)}/commits?${searchParams}`,
     { signal },
   );
 

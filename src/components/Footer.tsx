@@ -7,11 +7,15 @@ export function Footer() {
   return (
     <footer
       id="contact"
+      aria-labelledby="contact-title"
       className="flex scroll-mt-24 flex-col gap-3 py-[clamp(2rem,9.5svh,5.75rem)]"
     >
       <div className="mx-auto flex w-[90vw] max-w-[1680px] flex-col gap-12 rounded-4xl bg-base-content px-9 py-18 text-secondary-content md:gap-14 md:px-30 md:py-30">
+        <Typography as="h2" id="contact-title" variant="section-title">
+          Contact
+        </Typography>
         <div className="flex flex-col gap-4.75">
-          <Typography as="h2" variant="footer-title" className="ml-[-0.0975em]">
+          <Typography as="h3" variant="footer-title" className="ml-[-0.0975em]">
             <SlideUpIn as="span" delay={150}>
               <span>Un poste à pourvoir</span>
             </SlideUpIn>
@@ -21,8 +25,7 @@ export function Footer() {
           </Typography>
           <Typography
             as="p"
-            variant="body"
-            className="tracking-[-0.03475em] md:text-2xl"
+            variant="footer-description"
           >
             <SlideUpIn as="span" delay={300}>
               <span>Disponible dès octobre 2026</span>

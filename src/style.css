@@ -31,6 +31,30 @@ html {
 }
 
 @layer utilities {
+  .hover-3d.hover-3d-subtle > :first-child {
+    transform: rotate3d(var(--transform), 0, 1.5deg);
+  }
+
+  .hover-3d.hover-3d-subtle > :first-child::before {
+    display: none;
+  }
+
+  .hover-3d.hover-3d-subtle:hover > :first-child {
+    scale: 1;
+  }
+
+  .hover-3d.hover-3d-subtle.hover-3d-subtle-primary {
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hover-3d.hover-3d-subtle.hover-3d-subtle-primary:hover {
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hover-3d.hover-3d-subtle.hover-3d-subtle-primary > :first-child {
+    transform: rotate3d(var(--transform), 0, 0.75deg);
+  }
+
   .badge,
   .btn {
     --control-font-size: 0.875em;
@@ -145,6 +169,37 @@ html {
   width: 100%;
   max-width: 1680px;
   margin-inline: auto;
+}
+
+.paper-surface {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.paper-surface::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.22'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.16;
+  mask-image: none;
+}
+
+.paper-surface > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="business"] .paper-surface {
+  background-color: var(--color-base-100);
+}
+
+[data-theme="business"] .paper-surface::before {
+  filter: invert(1);
+  opacity: 0.1;
 }
 
 @keyframes slide-up-in {

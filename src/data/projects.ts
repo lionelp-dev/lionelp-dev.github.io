@@ -25,10 +25,10 @@ export const personalProjects: PersonalProject[] = [
   {
     name: "Mealo Planner",
     description:
-      "Application web full-stack de gestion de recettes et de planification de repas, avec listes de courses automatique, espaces collaboratifs et génération assistée par IA.",
+      "Application web full-stack pour rechercher, consulter et organiser les recettes, planifier les repas, générer les listes de courses et collaborer, avec une assistance IA.",
     image: mealoPlannerImage,
     demoQrCode: "/mealo-demo-qr-code.png",
-    period: "Octobre 2025",
+    period: "Depuis octobre 2025",
     type: "Application web",
     technologies: [
       "React",
@@ -143,19 +143,19 @@ export const complementaryMissions: ComplementaryMission[] = [
   {
     name: "Maintenance",
     description:
-      "Corrections, optimisations et surveillance du bon fonctionnement applicatif.",
+      "Corrections, optimisations et évolutions pour assurer le bon fonctionnement du site.",
     links: [],
   },
   {
     name: "Webmastering",
     description:
-      "Mises à jour de contenus, suivi technique et amélioration continue de sites.",
+      "Mise à jour des contenus, suivi technique et amélioration continue.",
     links: [],
   },
   {
     name: "Infographie",
     description:
-      "Création de supports visuels adaptés aux besoins de communication.",
+      "Création de supports visuels pour la communication.",
     links: [
       {
         label: "Voir la présentation",
@@ -178,24 +178,9 @@ export const complementaryMissions: ComplementaryMission[] = [
 
 export const techWatchProjects: TechWatchProject[] = [
   {
-    name: "Meteo",
+    name: "AdonisJS",
     description:
-      "Application météo full-stack pour pratiquer Django, React et Inertia.",
-    image: meteoImage,
-    repositoryUrl: "https://github.com/lionelp-dev/Meteo",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Inertia.js",
-      "Python",
-      "Django",
-      "SQLite",
-    ],
-  },
-  {
-    name: "RecipeBookAdonisJs",
-    description:
-      "Carnet de recettes construit pour explorer l’écosystème AdonisJS.",
+      "API REST et interface serveur-rendue pour gérer mes recettes.",
     image: recipeBookAdonisImage,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAdonisJs",
     technologies: [
@@ -208,9 +193,8 @@ export const techWatchProjects: TechWatchProject[] = [
     ],
   },
   {
-    name: "RecipeBookSymfony",
-    description:
-      "Carnet de recettes construit pour explorer l’écosystème Symfony.",
+    name: "Symfony",
+    description: "Implémentation full-stack avec une approche classique.",
     image: recipeBookSymfonyImage,
     repositoryUrl:
       "https://github.com/lionelp-dev/RecipeBookSymfony/tree/architecture/api-platform-react",
@@ -225,9 +209,9 @@ export const techWatchProjects: TechWatchProject[] = [
     ],
   },
   {
-    name: "RecipeBookAspNetCore",
+    name: "ASP.NET Core",
     description:
-      "Carnet de recettes construit pour explorer l’écosystème ASP.NET Core.",
+      "Exploration de l’écosystème Microsoft et de son outillage moderne.",
     image: recipeBookDotNetImage,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAspNetCore",
     technologies: [
@@ -240,9 +224,8 @@ export const techWatchProjects: TechWatchProject[] = [
     ],
   },
   {
-    name: "RecipeBookSpringBoot",
-    description:
-      "Carnet de recettes construit pour explorer l’écosystème Spring Boot.",
+    name: "Spring Boot",
+    description: "Version orientée API avec une structure claire et modulaire.",
     image: recipeBookSpringBootImage,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookSpringBoot",
     technologies: [
@@ -256,3 +239,19 @@ export const techWatchProjects: TechWatchProject[] = [
     ],
   },
 ];
+
+export const weatherProject: TechWatchProject = {
+  name: "Météo",
+  description:
+    "Application météo développée pour pratiquer Django, React et Inertia.",
+  image: meteoImage,
+  repositoryUrl: "https://github.com/lionelp-dev/Meteo",
+  technologies: [
+    "React",
+    "TypeScript",
+    "Inertia.js",
+    "Python",
+    "Django",
+    "SQLite",
+  ],
+};

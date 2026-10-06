@@ -34,7 +34,7 @@ export function PersonalProjectCard({
     {
       number: "02",
       title: "Génération assistée par IA",
-      description: "Création de recettes à partir d’une envie.",
+      description: "Créer une recette à partir d’une envie.",
       image: aiPreviewImage,
       imageAlt: `Génération assistée par IA dans ${project.name}`,
       className: "lg:col-span-8",
@@ -89,21 +89,13 @@ export function PersonalProjectCard({
                 {project.name}
               </Typography>
               {project.period ? (
-                <Typography
-                  as="p"
-                  variant="body"
-                  className="text-base-content/85 text-xl leading-tight tracking-[-0.0425em] md:text-3xl"
-                >
+                <Typography as="p" variant="project-period">
                   {project.period}
                 </Typography>
               ) : null}
             </div>
 
-            <Typography
-              as="p"
-              variant="body"
-              className="text-base-content/70 tracking-[-0.03975em] md:text-2xl"
-            >
+            <Typography as="p" variant="body-lg-compact">
               {project.description}
             </Typography>
           </div>
@@ -125,11 +117,7 @@ export function PersonalProjectCard({
               </div>
 
               <div className="min-w-0 max-w-[200.5px] pr-2.5">
-                <Typography
-                  as="p"
-                  variant="caption"
-                  className="text-base-content/60 text-sm leading-5.5"
-                >
+                <Typography as="p" variant="caption-muted">
                   <Smartphone
                     className="mr-1 inline size-5 stroke-[2.1] align-[-0.1875em]"
                     aria-hidden="true"
@@ -159,7 +147,11 @@ export function PersonalProjectCard({
           />
         </div>
 
-        <ProjectFeature {...primaryFeature} projectId={projectId} />
+        <ProjectFeature
+          {...primaryFeature}
+          projectId={projectId}
+          isPrimary
+        />
 
         <div className="grid gap-y-15 pt-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
           {secondaryFeatures.map((feature) => (
@@ -187,17 +179,13 @@ function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
   }
 
   return (
-    <div className="border-base-content/15 border-t pt-8.75 md:pt-26 pb-4 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
+    <div className=" pt-8.75 md:pt-26 pb-4 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
       <section className="flex flex-col items-start gap-6.75 lg:col-span-24 lg:flex-row lg:items-center lg:justify-between lg:mr-28">
         <div className="max-w-3xl">
           <Typography as="h3" variant="feature-title">
             Et bien d’autres fonctionnalités à découvrir dans la démo
           </Typography>
-          <Typography
-            as="p"
-            variant="body"
-            className="text-base-content/70 tracking-[-0.04975em] md:text-2xl"
-          >
+          <Typography as="p" variant="body-lg">
             Espaces collaboratifs, partage de recettes et de listes de courses…
           </Typography>
         </div>
@@ -230,6 +218,7 @@ function ProjectFeature({
   imageAlt,
   className,
   imageClassName,
+  isPrimary,
 }: {
   projectId: string;
   number: string;
@@ -239,6 +228,7 @@ function ProjectFeature({
   imageAlt?: string;
   className: string;
   imageClassName?: string;
+  isPrimary?: boolean;
 }) {
   return (
     <section
@@ -254,24 +244,27 @@ function ProjectFeature({
           >
             {title}
           </Typography>
-          <Typography
-            as="p"
-            variant="body"
-            className="text-base-content/70 tracking-[-0.04975em] md:text-2xl"
-          >
+          <Typography as="p" variant="body-lg">
             {description}
           </Typography>
         </div>
       </div>
 
       {image && imageAlt ? (
-        <ProjectImage
-          src={image}
-          title={title}
-          alt={imageAlt}
-          className={`aspect-[16/9] lg:aspect-auto  ${imageClassName ?? ""}`}
-          imageClassName="object-left-top hover-3d"
-        />
+        <div
+          className={`hover-3d hover-3d-subtle w-full${isPrimary ? " hover-3d-subtle-primary" : ""}`}
+        >
+          <ProjectImage
+            src={image}
+            title={title}
+            alt={imageAlt}
+            className={`aspect-[16/9] lg:aspect-auto ${imageClassName ?? ""}`}
+            imageClassName="object-left-top"
+          />
+          {Array.from({ length: 8 }, (_, index) => (
+            <div key={index} aria-hidden="true" />
+          ))}
+        </div>
       ) : null}
     </section>
   );

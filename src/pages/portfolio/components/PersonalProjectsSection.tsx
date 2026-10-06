@@ -1,5 +1,5 @@
-import { Divider } from "../../../components/layout/Divider";
 import { PageSection } from "../../../components/layout/PageSection";
+import { Divider } from "../../../components/layout/Divider";
 import { ResponsiveGrid } from "../../../components/layout/ResponsiveGrid";
 import { SectionHeader } from "../../../components/layout/SectionHeader";
 import { SlideUpIn } from "../../../components/SlideUpIn";
@@ -10,17 +10,17 @@ import { PersonalProjectCard } from "./PersonalProjectCard";
 export function PersonalProjectsSection() {
   return (
     <PageSection
-      id="personal-projects"
-      aria-labelledby="personal-projects-title"
+      id="projets-personnels"
+      aria-labelledby="projets-personnels-title"
     >
       <SlideUpIn>
         <SectionHeader>
           <Typography
             as="h2"
-            id="personal-projects-title"
+            id="projets-personnels-title"
             variant="section-title"
           >
-            Projet personnel
+            Projets personnels
           </Typography>
           <Typography as="p" variant="section-subtitle">
             Conception et développement d’applications web full-stack.

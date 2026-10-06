@@ -6,28 +6,21 @@ import {
   Navigate,
   Outlet,
   RouterProvider,
-  useRouterState,
 } from "@tanstack/react-router";
 import { createRoot } from "react-dom/client";
 import { Footer } from "./components/Footer";
 import { TopBar } from "./components/TopBar";
 import { PortfolioPage } from "./pages/portfolio/PortfolioPage";
-import { TechWatchPage } from "./pages/tech-watch/TechWatchPage";
 import "./style.css";
 
 function RootLayout() {
-  const pathname = useRouterState({
-    select: (state) => state.location.pathname,
-  });
-  const hasFooter = pathname !== "/tech-watch";
-
   return (
     <div className="min-h-screen bg-base-100 font-sans text-base-content">
       <TopBar />
       <main>
         <Outlet />
       </main>
-      {hasFooter && <Footer />}
+      <Footer />
     </div>
   );
 }
@@ -48,17 +41,7 @@ const portfolioRoute = createRoute({
   component: PortfolioPage,
 });
 
-const techWatchRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/tech-watch",
-  component: TechWatchPage,
-});
-
-const routeTree = rootRoute.addChildren([
-  indexRoute,
-  portfolioRoute,
-  techWatchRoute,
-]);
+const routeTree = rootRoute.addChildren([indexRoute, portfolioRoute]);
 
 const router = createRouter({
   routeTree,

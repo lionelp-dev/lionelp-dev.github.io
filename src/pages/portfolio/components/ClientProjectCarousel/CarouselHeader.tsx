@@ -8,10 +8,10 @@ export function CarouselHeader() {
       <SectionHeader>
         <Typography
           as="h2"
-          id="client-projects-carousel-title"
+          id="realisations-clients-carousel-title"
           variant="section-title"
         >
-          Projets clients
+          Réalisations clients
         </Typography>
 
         <Typography as="p" variant="section-subtitle">

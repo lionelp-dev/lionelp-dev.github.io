@@ -1,4 +1,3 @@
-import { Divider } from "../../../components/layout/Divider";
 import { PageSection } from "../../../components/layout/PageSection";
 import { SectionHeader } from "../../../components/layout/SectionHeader";
 import { SlideUpIn } from "../../../components/SlideUpIn";
@@ -26,7 +25,7 @@ export function ComplementaryActivitiesSection() {
           </Typography>
         </SectionHeader>
       </SlideUpIn>
-      <div className="mb-[clamp(2rem,4.5svh,10.75rem)] divide-y divide-base-content/15 border-base-content/15 border-y">
+      <div className="divide-y divide-base-content/15 border-base-content/15 border-y">
         {complementaryMissions.map((mission, index) => (
           <SlideUpIn key={mission.name} delay={150 + index * 75}>
             <MissionCard
@@ -36,7 +35,6 @@ export function ComplementaryActivitiesSection() {
           </SlideUpIn>
         ))}
       </div>
-      <Divider />
     </PageSection>
   );
 }
