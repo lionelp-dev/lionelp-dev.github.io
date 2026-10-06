@@ -7,15 +7,16 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      aria-labelledby="contact-title"
-      className="flex scroll-mt-24 flex-col gap-3 py-[clamp(2rem,9.5svh,5.75rem)]"
+      className="flex scroll-mt-24 flex-col py-[var(--section-y-padding)]"
     >
-      <div className="mx-auto flex w-[90vw] max-w-[1680px] flex-col gap-12 rounded-4xl bg-base-content px-9 py-18 text-secondary-content md:gap-14 md:px-30 md:py-30">
-        <Typography as="h2" id="contact-title" variant="section-title">
-          Contact
-        </Typography>
-        <div className="flex flex-col gap-4.75">
-          <Typography as="h3" variant="footer-title" className="ml-[-0.0975em]">
+      <div className="mx-auto flex w-[90vw] max-w-[1680px] flex-col gap-3.75 rounded-4xl bg-base-content px-8 py-10 text-secondary-content md:px-16 md:py-16">
+        <div className="flex flex-col">
+          <Typography
+            as="h3"
+            variant="h2"
+            font="serif"
+            className="ml-[-0.0975em]"
+          >
             <SlideUpIn as="span" delay={150}>
               <span>Un poste à pourvoir</span>
             </SlideUpIn>
@@ -23,12 +24,9 @@ export function Footer() {
               <span>en alternance ?</span>
             </SlideUpIn>
           </Typography>
-          <Typography
-            as="p"
-            variant="footer-description"
-          >
+          <Typography as="p" variant="p2" className="text-secondary-content!">
             <SlideUpIn as="span" delay={300}>
-              <span>Disponible dès octobre 2026</span>
+              <span>Je suis disponible dès octobre 2026</span>
             </SlideUpIn>
           </Typography>
         </div>
@@ -43,7 +41,7 @@ export function Footer() {
               href={`mailto:${siteConfig.contactEmail}`}
             >
               <MailIcon className="size-4 flex-none" />
-              <Typography as="span" variant="label">
+              <Typography as="span" variant="p4">
                 {siteConfig.contactEmail}
               </Typography>
             </a>

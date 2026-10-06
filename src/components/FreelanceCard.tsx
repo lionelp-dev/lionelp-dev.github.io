@@ -1,5 +1,5 @@
-import { ProjectCard } from "../../../components/ProjectCard";
-import type { FreelanceProject } from "../../../types/projects";
+import { ProjectCard } from "./ProjectCard";
+import type { FreelanceProject } from "../types/projects";
 
 type FreelanceCardProps = {
   project: FreelanceProject;
@@ -19,7 +19,6 @@ export function FreelanceCard({ project }: FreelanceCardProps) {
       imageCaption={project.name}
       badges={project.technologies}
       links={project.links}
-      actionsVariant="client"
     />
   );
 }

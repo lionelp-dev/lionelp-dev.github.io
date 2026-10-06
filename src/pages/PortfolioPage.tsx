@@ -1,5 +1,4 @@
 import { ClientProjectsSection } from "./components/ClientProjectsSection";
-import { ComplementaryActivitiesSection } from "./components/ComplementaryActivitiesSection";
 import { PageHeroSection } from "./components/PageHeroSection";
 import { PersonalProjectsSection } from "./components/PersonalProjectsSection";
 import { TechWatchSection } from "./components/TechWatchSection";
@@ -9,9 +8,8 @@ export function PortfolioPage() {
     <>
       <PageHeroSection />
       <PersonalProjectsSection />
-      <TechWatchSection headingLevel="h2" />
+      <TechWatchSection />
       <ClientProjectsSection />
-      <ComplementaryActivitiesSection />
     </>
   );
 }

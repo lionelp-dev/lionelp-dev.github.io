@@ -19,6 +19,10 @@ const portfolioSections: readonly PortfolioSection[] = [
     navigationSectionId: "projets-personnels",
   },
   {
+    elementId: "mealo-planner",
+    navigationSectionId: "projets-personnels",
+  },
+  {
     elementId: "explorations-techniques",
     navigationSectionId: "explorations-techniques",
   },
@@ -112,8 +116,9 @@ export function useNavigationState() {
 }
 
 function getSectionAtTopBar(): NavigationSectionId | null {
-  const topBarBottom = document.querySelector("header")?.getBoundingClientRect()
-    .bottom;
+  const topBarBottom = document
+    .querySelector("header")
+    ?.getBoundingClientRect().bottom;
   const threshold = Math.max(0, (topBarBottom ?? 0) + 1);
   let activeSection: NavigationSectionId | null = null;
 
@@ -124,10 +129,7 @@ function getSectionAtTopBar(): NavigationSectionId | null {
         ? Math.max(threshold, window.innerHeight / 2)
         : threshold;
 
-    if (
-      element &&
-      element.getBoundingClientRect().top <= activationThreshold
-    ) {
+    if (element && element.getBoundingClientRect().top <= activationThreshold) {
       activeSection = section.navigationSectionId;
     }
   }

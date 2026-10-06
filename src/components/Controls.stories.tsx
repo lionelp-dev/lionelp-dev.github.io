@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/tanstack-react";
 import { Heart } from "lucide-react";
+import { Typography } from "./Typography";
 
 const sizes = [
   { buttonClass: "btn-xl", badgeClass: "badge-xl", label: "XL" },
@@ -46,7 +47,9 @@ function ControlSizes() {
                 className={`btn ${variant} ${size.buttonClass} rounded-full`}
               >
                 <Heart className="size-[1em] fill-current" aria-hidden="true" />
-                Button {size.label}
+                <Typography as="span" variant="p4">
+                  Button {size.label}
+                </Typography>
               </button>
             ))}
           </div>
@@ -62,7 +65,9 @@ function ControlSizes() {
                 className={`badge ${variant} ${size.badgeClass} rounded-full`}
               >
                 <Heart className="size-[1em] fill-current" aria-hidden="true" />
-                Badge {size.label}
+                <Typography as="span" variant="p4">
+                  Badge {size.label}
+                </Typography>
               </span>
             ))}
           </div>
@@ -81,7 +86,7 @@ function ControlGroup({
 }) {
   return (
     <section className="flex flex-col gap-5">
-      <h2 className="text-lg font-semibold">{title}</h2>
+      <h2 className="font-semibold text-lg">{title}</h2>
       <div className="flex flex-col gap-6">{children}</div>
     </section>
   );
