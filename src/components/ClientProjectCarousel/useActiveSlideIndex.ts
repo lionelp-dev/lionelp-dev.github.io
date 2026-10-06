@@ -1,8 +1,14 @@
 import { type RefObject, useEffect, useState } from "react";
 
-function getActiveSlideIndex(section: HTMLElement, slideCount: number) {
+function getActiveSlideIndex(
+  section: HTMLElement,
+  slideCount: number,
+  scrollDistanceMultiplier: number,
+) {
   const scrollDistance = Math.max(0, -section.getBoundingClientRect().top);
-  const slideIndex = Math.floor(scrollDistance / window.innerHeight);
+  const slideIndex = Math.floor(
+    scrollDistance / (window.innerHeight * scrollDistanceMultiplier),
+  );
 
   return Math.min(slideCount - 1, slideIndex);
 }
@@ -10,11 +16,14 @@ function getActiveSlideIndex(section: HTMLElement, slideCount: number) {
 export function useActiveSlideIndex(
   sectionRef: RefObject<HTMLElement | null>,
   slideCount: number,
+  scrollDistanceMultiplier = 1,
+  isEnabled = true,
 ) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (slideCount === 0) {
+    if (!isEnabled || slideCount === 0) {
+      setActiveIndex(0);
       return;
     }
 
@@ -27,7 +36,11 @@ export function useActiveSlideIndex(
         return;
       }
 
-      const nextIndex = getActiveSlideIndex(section, slideCount);
+      const nextIndex = getActiveSlideIndex(
+        section,
+        slideCount,
+        scrollDistanceMultiplier,
+      );
 
       setActiveIndex((currentIndex) =>
         currentIndex === nextIndex ? currentIndex : nextIndex,
@@ -57,7 +70,7 @@ export function useActiveSlideIndex(
         window.cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [sectionRef, slideCount]);
+  }, [isEnabled, scrollDistanceMultiplier, sectionRef, slideCount]);
 
   return activeIndex;
 }

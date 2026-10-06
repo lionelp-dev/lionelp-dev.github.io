@@ -2,10 +2,6 @@ import { ExternalLink, type LucideIcon } from "lucide-react";
 import type { CSSProperties } from "react";
 import { cn } from "../lib/utils";
 import type { ProjectLink } from "../types/projects";
-import {
-  ProjectActions,
-  type ProjectActionTone,
-} from "./project/ProjectActions";
 import { ProjectBadges } from "./project/ProjectBadges";
 import { ProjectImage } from "./project/ProjectImage";
 import { Typography } from "./Typography";
@@ -25,7 +21,6 @@ type ProjectCardProps = {
   highlightedBadgeVariant?: "secondary" | "soft";
   links?: ProjectLink[];
   linkIcon?: LucideIcon;
-  actionsVariant?: "client" | "default";
 };
 
 export function ProjectCard({
@@ -43,14 +38,8 @@ export function ProjectCard({
   highlightedBadgeVariant = "soft",
   links = [],
   linkIcon: LinkIcon = ExternalLink,
-  actionsVariant = "default",
 }: ProjectCardProps) {
   const hasLinks = links.length > 0;
-  const actionLinks: Array<ProjectLink & { tone: ProjectActionTone }> =
-    links.map((link) => ({
-      ...link,
-      tone: "soft",
-    }));
 
   return (
     <article className="card">
@@ -71,7 +60,7 @@ export function ProjectCard({
             title={title}
             className={cn(
               imagePosition === "top" &&
-                "aspect-video !h-auto rounded-b-none border-x-0 border-t-0",
+                "!h-auto aspect-video rounded-b-none border-x-0 border-t-0",
               imageContainerClassName,
             )}
             style={imageContainerStyle}
@@ -80,49 +69,38 @@ export function ProjectCard({
         ) : null}
 
         <div
-          className={`flex h-full w-full min-w-0 flex-col items-start justify-center gap-y-3.75 px-1 lg:px-8.75 py-3.75 text-left`}
+          className={`flex h-full w-full min-w-0 flex-col items-start justify-center gap-y-3.75 px-1 py-3.75 text-left lg:px-8.75`}
         >
           <div className="flex w-full flex-col items-start gap-y-3.75">
             <div className="flex w-full flex-col items-start gap-2.75">
               <div className="flex w-full flex-col items-start gap-0.5">
                 {titlePrefix && (
-                  <Typography as="p" variant="meta">
+                  <Typography as="p" variant="p5">
                     {titlePrefix}
                   </Typography>
                 )}
                 <Typography
                   as="h3"
-                  variant="project-title"
-                  className="gap-2.25"
+                  variant="h4"
+                  className="flex-col items-start gap-1"
                 >
-                  <span className="inline-flex min-w-0 flex-wrap items-baseline justify-start gap-x-2">
-                    <Typography
-                      as="span"
-                      variant="project-card-name"
-                    >
-                      {title}
-                    </Typography>
-                  </span>
+                  <Typography as="span" variant="h3">
+                    {title}
+                  </Typography>
                   {titleAside && (
-                    <span className="pb-0.5 text-left">
-                      <Typography as="span" variant="project-card-aside">
-                        {titleAside}
-                      </Typography>
-                    </span>
+                    <Typography as="span" variant="p5">
+                      {titleAside}
+                    </Typography>
                   )}
                 </Typography>
                 {meta && (
-                  <Typography as="p" variant="meta">
+                  <Typography as="p" variant="p5">
                     {meta}
                   </Typography>
                 )}
               </div>
               {description && (
-                <Typography
-                  as="p"
-                  variant="body-md"
-                  className="line-clamp-2"
-                >
+                <Typography as="p" variant="p2" className="line-clamp-2">
                   {description}
                 </Typography>
               )}
@@ -136,12 +114,20 @@ export function ProjectCard({
             ) : null}
           </div>
           {hasLinks ? (
-            <ProjectActions
-              title={title}
-              links={actionLinks}
-              icon={LinkIcon}
-              variant={actionsVariant}
-            />
+            <div className="card-actions grid w-full grid-cols-2 gap-2.75">
+              {links.map((link) => (
+                <a
+                  className="btn btn-soft inline-flex w-full items-center gap-1.5 whitespace-nowrap rounded-full no-underline leading-(--leading-xl)"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={`${title}-${link.label}`}
+                >
+                  <LinkIcon aria-hidden="true" />
+                  <Typography as="span">{link.label}</Typography>
+                </a>
+              ))}
+            </div>
           ) : (
             <div className="card-actions w-full" aria-hidden="true" />
           )}

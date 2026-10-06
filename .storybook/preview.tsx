@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/tanstack-react'
+import type { Preview } from "@storybook/tanstack-react";
 import "../src/style.css";
 
 const preview: Preview = {
@@ -12,8 +12,8 @@ const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
   },

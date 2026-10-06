@@ -1,0 +1,81 @@
+@layer utilities {
+  .badge {
+    --control-font-size: var(--font-size-sm);
+    --control-padding-block: 0.75em;
+    --control-padding-inline: 2.375em;
+    height: auto;
+    min-height: 0;
+    border: 0;
+    padding: var(--control-padding-block) var(--control-padding-inline);
+    font-size: var(--control-font-size);
+    line-height: var(--leading-lg);
+    font-weight: inherit;
+  }
+
+  .badge-xs {
+    --control-font-size: var(--font-size-2xs);
+    --control-padding-inline: 2.125em;
+    --control-padding-block: 0.625em;
+  }
+
+  .badge-sm {
+    --control-font-size: var(--font-size-xs);
+    --control-padding-inline: 2.25em;
+    --control-padding-block: 0.75em;
+  }
+
+  .badge-md {
+    --control-font-size: var(--font-size-sm);
+    --control-padding-inline: 2.375em;
+    --control-padding-block: 0.75em;
+  }
+
+  .badge-lg {
+    --control-font-size: var(--font-size-md);
+    --control-padding-inline: 2.5em;
+    --control-padding-block: 0.71875em;
+  }
+
+  .badge-xl {
+    --control-font-size: var(--font-size-lg);
+    --control-padding-inline: 2.625em;
+    --control-padding-block: 0.65625em;
+  }
+}
+
+@media (width >= 48rem) {
+  .md\:badge-xs {
+    --control-font-size: var(--font-size-2xs);
+    --control-padding-inline: 2.125em;
+    --control-padding-block: 0.625em;
+    font-size: var(--control-font-size);
+  }
+
+  .md\:badge-sm {
+    --control-font-size: var(--font-size-xs);
+    --control-padding-inline: 2.25em;
+    --control-padding-block: 0.75em;
+    font-size: var(--control-font-size);
+  }
+
+  .md\:badge-md {
+    --control-font-size: var(--font-size-sm);
+    --control-padding-inline: 2.375em;
+    --control-padding-block: 0.75em;
+    font-size: var(--control-font-size);
+  }
+
+  .md\:badge-lg {
+    --control-font-size: var(--font-size-lg);
+    --control-padding-inline: 2.5em;
+    --control-padding-block: 0.71875em;
+    font-size: var(--control-font-size);
+  }
+
+  .md\:badge-xl {
+    --control-font-size: var(--font-size-2xl);
+    --control-padding-inline: 2.625em;
+    --control-padding-block: 0.65625em;
+    font-size: var(--control-font-size);
+  }
+}

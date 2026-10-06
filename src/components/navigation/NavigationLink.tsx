@@ -28,12 +28,7 @@ export function NavigationLink({
   );
 
   const content = (
-    <Typography
-      as="span"
-      variant={
-        variant === "desktop" ? "navigation-label" : "mobile-navigation-label"
-      }
-    >
+    <Typography as="span" variant="p5">
       {item.label}
     </Typography>
   );
@@ -41,7 +36,7 @@ export function NavigationLink({
   return (
     <a
       className={className}
-      href={`#/portfolio#${item.sectionId}`}
+      href={`#/portfolio#${item.anchorId}`}
       aria-current={active ? "location" : undefined}
       onClick={onNavigate}
     >

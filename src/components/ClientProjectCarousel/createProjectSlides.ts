@@ -1,4 +1,4 @@
-import type { FreelanceProject } from "../../../../types/projects";
+import type { FreelanceProject } from "../../types/projects";
 import type { ProjectSlide } from "./types";
 
 export function createProjectSlides(

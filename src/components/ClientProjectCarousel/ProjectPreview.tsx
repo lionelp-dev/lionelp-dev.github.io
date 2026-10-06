@@ -1,6 +1,6 @@
-import { BrowserFrame } from "../../../../components/project/BrowserFrame";
-import { SlideUpIn } from "../../../../components/SlideUpIn";
-import { Typography } from "../../../../components/Typography";
+import { BrowserFrame } from "../project/BrowserFrame";
+import { SlideUpIn } from "../SlideUpIn";
+import { Typography } from "../Typography";
 import type { ProjectSlide } from "./types";
 
 type ProjectPreviewProps = {
@@ -12,7 +12,7 @@ export function ProjectPreview({ slide, isFirstSlide }: ProjectPreviewProps) {
   const { image, imageIndex, project } = slide;
 
   return (
-    <div className="hover-3d hover-3d-subtle hover-3d-subtle-primary h-[min(50vh,42rem)] w-full max-w-7xl lg:h-[min(60vh,45rem)]">
+    <div className="hover-3d hover-3d-subtle hover-3d-subtle-primary h-[min(50vh,42rem)] w-full max-w-7xl lg:h-[min(58vh,45rem)] lg:w-[98%] lg:justify-self-start">
       <BrowserFrame
         title={
           <SlideUpIn
@@ -22,7 +22,11 @@ export function ProjectPreview({ slide, isFirstSlide }: ProjectPreviewProps) {
             duration={250}
             variant="blur"
           >
-            <Typography as="span" variant="browser-caption">
+            <Typography
+              as="span"
+              variant="p6"
+              className="text-base-content/70 text-xs! leading-none!"
+            >
               {project.name}
             </Typography>
           </SlideUpIn>

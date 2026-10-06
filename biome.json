@@ -6,7 +6,7 @@
     "indentWidth": 2
   },
   "files": {
-    "includes": ["**", "!dist"]
+    "includes": ["**", "!dist", "!storybook-static"]
   },
   "css": {
     "parser": {

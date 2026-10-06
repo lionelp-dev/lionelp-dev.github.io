@@ -47,7 +47,11 @@ export function MobileNavigation({
           onClick={onClose}
         >
           <MailIcon className="size-5 flex-none" />
-          <Typography as="span" variant="mobile-navigation-label">
+          <Typography
+            as="span"
+            variant="p4"
+            className="font-bold! text-secondary text-sm group-hover:text-base-content"
+          >
             Email
           </Typography>
         </MobileActionLink>
@@ -57,7 +61,11 @@ export function MobileNavigation({
           rel="noreferrer"
         >
           <GitHubIcon className="size-5 flex-none" />
-          <Typography as="span" variant="mobile-navigation-label">
+          <Typography
+            as="span"
+            variant="p4"
+            className="font-bold! text-secondary text-sm group-hover:text-base-content"
+          >
             GitHub
           </Typography>
         </MobileActionLink>
