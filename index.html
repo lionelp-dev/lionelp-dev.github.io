@@ -12,6 +12,19 @@
       name="description"
       content="Portfolio de réalisations freelance et d'explorations techniques."
     />
+    <script>
+      (() => {
+        const theme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme =
+          theme === "business" || theme === "dark"
+            ? "business"
+            : theme === "winter" || theme === "light"
+              ? "winter"
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "business"
+                : "winter";
+      })();
+    </script>
     <title>Portfolio</title>
   </head>
   <body>

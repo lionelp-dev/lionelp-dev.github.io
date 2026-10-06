@@ -11,11 +11,11 @@ export function CarouselHeader() {
           id="realisations-clients-carousel-title"
           variant="section-title"
         >
-          Réalisations clients
+          Autres réalisations
         </Typography>
 
         <Typography as="p" variant="section-subtitle">
-          Une sélection de projets réalisés pour mes clients.
+          Une sélection de sites vitrines et e-commerce réalisés en freelance.
         </Typography>
       </SectionHeader>
     </SlideUpIn>

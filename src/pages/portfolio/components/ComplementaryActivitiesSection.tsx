@@ -9,6 +9,7 @@ export function ComplementaryActivitiesSection() {
   return (
     <PageSection
       id="complementary-activities"
+      className="paper-surface tech-watch-surface"
       aria-labelledby="complementary-activities-title"
     >
       <SlideUpIn>
@@ -21,7 +22,7 @@ export function ComplementaryActivitiesSection() {
             Autres savoir-faire
           </Typography>
           <Typography as="p" variant="section-subtitle">
-            Autres savoir-faire mobilisés au cours de mes projets en freelance.
+            Des compétences mobilisées au cours de mon activité en freelance.
           </Typography>
         </SectionHeader>
       </SlideUpIn>
