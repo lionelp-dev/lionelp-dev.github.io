@@ -25,7 +25,7 @@ export function PersonalProjectCard({
     {
       number: "01",
       title: "Gestion des recettes",
-      description: "Recherche, consultation et organisation des recettes.",
+      description: "Rechercher, consulter et organiser ses recettes.",
       image: recipePreviewImage,
       imageAlt: `Gestion des recettes dans ${project.name}`,
       className: "lg:col-span-15",
@@ -33,30 +33,31 @@ export function PersonalProjectCard({
     },
     {
       number: "02",
-      title: "Génération assistée par IA",
-      description: "Créer une recette à partir d’une envie.",
+      title: "Découverte de recettes avec l’IA",
+      description:
+        "Explorer des suggestions adaptées à ses envies et à ses critères.",
       image: aiPreviewImage,
       imageAlt: `Génération assistée par IA dans ${project.name}`,
-      className: "lg:col-span-8",
-      imageClassName: "lg:h-[320px] xl:h-[340px]",
+      className: "",
+      imageClassName: "lg:h-[360px] xl:h-[500px]",
     },
     {
       number: "03",
       title: "Planification hebdomadaire",
-      description: "Visualisation et organisation des repas sur la semaine.",
+      description: "Visualiser et organiser ses repas sur la semaine.",
       image: project.image,
       imageAlt: `Planification hebdomadaire dans ${project.name}`,
-      className: "lg:col-span-9",
-      imageClassName: "lg:h-[320px] xl:h-[340px]",
+      className: "",
+      imageClassName: "lg:h-[360px] xl:h-[500px]",
     },
     {
       number: "04",
       title: "Liste de courses automatique",
-      description: "Généré à partir des repas planifiés.",
+      description: "Créée à partir des repas planifiés.",
       image: shoppingListPreviewImage,
       imageAlt: `Liste de courses automatique dans ${project.name}`,
-      className: "lg:col-span-7",
-      imageClassName: "lg:h-[320px] xl:h-[340px]",
+      className: "",
+      imageClassName: "lg:h-[360px] xl:h-[500px]",
     },
   ];
 
@@ -78,22 +79,15 @@ export function PersonalProjectCard({
     <article className="text-base-content">
       <div className="grid gap-13 gap-y-5.75 lg:grid-cols-24 lg:items-start">
         <div className="flex h-full min-w-0 flex-1 flex-col items-start justify-start gap-5.75 pb-12 lg:col-span-9">
-          <div className="flex w-full flex-col gap-4 md:gap-2.5">
-            <div className="flex flex-col gap-2.5">
-              <Typography
-                as="h2"
-                id={titleId}
-                variant="project-hero-title"
-                className="-ml-[0.0975em] max-w-sm"
-              >
-                {project.name}
-              </Typography>
-              {project.period ? (
-                <Typography as="p" variant="project-period">
-                  {project.period}
-                </Typography>
-              ) : null}
-            </div>
+          <div className="flex w-full flex-col gap-4 md:gap-3.75">
+            <Typography
+              as="h2"
+              id={titleId}
+              variant="project-hero-title"
+              className="-ml-[0.0975em] max-w-sm"
+            >
+              {project.name}
+            </Typography>
 
             <Typography as="p" variant="body-lg-compact">
               {project.description}
@@ -103,12 +97,12 @@ export function PersonalProjectCard({
           <ProjectBadges
             badges={project.technologies}
             highlightedBadgeVariant="soft"
-            className="badge-xs md:badge-md"
+            className="badge-sm md:badge-md"
           />
 
           {project.demoQrCode && (
             <aside className="hidden w-fit items-center gap-3 rounded-lg border border-base-content/10 bg-base-100 p-1.25 pr-2 lg:flex">
-              <div className="flex size-28 flex-none items-center justify-center rounded-md bg-white p-0.75">
+              <div className="flex size-30 flex-none items-center justify-center rounded-md bg-white p-0.75">
                 <img
                   className="size-full"
                   src={project.demoQrCode}
@@ -147,14 +141,10 @@ export function PersonalProjectCard({
           />
         </div>
 
-        <ProjectFeature
-          {...primaryFeature}
-          projectId={projectId}
-          isPrimary
-        />
+        <ProjectFeature {...primaryFeature} projectId={projectId} isPrimary />
 
-        <div className="grid gap-y-15 pt-13 lg:col-span-24 lg:grid-cols-24 lg:gap-x-13">
-          {secondaryFeatures.map((feature) => (
+        <div className="grid gap-y-15 pt-13 lg:col-span-24 lg:grid-cols-2 lg:gap-x-13">
+          {secondaryFeatures.slice(0, 2).map((feature) => (
             <ProjectFeature
               key={feature.number}
               {...feature}
@@ -163,7 +153,10 @@ export function PersonalProjectCard({
           ))}
         </div>
 
-        <ProjectDemoCallToAction project={project} />
+        <div className="grid gap-y-15 lg:col-span-24 lg:grid-cols-2 lg:items-center lg:gap-x-13 lg:pt-8">
+          <ProjectFeature {...secondaryFeatures[2]} projectId={projectId} />
+          <ProjectDemoCallToAction project={project} />
+        </div>
       </div>
     </article>
   );
@@ -179,33 +172,31 @@ function ProjectDemoCallToAction({ project }: { project: PersonalProject }) {
   }
 
   return (
-    <div className=" pt-8.75 md:pt-26 pb-4 lg:col-span-24 lg:grid lg:grid-cols-24 lg:gap-x-13">
-      <section className="flex flex-col items-start gap-6.75 lg:col-span-24 lg:flex-row lg:items-center lg:justify-between lg:mr-28">
-        <div className="max-w-3xl">
-          <Typography as="h3" variant="feature-title">
-            Et bien d’autres fonctionnalités à découvrir dans la démo
-          </Typography>
-          <Typography as="p" variant="body-lg">
-            Espaces collaboratifs, partage de recettes et de listes de courses…
-          </Typography>
-        </div>
+    <section className="flex flex-col items-start gap-6.75 pt-8.75 md:pt-26 lg:items-center lg:pt-0">
+      <div className="max-w-3xl text-center">
+        <Typography as="h3" variant="feature-title">
+          Et bien d’autres fonctionnalités à découvrir dans la démo
+        </Typography>
+        <Typography as="p" variant="body-lg">
+          Espaces collaboratifs, partage des listes de courses et des recettes.
+        </Typography>
+      </div>
 
-        <div className="w-full md:w-[17rem]">
-          <ProjectActions
-            title={project.name}
-            links={[{ ...demoLink, tone: "secondary" }]}
-            icon={ExternalLink}
-            variant="hero"
-            renderIcon={() => (
-              <ExternalLink
-                className="mb-0.25 size-5 flex-none stroke-[2.1]"
-                aria-hidden="true"
-              />
-            )}
-          />
-        </div>
-      </section>
-    </div>
+      <div className="w-full md:w-[17rem]">
+        <ProjectActions
+          title={project.name}
+          links={[{ ...demoLink, tone: "secondary" }]}
+          icon={ExternalLink}
+          variant="hero"
+          renderIcon={() => (
+            <ExternalLink
+              className="mb-0.25 size-5 flex-none stroke-[2.1]"
+              aria-hidden="true"
+            />
+          )}
+        />
+      </div>
+    </section>
   );
 }
 
@@ -232,7 +223,7 @@ function ProjectFeature({
 }) {
   return (
     <section
-      className={`min-w-0 ${className} flex flex-col gap-6.75`}
+      className={`min-w-0 ${className} ${isPrimary ? "mt-10" : ""} flex flex-col gap-6.75`}
       aria-labelledby={`${projectId}-feature-${number}`}
     >
       <div className="flex items-start gap-3.75">

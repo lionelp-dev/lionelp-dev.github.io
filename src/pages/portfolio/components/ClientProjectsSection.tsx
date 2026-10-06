@@ -1,6 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { useMemo, useRef } from "react";
-import { Divider } from "../../../components/layout/Divider";
 import { PageSection } from "../../../components/layout/PageSection";
 import { ResponsiveGrid } from "../../../components/layout/ResponsiveGrid";
 import { SectionHeader } from "../../../components/layout/SectionHeader";
@@ -70,10 +69,11 @@ export function ClientProjectsSection() {
               id="realisations-clients-title"
               variant="section-title"
             >
-              Réalisations clients
+              Autres réalisations
             </Typography>
             <Typography as="p" variant="section-subtitle">
-              Une sélection de projets réalisés pour mes clients.
+              Une sélection de sites vitrines et e-commerce réalisés
+              en freelance.
             </Typography>
           </SectionHeader>
         </SlideUpIn>
@@ -109,7 +109,6 @@ export function ClientProjectsSection() {
           <div aria-hidden="true" className="h-[100vh]" />
         </div>
       )}
-      <Divider />
     </PageSection>
   );
 }

@@ -1,9 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
 
 html {
   scroll-behavior: smooth;
+}
+
+body.is-site-loading {
+  overflow: hidden;
+}
+
+.site-loader {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  opacity: 1;
+  transition:
+    opacity 340ms ease,
+    visibility 340ms ease;
+}
+
+.site-loader--leaving {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-loader__content {
+  width: min(100%, 21rem);
+}
+
+.site-loader__percentage {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-loader {
+    transition-duration: 1ms;
+  }
 }
 
 :root {
@@ -25,8 +64,8 @@ html {
 
 @theme {
   --font-sans:
-    "Google Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+    Geist, "Google Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif-display: "Noto Serif Display", ui-serif, Georgia, serif;
 }
 
@@ -67,6 +106,7 @@ html {
   .badge {
     height: auto;
     min-height: 0;
+    border: 0;
     padding: var(--control-padding-block) var(--control-padding-inline);
     font-size: var(--control-font-size);
     line-height: 1.2;
@@ -172,6 +212,9 @@ html {
 }
 
 .paper-surface {
+  --surface-topography-major: rgb(52 111 197 / 0.08);
+  --surface-topography-secondary: rgb(106 91 204 / 0.06);
+  --surface-topography-tertiary: rgb(41 159 198 / 0.045);
   position: relative;
   overflow: hidden;
   background-color: #fff;
@@ -182,10 +225,25 @@ html {
   inset: 0;
   z-index: 0;
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.22'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  opacity: 0.16;
-  mask-image: none;
+  background-image:
+    repeating-radial-gradient(
+      ellipse 48% 60% at 102% 12%,
+      transparent 0 2.6rem,
+      var(--surface-topography-major) 2.66rem 2.72rem,
+      transparent 2.8rem 5.4rem
+    ),
+    repeating-radial-gradient(
+      ellipse 43% 52% at 0% 92%,
+      transparent 0 2.9rem,
+      var(--surface-topography-secondary) 2.96rem 3.02rem,
+      transparent 3.1rem 6rem
+    ),
+    repeating-radial-gradient(
+      ellipse 28% 38% at 94% 96%,
+      transparent 0 2.2rem,
+      var(--surface-topography-tertiary) 2.26rem 2.32rem,
+      transparent 2.4rem 4.6rem
+    );
 }
 
 .paper-surface > * {
@@ -193,13 +251,130 @@ html {
   z-index: 1;
 }
 
+.hero-surface {
+  --topography-major: rgb(52 111 197 / 0.1);
+  --topography-secondary: rgb(106 91 204 / 0.075);
+  --topography-tertiary: rgb(41 159 198 / 0.055);
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.hero-surface::before,
+.hero-surface::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-surface::before {
+  background-image:
+    repeating-radial-gradient(
+      ellipse 54% 64% at 104% 86%,
+      transparent 0 2rem,
+      var(--topography-major) 2.06rem 2.13rem,
+      transparent 2.2rem 4.2rem
+    ),
+    repeating-radial-gradient(
+      ellipse 35% 46% at 91% 6%,
+      transparent 0 2.3rem,
+      var(--topography-secondary) 2.36rem 2.43rem,
+      transparent 2.5rem 4.8rem
+    ),
+    repeating-radial-gradient(
+      ellipse 31% 40% at 44% 110%,
+      transparent 0 2.6rem,
+      var(--topography-tertiary) 2.66rem 2.73rem,
+      transparent 2.8rem 5.4rem
+    );
+}
+
+.hero-surface::after {
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.94) 0%,
+    rgb(255 255 255 / 0.7) 27%,
+    transparent 56%
+  );
+}
+
+[data-theme="business"] .hero-surface {
+  --topography-major: rgb(117 204 255 / 0.085);
+  --topography-secondary: rgb(177 148 255 / 0.07);
+  --topography-tertiary: rgb(91 206 236 / 0.055);
+  background-color: #0b1428;
+  background-image:
+    radial-gradient(
+      ellipse 55% 72% at 94% 2%,
+      rgb(52 159 240 / 0.115),
+      transparent 68%
+    ),
+    radial-gradient(
+      ellipse 52% 64% at 76% 100%,
+      rgb(109 81 235 / 0.095),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 42% 56% at 5% 96%,
+      rgb(31 123 175 / 0.08),
+      transparent 70%
+    );
+}
+
+[data-theme="business"] .hero-surface::after {
+  background: linear-gradient(
+    90deg,
+    rgb(11 20 40 / 0.9) 0%,
+    rgb(11 20 40 / 0.62) 27%,
+    transparent 56%
+  );
+}
+
 [data-theme="business"] .paper-surface {
+  --surface-topography-major: rgb(117 204 255 / 0.055);
+  --surface-topography-secondary: rgb(177 148 255 / 0.04);
+  --surface-topography-tertiary: rgb(91 206 236 / 0.035);
   background-color: var(--color-base-100);
 }
 
-[data-theme="business"] .paper-surface::before {
-  filter: invert(1);
-  opacity: 0.1;
+.top-bar-glass {
+  border: 1px solid rgb(255 255 255 / 0.3);
+  background: linear-gradient(
+    115deg,
+    rgb(255 255 255 / 0.3),
+    rgb(245 247 255 / 0.18)
+  );
+  box-shadow: none;
+  backdrop-filter: blur(0.875rem) saturate(135%);
+  -webkit-backdrop-filter: blur(0.875rem) saturate(135%);
+}
+
+.top-bar-glass.is-scrolled {
+  border-color: rgb(255 255 255 / 0.5);
+  background-color: rgb(245 247 255 / 0.42);
+  background-image: linear-gradient(
+    115deg,
+    rgb(255 255 255 / 0.58),
+    transparent
+  );
+  box-shadow: 0 0.5rem 1.75rem rgb(32 41 106 / 0.09);
+  backdrop-filter: blur(1.25rem) saturate(150%);
+  -webkit-backdrop-filter: blur(1.25rem) saturate(150%);
+}
+
+[data-theme="business"] .top-bar-glass {
+  border-color: rgb(255 255 255 / 0.1);
+  background: linear-gradient(115deg, rgb(16 16 16 / 0.54), rgb(0 0 0 / 0.3));
+  box-shadow: none;
+}
+
+[data-theme="business"] .top-bar-glass.is-scrolled {
+  border-color: rgb(255 255 255 / 0.14);
+  background-color: rgb(8 8 8 / 0.62);
+  background-image: linear-gradient(115deg, rgb(38 38 38 / 0.54), transparent);
+  box-shadow: 0 0.5rem 1.75rem rgb(0 0 0 / 0.2);
 }
 
 @keyframes slide-up-in {

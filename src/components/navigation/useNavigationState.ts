@@ -19,6 +19,10 @@ const portfolioSections: readonly PortfolioSection[] = [
     navigationSectionId: "projets-personnels",
   },
   {
+    elementId: "mealo-planner",
+    navigationSectionId: "projets-personnels",
+  },
+  {
     elementId: "explorations-techniques",
     navigationSectionId: "explorations-techniques",
   },

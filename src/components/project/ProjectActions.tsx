@@ -9,7 +9,7 @@ const projectActionsVariants = cva("", {
     variant: {
       client: "flex gap-5",
       default: "card-actions w-full items-center justify-start gap-x-2.75",
-      hero: "mt-1 flex w-full max-w-[35rem] flex-col gap-5 md:flex-row-reverse",
+      hero: " mt-1 flex w-full max-w-[35rem] flex-col gap-5 md:flex-row-reverse",
     },
     fullWidth: {
       false: "w-fit",
@@ -27,7 +27,7 @@ const projectActionVariants = cva("btn", {
       client: "rounded-full no-underline whitespace-nowrap",
       default:
         "btn-soft inline-flex w-fit items-center gap-1.5 text-base-content leading-tight no-underline",
-      hero: "rounded-full inline-flex w-full items-center gap-2  leading-tight no-underline md:flex-1",
+      hero: "rounded-full  btn-xl whitespace-nowrap inline-flex w-full items-center gap-2 leading-tight no-underline md:flex-1",
     },
     fullWidth: {
       true: "w-full flex-1",
