@@ -16,7 +16,7 @@ export function ProjectDemo({ project }: { project: PersonalProject }) {
   return (
     <div className="flex flex-col gap-14 lg:gap-18">
       <section className="flex flex-col gap-6 rounded-4xl bg-base-200/70 px-10 py-10 md:px-16 md:py-12">
-        <ContentHeader.Root variant="content" className="w-full">
+        <ContentHeader.Root className="w-full">
           <ContentHeader.Title>
             <Typography
               as="h3"

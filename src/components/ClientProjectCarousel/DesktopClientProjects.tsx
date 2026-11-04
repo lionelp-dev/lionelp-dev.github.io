@@ -25,31 +25,29 @@ export function DesktopClientProjects({
     <div className="hidden lg:block">
       <div className="relative sticky top-0 h-[100vh]">
         <div className="flex h-full flex-col gap-13 pt-[var(--section-y-padding)]">
-          <SlideUpIn>
-            <ContentHeader.Root variant="section">
-              <ContentHeader.Eyebrow>
-                <Typography as="p" variant="eyebrow">
-                  Autres réalisations
-                </Typography>
-              </ContentHeader.Eyebrow>
-              <ContentHeader.Title>
-                <Typography
-                  as="h2"
-                  id="realisations-clients-carousel-title"
-                  variant="h3"
-                  font="serif"
-                >
-                  Conception et développement
-                </Typography>
-              </ContentHeader.Title>
-              <ContentHeader.Description>
-                <Typography as="p" variant="h2">
-                  Une sélection de sites e-commerce et vitrines réalisés en
-                  freelance
-                </Typography>
-              </ContentHeader.Description>
-            </ContentHeader.Root>
-          </SlideUpIn>
+          <ContentHeader.Root>
+            <ContentHeader.Title>
+              <Typography as="p" variant="eyebrow">
+                RÉALISATIONS EN FREELANCE
+              </Typography>
+              <Typography
+                as="h2"
+                id="realisations-clients-carousel-title"
+                variant="h3"
+                font="serif"
+              >
+                Conception et développement web
+              </Typography>
+            </ContentHeader.Title>
+
+            <ContentHeader.Description>
+              <Typography as="p" variant="h2">
+                Une sélection de sites vitrines et e-commerce réalisés pour
+                mes clients.
+              </Typography>
+            </ContentHeader.Description>
+          </ContentHeader.Root>
+
           <div className="grid w-full grid-rows-[minmax(0,1fr)_auto] items-center gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(8rem,2fr)] lg:grid-rows-1 lg:gap-15">
             <ProjectPreview
               slide={activeSlide}
@@ -60,14 +58,16 @@ export function DesktopClientProjects({
         </div>
         <ProjectsProgress activeIndex={activeIndex} slides={slides} />
       </div>
-      {slides.slice(1).map((slide) => (
-        <div
-          aria-hidden="true"
-          className="h-[100vh]"
-          key={`${slide.project.name}-${slide.imageIndex}`}
-        />
-      ))}
+      {
+        slides.slice(1).map((slide) => (
+          <div
+            aria-hidden="true"
+            className="h-[100vh]"
+            key={`${slide.project.name}-${slide.imageIndex}`}
+          />
+        ))
+      }
       <div aria-hidden="true" className="h-[100vh]" />
-    </div>
+    </div >
   );
 }

@@ -13,7 +13,7 @@ export function MobileClientProjects({ projects }: MobileClientProjectsProps) {
   return (
     <div className="flex flex-col gap-7 md:gap-12 lg:hidden">
       <SlideUpIn>
-        <ContentHeader.Root variant="section">
+        <ContentHeader.Root>
           <ContentHeader.Title>
             <Typography
               as="h2"
@@ -26,8 +26,8 @@ export function MobileClientProjects({ projects }: MobileClientProjectsProps) {
           </ContentHeader.Title>
           <ContentHeader.Description>
             <Typography as="p" variant="p1">
-              Une sélection de sites e-commerce et vitrines réalisés en
-              freelance.
+              Une sélection de sites vitrines et e-commerce réalisés pour mes
+              clients.
             </Typography>
           </ContentHeader.Description>
         </ContentHeader.Root>

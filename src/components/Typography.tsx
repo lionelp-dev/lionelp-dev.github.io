@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
+
 const typographyVariants = cva("text-inherit", {
   variants: {
     variant: {
@@ -10,7 +11,7 @@ const typographyVariants = cva("text-inherit", {
       h4: "",
       h5: "",
       p1: "md:text-(length:--font-size-7xl) font-light text-base-content/70 leading-(--leading-lg) tracking-(--tracking-sm)",
-      p2: "md:text-(length:--font-size-4xl) font-light text-base-content/85 leading-(--leading-5xl) tracking-(--tracking-xs)",
+      p2: "md:text-(length:--font-size-4xl) font-light text-base-content/85 leading-(--leading-6xl) tracking-(--tracking-xs)",
       p3: "md:text-(length:--font-size-3xl) font-light text-base-content/80 leading-(--leading-6xl) tracking-(--tracking-xs)",
       p4: "text-(length:--font-size-2xl) text-base-content/85 leading-(--leading-6xl) tracking-(--tracking-xs)",
       p5: "text-(length:--font-size-lg) text-base-content leading-(--leading-6xl) tracking-(--tracking-2xs)",
@@ -97,6 +98,7 @@ type TypographyVariant = NonNullable<
 type TypographyFont = NonNullable<
   VariantProps<typeof typographyVariants>["font"]
 >;
+
 type TypographyProps<T extends ElementType> = {
   as?: T;
   variant?: TypographyVariant;
@@ -116,6 +118,7 @@ const defaultElements: Record<TypographyVariant, ElementType> = {
   p3: "p",
   p4: "p",
   eyebrow: "p",
+
   p5: "p",
   p6: "span",
 };

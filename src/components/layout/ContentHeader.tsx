@@ -1,47 +1,25 @@
-import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "../../lib/utils";
 
-const contentHeaderVariants = cva("flex flex-col", {
-  variants: {
-    variant: {
-      section: "gap-3 [&>[data-slot=content-header-eyebrow]]:-mb-2",
-      content: "gap-4.5",
-    },
-  },
-  defaultVariants: {
-    variant: "section",
-  },
-});
-
-type ContentHeaderRootProps = ComponentPropsWithoutRef<"header"> &
-  VariantProps<typeof contentHeaderVariants>;
+type ContentHeaderRootProps = ComponentPropsWithoutRef<"header">;
 type ContentHeaderSlotProps = ComponentPropsWithoutRef<"div">;
 
 function ContentHeaderRoot({
   className,
-  variant,
   ...props
 }: ContentHeaderRootProps) {
   return (
     <header
-      className={cn(contentHeaderVariants({ variant }), className)}
-      data-variant={variant}
+      className={cn("flex flex-col gap-5", className)}
       {...props}
     />
-  );
-}
-
-function ContentHeaderEyebrow({ className, ...props }: ContentHeaderSlotProps) {
-  return (
-    <div className={className} data-slot="content-header-eyebrow" {...props} />
   );
 }
 
 function ContentHeaderTitle({ className, ...props }: ContentHeaderSlotProps) {
   return (
     <div
-      className={cn("min-w-0", className)}
+      className={cn("flex min-w-0 flex-col", className)}
       data-slot="content-header-title"
       {...props}
     />
@@ -63,7 +41,6 @@ function ContentHeaderDescription({
 
 export const ContentHeader = Object.assign(ContentHeaderRoot, {
   Root: ContentHeaderRoot,
-  Eyebrow: ContentHeaderEyebrow,
   Title: ContentHeaderTitle,
   Description: ContentHeaderDescription,
 });

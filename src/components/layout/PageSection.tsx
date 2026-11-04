@@ -10,7 +10,7 @@ export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
     <section ref={ref} className={cn("relative w-full", className)} {...props}>
       <div
         className={cn(
-          "mx-auto flex h-full w-full max-w-[1680px] flex-col justify-start px-4.75 md:px-10",
+          "mx-auto flex h-full w-full max-w-[87vw] flex-col justify-start",
           "gap-7 py-[var(--section-y-padding)] md:gap-10 lg:gap-26",
           contentClassName,
         )}

@@ -1,11 +1,15 @@
-import { ExternalLink, Smartphone } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { useRef } from "react";
+import { useActiveSlideIndex } from "../../components/ClientProjectCarousel/useActiveSlideIndex";
+import { DesktopPersonalProjectFeatures } from "../../components/PersonalProjectFeatures/DesktopPersonalProjectFeatures";
+import { MobilePersonalProjectFeatures } from "../../components/PersonalProjectFeatures/MobilePersonalProjectFeatures";
 import { GitHubIcon } from "../../components/GitHubIcon";
 import { ContentHeader } from "../../components/layout/ContentHeader";
 import { PageSection } from "../../components/layout/PageSection";
-import { PersonalProjectFeatures } from "../../components/PersonalProjectFeatures";
 import { ArchitectureGrid } from "../../components/PersonalProjectOverview/ArchitectureGrid";
 import { architectureItems } from "../../components/PersonalProjectOverview/architectureItems";
 import { PersonalProjectImageCarousel } from "../../components/project/PersonalProjectImageCarousel";
+import { ProjectDemoQrCode } from "../../components/project/ProjectDemoQrCode";
 import { SlideUpIn } from "../../components/SlideUpIn";
 import { Typography } from "../../components/Typography";
 import { personalProject } from "../../data/projects";
@@ -16,20 +20,20 @@ export function PersonalProjectsSection() {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
   const [sourceCodeLink, demoLink] = personalProject.links;
+  const sectionRef = useRef<HTMLElement>(null);
+  const activeIndex = useActiveSlideIndex(sectionRef, personalProject.features.length, 1.25);
+  const activeFeature = personalProject.features[activeIndex];
 
   return (
     <PageSection id="mealo-planner" aria-labelledby="projets-personnels-title">
       <SlideUpIn>
         <ContentHeader.Root
-          variant="section"
           className="scroll-mt-(--section-scroll-offset)"
         >
-          <ContentHeader.Eyebrow>
+          <ContentHeader.Title>
             <Typography as="p" variant="eyebrow">
               Projets personnels
             </Typography>
-          </ContentHeader.Eyebrow>
-          <ContentHeader.Title>
             <Typography
               as="h2"
               id="projets-personnels-title"
@@ -50,7 +54,7 @@ export function PersonalProjectsSection() {
           <div className="flex min-w-0 flex-col items-start gap-10 lg:order-1 lg:col-span-9">
             <div className="flex w-full flex-col gap-4 md:gap-6.75">
               <div className="flex w-full flex-col gap-4 md:gap-3.75">
-                <ContentHeader.Root variant="content" className="w-full">
+                <ContentHeader.Root className="w-full">
                   <ContentHeader.Title>
                     <Typography
                       as="h3"
@@ -103,29 +107,14 @@ export function PersonalProjectsSection() {
             </div>
 
             {personalProject.demoQrCode ? (
-              <aside className="hidden w-fit items-center gap-3 rounded-lg border border-base-content/10 bg-base-100 p-1.25 pr-2 lg:flex">
-                <div className="flex size-32 flex-none items-center justify-center rounded-md bg-white p-1">
-                  <img
-                    className="size-full"
-                    src={personalProject.demoQrCode}
-                    alt={`QR code de la démo ${personalProject.name}`}
-                  />
-                </div>
-
-                <div className="min-w-0 max-w-45 pr-2.5">
-                  <Typography as="p" variant="p5">
-                    <Smartphone
-                      className="mr-1 inline size-6 stroke-[2.1] align-[-0.1875em]"
-                      aria-hidden="true"
-                    />
-                    Scannez le QR code pour tester Mealo sur votre téléphone.
-                  </Typography>
-                </div>
-              </aside>
+              <ProjectDemoQrCode
+                src={personalProject.demoQrCode}
+                projectName={personalProject.name}
+              />
             ) : null}
           </div>
 
-          <div className="relative min-w-0 pb-10 lg:order-2 lg:col-span-15 lg:pb-10">
+          <div className="relative min-w-0 lg:order-2 lg:col-span-15">
             <div className="hover-3d hover-3d-subtle hover-3d-subtle-primary w-full">
               <PersonalProjectImageCarousel
                 features={personalProject.features}
@@ -141,7 +130,7 @@ export function PersonalProjectsSection() {
         </div>
 
         <section
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-8 pb-11 pt-1"
           aria-labelledby="technologies-du-projet-title"
         >
           <Typography
@@ -155,10 +144,55 @@ export function PersonalProjectsSection() {
           <ArchitectureGrid items={architectureItems} />
         </section>
 
-        <PersonalProjectFeatures
-          project={personalProject}
-          projectId={projectId}
-        />
+        <section
+          id={`${projectId}-features`}
+          ref={sectionRef}
+          className="scroll-mt-(--section-scroll-offset)"
+          aria-labelledby={`${projectId}-features-title`}
+        >
+          <div className="lg:sticky lg:top-(--section-scroll-offset) lg:flex lg:h-[calc(100svh-var(--section-scroll-offset))] lg:flex-col lg:gap-10 lg:bg-base-100 ">
+            <Typography
+              as="h3"
+              id={`${projectId}-features-title`}
+              variant="h2"
+              className="flex shrink-0 items-center gap-4 after:h-px after:flex-1 after:bg-base-content/15"
+            >
+              Quelques fonctionnalités et choix techniques
+            </Typography>
+
+            {activeFeature ? (
+              <div className="hidden min-h-0 lg:flex lg:flex-1">
+                <DesktopPersonalProjectFeatures
+                  activeFeature={activeFeature}
+                  activeIndex={activeIndex}
+                  features={personalProject.features}
+                  projectId={projectId}
+                />
+              </div>
+            ) : null}
+          </div>
+
+          <MobilePersonalProjectFeatures
+            features={personalProject.features}
+            projectId={projectId}
+          />
+
+          {activeFeature
+            ? personalProject.features
+              .slice(1)
+              .map((feature) => (
+                <div
+                  aria-hidden="true"
+                  className="hidden h-[125svh] lg:block"
+                  key={feature.id}
+                />
+              ))
+            : null}
+          {activeFeature ? (
+            <div aria-hidden="true" className="hidden h-[125svh] lg:block" />
+          ) : null}
+        </section>
+
       </article>
     </PageSection>
   );

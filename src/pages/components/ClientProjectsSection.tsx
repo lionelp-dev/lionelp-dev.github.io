@@ -29,7 +29,7 @@ export function ClientProjectsSection() {
         slides={slides}
       />
       <SlideUpIn>
-        <ContentHeader.Root variant="section">
+        <ContentHeader.Root>
           <ContentHeader.Title>
             <Typography as="h2" variant="h2">
               Autres compétences mobilisées <br /> au cours de mon activité en

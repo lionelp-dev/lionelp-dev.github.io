@@ -65,10 +65,8 @@ body.is-site-loading {
 
   100% {
     opacity: 0;
-    transform: translate(
-      -50%,
-      calc(var(--indicator-start-offset) + var(--indicator-travel-offset))
-    );
+    transform: translate(-50%,
+        calc(var(--indicator-start-offset) + var(--indicator-travel-offset)));
   }
 }
 
@@ -111,47 +109,47 @@ body.is-site-loading {
 }
 
 :root {
-  --section-scroll-offset: 6.5rem;
-  --section-y-padding: clamp(4rem, 12svh, 15rem);
-  --font-size-2xs: 0.705894em;
-  --font-size-xs: 0.7647185em;
-  --font-size-sm: 0.823543rem;
-  --font-size-base: 0.91060326em;
-  --font-size-md: 0.941192em;
-  --font-size-lg: 1.0000165em;
-  --font-size-xl: 1.1176655em;
-  --font-size-2xl: 1.1176655em;
-  --font-size-3xl: 1.221431918em;
-  --font-size-4xl: 1.3882582em;
-  --font-size-5xl: 1.4823774em;
-  --font-size-6xl: 1.5764966em;
-  --font-size-7xl: 1.647086em;
-  --font-size-8xl: 1.764735em;
-  --font-size-9xl: 2.02120982em;
-  --font-size-10xl: 4.470662em;
-  --font-size-11xl: 5.6236222em;
-  --font-size-12xl: 11.7649em;
+  --section-scroll-offset: 5.9323745rem;
+  --section-y-padding: clamp(3.650692rem, 10.952076svh, 13.690095rem);
+  --font-size-2xs: 0.64425039em;
+  --font-size-xs: 0.69793793em;
+  --font-size-sm: 0.75162546rem;
+  --font-size-base: 0.83108301em;
+  --font-size-md: 0.85900052em;
+  --font-size-lg: 0.91268806em;
+  --font-size-xl: 1.02006313em;
+  --font-size-2xl: 1.02006313em;
+  --font-size-3xl: 1.12699963em;
+  --font-size-4xl: 1.26702578em;
+  --font-size-5xl: 1.35292583em;
+  --font-size-6xl: 1.43882588em;
+  --font-size-7xl: 1.50325092em;
+  --font-size-8xl: 1.61062599em;
+  --font-size-9xl: 1.84470363em;
+  --font-size-10xl: 4.0802525em;
+  --font-size-11xl: 5.13252814em;
+  --font-size-12xl: 10.73750658em;
 
-  --leading-2xs: 0.75060062;
-  --leading-xs: 0.7764834;
-  --leading-sm: 0.8000132;
-  --leading-base: 1.0117814;
-  --leading-md: 1.05413504;
-  --leading-lg: 1.1294304;
-  --leading-xl: 1.17649;
-  --leading-2xl: 1.2117847;
-  --leading-3xl: 1.2235260702;
-  --leading-4xl: calc(var(--spacing) * 5.176556);
-  --leading-5xl: 1.31531582;
-  --leading-6xl: 1.411788;
+  --leading-2xs: 0.68505292;
+  --leading-xs: 0.70867543;
+  --leading-sm: 0.77719545;
+  --leading-base: 0.92342557;
+  --leading-md: 0.96208059;
+  --leading-lg: 1.03080064;
+  --leading-xl: 1.07375066;
+  --leading-2xl: 1.10596318;
+  --leading-3xl: 1.11667921;
+  --leading-4xl: calc(var(--spacing) * 4.72450289);
+  --leading-5xl: 1.20045324;
+  --leading-6xl: 1.28850079;
 
-  --tracking-2xs: -0.012490002em;
-  --tracking-xs: -0.02816373em;
-  --tracking-sm: -0.041878242em;
-  --tracking-md: -0.05632746em;
-  --tracking-lg: -0.08081766em;
-  --tracking-xl: -0.08326668em;
-  --tracking-2xl: -0.095756682em;
+  --tracking-2xs: -0.01139928em;
+  --tracking-xs: -0.02570428em;
+  --tracking-sm: -0.03822113em;
+  --tracking-md: -0.05140855em;
+  --tracking-lg: -0.0737601em;
+  --tracking-xl: -0.07599525em;
+  --tracking-2xl: -0.08739454em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -174,15 +172,15 @@ body.is-site-loading {
 }
 
 @layer utilities {
-  .hover-3d.hover-3d-subtle > :first-child {
+  .hover-3d.hover-3d-subtle> :first-child {
     transform: rotate3d(var(--transform), 0, 1.5deg);
   }
 
-  .hover-3d.hover-3d-subtle > :first-child::before {
+  .hover-3d.hover-3d-subtle> :first-child::before {
     display: none;
   }
 
-  .hover-3d.hover-3d-subtle:hover > :first-child {
+  .hover-3d.hover-3d-subtle:hover> :first-child {
     scale: 1;
   }
 
@@ -194,7 +192,7 @@ body.is-site-loading {
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .hover-3d.hover-3d-subtle.hover-3d-subtle-primary > :first-child {
+  .hover-3d.hover-3d-subtle.hover-3d-subtle-primary> :first-child {
     transform: rotate3d(var(--transform), 0, 0.75deg);
   }
 }
@@ -220,27 +218,21 @@ body.is-site-loading {
   z-index: 0;
   content: "";
   background-image:
-    repeating-radial-gradient(
-      ellipse 48% 60% at 102% 12%,
+    repeating-radial-gradient(ellipse 48% 60% at 102% 12%,
       transparent 0 2.6rem,
       var(--surface-topography-major) 2.66rem 2.72rem,
-      transparent 2.8rem 5.4rem
-    ),
-    repeating-radial-gradient(
-      ellipse 43% 52% at 0% 92%,
+      transparent 2.8rem 5.4rem),
+    repeating-radial-gradient(ellipse 43% 52% at 0% 92%,
       transparent 0 2.9rem,
       var(--surface-topography-secondary) 2.96rem 3.02rem,
-      transparent 3.1rem 6rem
-    ),
-    repeating-radial-gradient(
-      ellipse 28% 38% at 94% 96%,
+      transparent 3.1rem 6rem),
+    repeating-radial-gradient(ellipse 28% 38% at 94% 96%,
       transparent 0 2.2rem,
       var(--surface-topography-tertiary) 2.26rem 2.32rem,
-      transparent 2.4rem 4.6rem
-    );
+      transparent 2.4rem 4.6rem);
 }
 
-.paper-surface > * {
+.paper-surface>* {
   position: relative;
   z-index: 1;
 }
@@ -265,33 +257,25 @@ body.is-site-loading {
 
 .hero-surface::before {
   background-image:
-    repeating-radial-gradient(
-      ellipse 54% 64% at 104% 86%,
+    repeating-radial-gradient(ellipse 54% 64% at 104% 86%,
       transparent 0 2rem,
       var(--topography-major) 2.06rem 2.13rem,
-      transparent 2.2rem 4.2rem
-    ),
-    repeating-radial-gradient(
-      ellipse 35% 46% at 91% 6%,
+      transparent 2.2rem 4.2rem),
+    repeating-radial-gradient(ellipse 35% 46% at 91% 6%,
       transparent 0 2.3rem,
       var(--topography-secondary) 2.36rem 2.43rem,
-      transparent 2.5rem 4.8rem
-    ),
-    repeating-radial-gradient(
-      ellipse 31% 40% at 44% 110%,
+      transparent 2.5rem 4.8rem),
+    repeating-radial-gradient(ellipse 31% 40% at 44% 110%,
       transparent 0 2.6rem,
       var(--topography-tertiary) 2.66rem 2.73rem,
-      transparent 2.8rem 5.4rem
-    );
+      transparent 2.8rem 5.4rem);
 }
 
 .hero-surface::after {
-  background: linear-gradient(
-    90deg,
-    rgb(255 255 255 / 0.94) 0%,
-    rgb(255 255 255 / 0.7) 27%,
-    transparent 56%
-  );
+  background: linear-gradient(90deg,
+      rgb(255 255 255 / 0.94) 0%,
+      rgb(255 255 255 / 0.7) 27%,
+      transparent 56%);
 }
 
 [data-theme="business"] .hero-surface {
@@ -300,30 +284,22 @@ body.is-site-loading {
   --topography-tertiary: rgb(91 206 236 / 0.055);
   background-color: #0b1428;
   background-image:
-    radial-gradient(
-      ellipse 55% 72% at 94% 2%,
+    radial-gradient(ellipse 55% 72% at 94% 2%,
       rgb(52 159 240 / 0.115),
-      transparent 68%
-    ),
-    radial-gradient(
-      ellipse 52% 64% at 76% 100%,
+      transparent 68%),
+    radial-gradient(ellipse 52% 64% at 76% 100%,
       rgb(109 81 235 / 0.095),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 42% 56% at 5% 96%,
+      transparent 70%),
+    radial-gradient(ellipse 42% 56% at 5% 96%,
       rgb(31 123 175 / 0.08),
-      transparent 70%
-    );
+      transparent 70%);
 }
 
 [data-theme="business"] .hero-surface::after {
-  background: linear-gradient(
-    90deg,
-    rgb(11 20 40 / 0.9) 0%,
-    rgb(11 20 40 / 0.62) 27%,
-    transparent 56%
-  );
+  background: linear-gradient(90deg,
+      rgb(11 20 40 / 0.9) 0%,
+      rgb(11 20 40 / 0.62) 27%,
+      transparent 56%);
 }
 
 [data-theme="business"] .paper-surface {
@@ -335,11 +311,9 @@ body.is-site-loading {
 
 .top-bar-glass {
   border: 1px solid rgb(255 255 255 / 0.3);
-  background: linear-gradient(
-    115deg,
-    rgb(255 255 255 / 0.3),
-    rgb(245 247 255 / 0.18)
-  );
+  background: linear-gradient(115deg,
+      rgb(255 255 255 / 0.3),
+      rgb(245 247 255 / 0.18));
   box-shadow: none;
   backdrop-filter: blur(0.875rem) saturate(135%);
   -webkit-backdrop-filter: blur(0.875rem) saturate(135%);
@@ -348,11 +322,9 @@ body.is-site-loading {
 .top-bar-glass.is-scrolled {
   border-color: rgb(255 255 255 / 0.5);
   background-color: rgb(245 247 255 / 0.42);
-  background-image: linear-gradient(
-    115deg,
-    rgb(255 255 255 / 0.58),
-    transparent
-  );
+  background-image: linear-gradient(115deg,
+      rgb(255 255 255 / 0.58),
+      transparent);
   box-shadow: 0 0.5rem 1.75rem rgb(32 41 106 / 0.09);
   backdrop-filter: blur(1.25rem) saturate(150%);
   -webkit-backdrop-filter: blur(1.25rem) saturate(150%);
@@ -377,6 +349,7 @@ body.is-site-loading {
     filter: blur(8px);
     transform: translateY(100%);
   }
+
   to {
     opacity: 1;
     filter: blur(0);
@@ -389,6 +362,7 @@ body.is-site-loading {
     opacity: 0;
     filter: blur(8px);
   }
+
   to {
     opacity: 1;
     filter: blur(0);

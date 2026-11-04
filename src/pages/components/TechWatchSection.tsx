@@ -28,13 +28,11 @@ export function TechWatchSection() {
       contentClassName="gap-14 md:gap-18 lg:gap-0"
     >
       <SlideUpIn>
-        <ContentHeader.Root variant="section">
-          <ContentHeader.Eyebrow>
-            <Typography as="p" variant="eyebrow">
+        <ContentHeader.Root>
+          <ContentHeader.Title>
+<Typography as="p" variant="eyebrow">
               Explorations techniques
             </Typography>
-          </ContentHeader.Eyebrow>
-          <ContentHeader.Title>
             <Typography
               as="h2"
               id="explorations-techniques-title"
@@ -54,7 +52,7 @@ export function TechWatchSection() {
       </SlideUpIn>
       <SlideUpIn delay={150}>
         <article className="grid items-center gap-9 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-14">
-          <ContentHeader.Root variant="content" className="lg:pr-8">
+          <ContentHeader.Root className="lg:pr-8">
             <ContentHeader.Title>
               <Typography as="h2" variant="h2" font="serif">
                 Carnet de recette
