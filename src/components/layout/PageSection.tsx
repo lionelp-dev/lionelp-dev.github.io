@@ -7,11 +7,17 @@ type PageSectionProps = ComponentPropsWithoutRef<"section"> & {
 
 export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
   ({ className, contentClassName, children, ...props }, ref) => (
-    <section ref={ref} className={cn("relative w-full", className)} {...props}>
+    <section
+      ref={ref}
+      className={cn(
+        "relative w-full scroll-mt-(--section-scroll-offset)",
+        className,
+      )}
+      {...props}
+    >
       <div
         className={cn(
-          "mx-auto flex h-full w-full max-w-[87vw] flex-col justify-start",
-          "gap-7 py-[var(--section-y-padding)] md:gap-10 lg:gap-26",
+          "mx-auto flex h-full w-full max-w-[89vw] lg:max-w-[78.385vw] flex-col justify-start gap-7 py-(--section-y-padding) md:gap-10",
           contentClassName,
         )}
       >

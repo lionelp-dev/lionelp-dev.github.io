@@ -7,17 +7,17 @@ const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 const variantGroups = [
   {
     name: "Headings — Sans",
-    variants: ["h1", "h2", "h3", "h4", "h5"],
+    variants: ["h1", "h2", "h3", "h4", "h5", "h6"],
     font: "sans",
   },
   {
     name: "Headings — Serif",
-    variants: ["h1", "h2", "h3", "h4", "h5"],
+    variants: ["h1", "h2", "h3", "h4", "h5", "h6"],
     font: "serif",
   },
   {
     name: "Paragraphs",
-    variants: ["p1", "p2", "p3", "p4", "p5", "p6", "eyebrow"],
+    variants: ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "eyebrow"],
     font: "sans",
   },
 ] as const;
@@ -47,7 +47,7 @@ const meta = {
     },
     as: {
       control: "select",
-      options: ["p", "span", "h1", "h2", "h3", "h4", "h5", "div"],
+      options: ["p", "span", "h1", "h2", "h3", "h4", "h5", "h6", "div"],
     },
   },
   args: {

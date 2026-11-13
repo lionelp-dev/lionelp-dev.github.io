@@ -1,24 +1,26 @@
-import beyondDressImage from "../assets/beyond-dress-desktop.jpg";
-import beyondDressImage2 from "../assets/beyond-dress-desktop-2.png";
-import beyondDressImage3 from "../assets/beyond-dress-desktop-3.png";
-import beyondStoreImage from "../assets/beyond-store-desktop.jpg";
-import beyondStoreImage2 from "../assets/beyond-store-desktop-2.png";
-import beyondStoreImage3 from "../assets/beyond-store-desktop-3.png";
-import beyondStoreImage4 from "../assets/beyond-store-desktop-4.png";
-import hairelookingImage from "../assets/hairelooking-desktop.jpg";
-import mealoPlannerImage from "../assets/mealo-planner.png";
-import meteoImage from "../assets/meteo.png";
-import aiPreviewImage from "../assets/product-preview-2.png";
-import shoppingListPreviewImage from "../assets/product-preview-3.png";
-import recipeBookAdonisImage from "../assets/recipe_book_adonis_js.png";
-import recipeBookDotNetImage from "../assets/recipe_book_dot_net.png";
-import recipeBookSpringBootImage from "../assets/recipe_book_spring_boot.png";
-import recipeBookSymfonyImage from "../assets/recipe_book_symphony.png";
-import whiscoImage from "../assets/whisco-desktop.jpg";
-import whiscoImage2 from "../assets/whisco-desktop-2.png";
+const beyondDressImage = `${import.meta.env.BASE_URL}beyond-dress-desktop.jpg`;
+const beyondDressImage2 = `${import.meta.env.BASE_URL}beyond-dress-desktop-2.png`;
+const beyondDressImage3 = `${import.meta.env.BASE_URL}beyond-dress-desktop-3.png`;
+const beyondStoreImage = `${import.meta.env.BASE_URL}beyond-store-desktop.jpg`;
+const beyondStoreImage2 = `${import.meta.env.BASE_URL}beyond-store-desktop-2.png`;
+const beyondStoreImage3 = `${import.meta.env.BASE_URL}beyond-store-desktop-3.png`;
+const beyondStoreImage4 = `${import.meta.env.BASE_URL}beyond-store-desktop-4.png`;
+const hairelookingImage = `${import.meta.env.BASE_URL}hairelooking-desktop.jpg`;
+const mealoPlannerImage = `${import.meta.env.BASE_URL}mealo-planner.png`;
+const meteoImage = `${import.meta.env.BASE_URL}meteo.png`;
+const aiPreviewImage = `${import.meta.env.BASE_URL}product-preview-2.png`;
+const shoppingListPreviewImage = `${import.meta.env.BASE_URL}product-preview-3.png`;
+const recipeBookAdonisImage = `${import.meta.env.BASE_URL}recipe_book_adonis_js.png`;
+const recipeBookDotNetImage = `${import.meta.env.BASE_URL}recipe_book_dot_net.png`;
+const recipeBookSpringBootImage = `${import.meta.env.BASE_URL}recipe_book_spring_boot.png`;
+const recipeBookSymfonyImage = `${import.meta.env.BASE_URL}recipe_book_symphony.png`;
+const whiscoImage = `${import.meta.env.BASE_URL}whisco-desktop.jpg`;
+const whiscoImage2 = `${import.meta.env.BASE_URL}whisco-desktop-2.png`;
+
 import type {
   ComplementaryMission,
   FreelanceProject,
+  OverviewItem,
   PersonalProject,
   TechWatchProject,
 } from "../types/projects";
@@ -27,11 +29,17 @@ export const personalProject: PersonalProject = {
   name: "Mealo Planner",
   subtitle: "De l’idée du repas à la liste de courses.",
   description:
-    "Une application de planification des repas de la semaine qui permet de découvrir des recettes grâce à de l’IA, d’organiser ses repas seul ou à plusieurs et de générer automatiquement une liste de courses à partir de ceux-ci.",
+    "Une application web qui aide à organiser ses repas au quotidien, à découvrir de nouvelles recettes grâce à l’IA et à simplifier les courses, seul ou à plusieurs.",
+  highlights: [
+    "Découverte de recettes assistée par IA (LangChain / LangGraph)",
+    "Planification de menus et listes de courses optimisées",
+    "Application multi-tenant (espaces partagés, rôles)",
+    "Qualité logicielle : tests, CI/CD",
+  ],
   features: [
     {
       id: "recipes",
-      title: "Découverte de recettes à l’aide de l’IA",
+      title: "Découverte de recettes à l'aide de l’IA",
       description:
         "Trouver de nouvelles idées de repas grâce à l’intelligence artificielle et conserver ses recettes préférées dans son carnet.",
       details: [
@@ -149,15 +157,54 @@ export const personalProject: PersonalProject = {
   ],
 };
 
+export const architectureItems: OverviewItem[] = [
+  {
+    title: "Frontend",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Inertia.js",
+      "Tailwind CSS",
+      "Radix UI",
+      "daisyUI",
+      "TanStack Form",
+      "Zod",
+    ],
+  },
+  {
+    title: "Backend",
+    technologies: [
+      "PHP",
+      "Laravel",
+      "PostgreSQL",
+      "SQLite",
+      "Spatie Laravel Data",
+      "Spatie Laravel Permissions",
+    ],
+  },
+  {
+    title: "Microservice IA",
+    technologies: [
+      "Node.js",
+      "AdonisJS",
+      "API REST",
+      "LangGraph",
+      "LangChain",
+      "OpenRouter",
+      "openai/gpt-4o-mini",
+      "openai/gpt-image-2",
+    ],
+  },
+];
 export const freelanceProjects: FreelanceProject[] = [
   {
     name: "Whisco",
     currentName: "Sinamary",
     description:
-      "Site vitrine WordPress consacré à une marque de boissons artisanales.",
+      "Site vitrine sous WordPress pour présenter une marque de boissons artisanales et ses produits.",
     images: [whiscoImage, whiscoImage2],
     imageBackgroundColor: "#fbedcf",
-    period: "avril 2023",
+    period: "Avril 2023",
     type: "Site vitrine",
     technologies: ["WordPress", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -174,7 +221,7 @@ export const freelanceProjects: FreelanceProject[] = [
   {
     name: "Beyond Store",
     description:
-      "E-commerce PrestaShop bilingue dédié aux extensions capillaires, perruques et accessoires.",
+      "Boutique e-commerce bilingue sous PrestaShop, spécialisée dans les extensions capillaires, les perruques et les accessoires.",
     images: [
       beyondStoreImage,
       beyondStoreImage2,
@@ -182,7 +229,7 @@ export const freelanceProjects: FreelanceProject[] = [
       beyondStoreImage4,
     ],
     imageBackgroundColor: "#e8ece7",
-    period: "août 2019 - janvier 2021",
+    period: "Août 2019 - Janvier 2021",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -198,10 +245,11 @@ export const freelanceProjects: FreelanceProject[] = [
   },
   {
     name: "Beyond Dress",
-    description: "E-commerce PrestaShop de prêt-à-porter féminin.",
+    description:
+      "Boutique e-commerce sous PrestaShop, spécialisée dans le prêt-à-porter féminin.",
     images: [beyondDressImage, beyondDressImage2, beyondDressImage3],
     imageBackgroundColor: "#f7e6ec",
-    period: "octobre 2014 - mars 2015",
+    period: "Octobre 2014 - Mars 2015",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -218,10 +266,10 @@ export const freelanceProjects: FreelanceProject[] = [
   {
     name: "Hairelooking",
     description:
-      "E-commerce PrestaShop spécialisé dans les extensions de cheveux naturels et le matériel de pose.",
+      "Développement d’une boutique e-commerce sous PrestaShop, dédiée aux extensions de cheveux naturels et au matériel de pose.",
     images: [hairelookingImage],
     imageBackgroundColor: "#eeeae2",
-    period: "novembre 2013 - avril 2014",
+    period: "Novembre 2013 - Avril 2014",
     type: "Boutique e-commerce",
     technologies: ["PrestaShop", "HTML", "CSS", "JavaScript", "PHP"],
     links: [
@@ -237,18 +285,19 @@ export const complementaryMissions: ComplementaryMission[] = [
   {
     name: "Maintenance",
     description:
-      "Corrections, optimisations et évolutions pour assurer le bon fonctionnement du site.",
+      "Suivi technique, corrections, mises à jour et optimisations pour préserver la performance, la sécurité et la stabilité des sites.",
     links: [],
   },
   {
     name: "Webmastering",
     description:
-      "Mise à jour des contenus, suivi technique et amélioration continue.",
+      "Administration des contenus, suivi technique et amélioration continue pour garantir des sites fiables, cohérents et toujours à jour.",
     links: [],
   },
   {
     name: "Infographie",
-    description: "Création de supports visuels pour la communication.",
+    description:
+      "Conception de supports visuels clairs et cohérents pour valoriser une marque et renforcer l’impact de sa communication.",
     links: [
       {
         label: "Voir la présentation",
@@ -259,7 +308,7 @@ export const complementaryMissions: ComplementaryMission[] = [
   {
     name: "Photographie",
     description:
-      "Prises de vues produits et reportages pour alimenter les supports web.",
+      "Prises de vue et retouches de produits, de lieux et de projets pour créer des contenus adaptés aux supports numériques.",
     links: [
       {
         label: "Voir la présentation",

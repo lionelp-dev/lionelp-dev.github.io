@@ -28,7 +28,7 @@ export function NavigationLink({
   );
 
   const content = (
-    <Typography as="span" variant="p5">
+    <Typography as="span" variant="p4">
       {item.label}
     </Typography>
   );

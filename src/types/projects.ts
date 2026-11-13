@@ -26,6 +26,7 @@ export type PersonalProject = {
   name: string;
   subtitle: string;
   description: string;
+  highlights: string[];
   features: PersonalProjectFeature[];
   closingSections: PersonalProjectClosingSection[];
   demoQrCode?: string;
@@ -67,4 +68,10 @@ export type TechWatchProject = {
   image?: string;
   repositoryUrl: string;
   technologies: string[];
+};
+
+export type OverviewItem = {
+  title: string;
+  description?: string;
+  technologies?: string[];
 };

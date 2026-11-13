@@ -4,16 +4,8 @@ import { cn } from "../../lib/utils";
 type ContentHeaderRootProps = ComponentPropsWithoutRef<"header">;
 type ContentHeaderSlotProps = ComponentPropsWithoutRef<"div">;
 
-function ContentHeaderRoot({
-  className,
-  ...props
-}: ContentHeaderRootProps) {
-  return (
-    <header
-      className={cn("flex flex-col gap-5", className)}
-      {...props}
-    />
-  );
+function ContentHeaderRoot({ className, ...props }: ContentHeaderRootProps) {
+  return <header className={cn("flex flex-col gap-5", className)} {...props} />;
 }
 
 function ContentHeaderTitle({ className, ...props }: ContentHeaderSlotProps) {
@@ -32,7 +24,7 @@ function ContentHeaderDescription({
 }: ContentHeaderSlotProps) {
   return (
     <div
-      className={cn("min-w-0", className)}
+      className={cn("min-w-0 font-light", className)}
       data-slot="content-header-description"
       {...props}
     />

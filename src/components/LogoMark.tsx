@@ -1,7 +1,16 @@
-export function LogoMark() {
+import { cn } from "../lib/utils";
+
+type LogoMarkProps = {
+  className?: string;
+};
+
+export function LogoMark({ className }: LogoMarkProps) {
   return (
     <svg
-      className="h-8 w-auto flex-none text-base-content sm:h-9"
+      className={cn(
+        "w-auto flex-none text-base-content",
+        className ?? "h-8 sm:h-9",
+      )}
       viewBox="0 0 293 348"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

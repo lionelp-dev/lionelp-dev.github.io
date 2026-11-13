@@ -1,26 +1,31 @@
 export const navigationItems = [
-  { kind: "anchor", label: "Accueil", sectionId: "home", anchorId: "home" },
   {
     kind: "anchor",
-    label: "Projets personnels",
+    label: "À propos",
+    sectionId: "profil",
+    anchorId: "profil",
+  },
+  {
+    kind: "anchor",
+    label: "Projet principal",
     sectionId: "projets-personnels",
     anchorId: "mealo-planner",
   },
   {
     kind: "anchor",
-    label: "Explorations techniques",
+    label: "Projets personnels",
     sectionId: "explorations-techniques",
     anchorId: "explorations-techniques",
   },
   {
     kind: "anchor",
-    label: "Autres réalisations",
+    label: "Réalisations freelance",
     sectionId: "realisations-clients",
     anchorId: "realisations-clients",
   },
   {
     kind: "anchor",
-    label: "Contact",
+    label: "Me contacter",
     sectionId: "contact",
     anchorId: "contact",
   },

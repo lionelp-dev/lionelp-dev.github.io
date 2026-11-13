@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { useMobileMenu } from "../hooks/useMobileMenu";
+import { useNavigationState } from "../hooks/useNavigationState";
 import { LogoMark } from "./LogoMark";
 import { DesktopNavigation } from "./navigation/DesktopNavigation";
 import { MobileNavigation } from "./navigation/MobileNavigation";
 import { TopBarActions } from "./navigation/TopBarActions";
-import { useMobileMenu } from "./navigation/useMobileMenu";
-import { useNavigationState } from "./navigation/useNavigationState";
 
 export function TopBar() {
   const navigation = useNavigationState();
@@ -42,11 +42,13 @@ export function TopBar() {
           topBarHeaderContainerRef.current.style.width = `${100}%`;
           topBarHeaderContainerRef.current.style.borderRadius = `0`;
           topBarHeaderContainerRef.current.style.top = `0px`;
+          topBarHeaderContainerRef.current.style.paddingInline = `0rem`;
         }
         if (window.scrollY > 100) {
           topBarHeaderContainerRef.current.style.top = `15px`;
           topBarHeaderContainerRef.current.style.borderRadius = `${borderRadius}rem`;
-          topBarHeaderContainerRef.current.style.width = `${70}%`;
+          topBarHeaderContainerRef.current.style.width = `81vw`;
+          topBarHeaderContainerRef.current.style.paddingInline = `1rem`;
         }
       }
     };
@@ -68,12 +70,12 @@ export function TopBar() {
     >
       <nav
         ref={navBarHeaderContainerRef}
-        className="layout-container relative col-start-2 flex h-full w-full max-w-[1680px] items-center justify-between gap-x-3 gap-y-3 px-5 py-3 md:min-h-16 md:py-0 lg:min-h-[62px]"
+        className="relative col-start-2 mx-auto flex h-full w-full lg:max-w-[78.385vw] items-center justify-between gap-x-3 gap-y-3 py-3 md:min-h-16 md:py-0 lg:min-h-[62px]"
         aria-label="Navigation principale"
       >
         <Link
           className="inline-flex shrink-0 items-center gap-3 text-base-content no-underline"
-          to="/portfolio"
+          to="/"
           aria-label="Retour au portfolio"
           onClick={menu.close}
         >

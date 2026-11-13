@@ -9,6 +9,7 @@ type PersonalProjectImageCarouselProps = {
   projectName: string;
   className?: string;
   imageClassName?: string;
+  indicatorClassName?: string;
 };
 
 export function PersonalProjectImageCarousel({
@@ -16,6 +17,7 @@ export function PersonalProjectImageCarousel({
   projectName,
   className,
   imageClassName,
+  indicatorClassName,
 }: PersonalProjectImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDocumentVisible, setIsDocumentVisible] = useState(
@@ -93,7 +95,10 @@ export function PersonalProjectImageCarousel({
         ))}
       </div>
       <ol
-        className="mt-4 mr-4 flex shrink-0 items-center gap-2 self-end"
+        className={cn(
+          "mt-4 mr-4 flex shrink-0 items-center gap-2 self-end",
+          indicatorClassName,
+        )}
         aria-label={`Progression de l’aperçu ${projectName}`}
       >
         {features.map((feature, index) => (

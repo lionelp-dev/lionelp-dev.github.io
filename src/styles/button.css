@@ -1,8 +1,8 @@
 @layer utilities {
   .btn {
-    --control-font-size: var(--font-size-sm);
-    --control-padding-block: 0.75em;
+    --control-font-size: var(--font-size-md);
     --control-padding-inline: 2.375em;
+    --control-padding-block: 0.675em;
     line-height: var(--leading-lg);
     font-weight: 500;
     --fontsize: var(--control-font-size);
@@ -16,63 +16,57 @@
   }
 
   .btn-xs {
-    --control-font-size: var(--font-size-2xs);
+    --control-font-size: var(--font-size-xs);
     --control-padding-inline: 2.125em;
-    --control-padding-block: 0.625em;
+    --control-padding-block: 0.575em;
   }
 
   .btn-sm {
-    --control-font-size: var(--font-size-xs);
-    --control-padding-inline: 2.25em;
-    --control-padding-block: 0.75em;
-  }
-
-  .btn-md {
     --control-font-size: var(--font-size-sm);
-    --control-padding-inline: 2.375em;
-    --control-padding-block: 0.75em;
+    --control-padding-inline: 2.25em;
+    --control-padding-block: 0.615em;
   }
 
   .btn-lg {
-    --control-font-size: var(--font-size-md);
+    --control-font-size: var(--font-size-lg);
     --control-padding-inline: 2.5em;
-    --control-padding-block: 0.71875em;
+    --control-padding-block: 0.625em;
   }
 
   .btn-xl {
-    --control-font-size: var(--font-size-lg);
-    --control-padding-inline: 2.625em;
-    --control-padding-block: 0.65625em;
+    --control-font-size: var(--font-size-xl);
+    --control-padding-inline: 2.725em;
+    --control-padding-block: 0.75em;
   }
 }
 
 @media (width >= 48rem) {
   .md\:btn-xs {
-    --control-font-size: var(--font-size-2xs);
+    --control-font-size: var(--font-size-xs);
     --control-padding-inline: 2.125em;
     --control-padding-block: 0.625em;
   }
 
   .md\:btn-sm {
-    --control-font-size: var(--font-size-xs);
+    --control-font-size: var(--font-size-sm);
     --control-padding-inline: 2.25em;
     --control-padding-block: 0.75em;
   }
 
   .md\:btn-md {
-    --control-font-size: var(--font-size-sm);
+    --control-font-size: var(--font-size-md);
     --control-padding-inline: 2.375em;
     --control-padding-block: 0.75em;
   }
 
   .md\:btn-lg {
-    --control-font-size: var(--font-size-lg);
+    --control-font-size: var(--font-size-xl);
     --control-padding-inline: 2.5em;
     --control-padding-block: 0.71875em;
   }
 
   .md\:btn-xl {
-    --control-font-size: var(--font-size-2xl);
+    --control-font-size: var(--font-size-3xl);
     --control-padding-inline: 2.625em;
     --control-padding-block: 0.65625em;
   }

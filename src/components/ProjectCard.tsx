@@ -100,7 +100,11 @@ export function ProjectCard({
                 )}
               </div>
               {description && (
-                <Typography as="p" variant="p2" className="line-clamp-2">
+                <Typography
+                  as="p"
+                  variant="p2"
+                  className="line-clamp-2 font-light"
+                >
                   {description}
                 </Typography>
               )}
