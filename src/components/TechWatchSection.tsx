@@ -74,9 +74,7 @@ export function TechWatchSection() {
               variant="h3"
               font="serif"
             >
-              Autres réalisations
-              <br />
-              et expérimentations
+              Développement full stack
             </Typography>
           </ContentHeader.Title>
           <ContentHeader.Description>
@@ -101,21 +99,37 @@ export function TechWatchSection() {
             >
               <article className="flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-100 text-base-content shadow-lg transition duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-xl">
                 <div
-                  className="flex h-44 items-center justify-center bg-base-300/60 md:h-48"
+                  className="relative flex h-44 items-center justify-center overflow-hidden md:h-48"
                   aria-hidden="true"
                 >
-                  <TechWatchProjectIcon
-                    projectName={project.name}
-                    size="large"
-                  />
+                  {project.cardImage ? (
+                    <img
+                      src={project.cardImage}
+                      alt=""
+                      className="absolute top-6 left-[12%] w-[125%] max-w-none origin-bottom-left -rotate-6 rounded-md border border-base-100/50 shadow-2xl"
+                    />
+                  ) : (
+                    <TechWatchProjectIcon
+                      projectName={project.name}
+                      size="large"
+                    />
+                  )}
                 </div>
 
                 <div className="flex flex-1 flex-col gap-3 p-4">
                   <div>
                     <Typography as="h3" variant="h4">
-                      RecipeBook {project.name}
+                      {project.title ?? `RecipeBook ${project.name}`}
                     </Typography>
                   </div>
+
+                  <Typography
+                    as="p"
+                    variant="p3"
+                    className="flex-1 font-light text-base-content/75"
+                  >
+                    {project.description}
+                  </Typography>
 
                   {project.technologies.length > 0 ? (
                     <ProjectBadges
@@ -126,31 +140,33 @@ export function TechWatchSection() {
                   ) : null}
 
                   <div className="mt-auto flex items-center justify-between gap-3 border-base-content/10 border-t pt-3">
-                    <div className="flex min-w-0 items-center gap-2 text-base-content/60">
-                      <GitCommitHorizontal
-                        className="size-4 shrink-0"
-                        aria-hidden="true"
-                      />
-                      <Typography as="p" variant="p6" className="truncate">
-                        {latestCommitDate ? (
-                          <>
-                            Dernier commit :{" "}
-                            <time dateTime={latestCommitDate}>
-                              {new Intl.DateTimeFormat("fr-FR", {
-                                month: "long",
-                                year: "numeric",
-                              }).format(new Date(latestCommitDate))}
-                            </time>
-                          </>
-                        ) : (
-                          "GitHub"
-                        )}
-                      </Typography>
-                    </div>
+                    {project.showLatestCommit !== false ? (
+                      <div className="flex min-w-0 items-center gap-2 text-base-content/60">
+                        <GitCommitHorizontal
+                          className="size-4 shrink-0"
+                          aria-hidden="true"
+                        />
+                        <Typography as="p" variant="p6" className="truncate">
+                          {latestCommitDate ? (
+                            <>
+                              Dernier commit :{" "}
+                              <time dateTime={latestCommitDate}>
+                                {new Intl.DateTimeFormat("fr-FR", {
+                                  month: "long",
+                                  year: "numeric",
+                                }).format(new Date(latestCommitDate))}
+                              </time>
+                            </>
+                          ) : (
+                            "GitHub"
+                          )}
+                        </Typography>
+                      </div>
+                    ) : null}
 
                     <a
-                      className="btn btn-soft btn-sm inline-flex shrink-0 items-center gap-2 rounded-full no-underline"
-                      href={project.repositoryUrl}
+                      className="btn btn-soft btn-sm ml-auto inline-flex shrink-0 items-center gap-2 rounded-full no-underline"
+                      href={project.projectUrl ?? project.repositoryUrl}
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`Voir le projet ${project.name} sur GitHub`}

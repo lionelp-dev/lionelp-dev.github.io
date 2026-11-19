@@ -64,9 +64,13 @@ export type ComplementaryMission = {
 
 export type TechWatchProject = {
   name: string;
+  title?: string;
   description: string;
   image?: string;
+  cardImage?: string;
+  showLatestCommit?: boolean;
   repositoryUrl: string;
+  projectUrl?: string;
   technologies: string[];
 };
 

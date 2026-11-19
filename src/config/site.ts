@@ -61,6 +61,6 @@ export const trainingProfiles = {
 export type TrainingProfileKey = keyof typeof trainingProfiles;
 
 // Changer cette valeur pour basculer tous les textes et le CV associé.
-export const activeTrainingProfile: TrainingProfileKey = "cfaInsta";
+export const activeTrainingProfile: TrainingProfileKey = "liveCampus";
 
 export const trainingConfig = trainingProfiles[activeTrainingProfile];

@@ -11,9 +11,7 @@ const meteoImage = `${import.meta.env.BASE_URL}meteo.png`;
 const aiPreviewImage = `${import.meta.env.BASE_URL}product-preview-2.png`;
 const shoppingListPreviewImage = `${import.meta.env.BASE_URL}product-preview-3.png`;
 const recipeBookAdonisImage = `${import.meta.env.BASE_URL}recipe_book_adonis_js.png`;
-const recipeBookDotNetImage = `${import.meta.env.BASE_URL}recipe_book_dot_net.png`;
-const recipeBookSpringBootImage = `${import.meta.env.BASE_URL}recipe_book_spring_boot.png`;
-const recipeBookSymfonyImage = `${import.meta.env.BASE_URL}recipe_book_symphony.png`;
+const soneparLibellesImage = `${import.meta.env.BASE_URL}sonepar-libelles.png`;
 const whiscoImage = `${import.meta.env.BASE_URL}whisco-desktop.jpg`;
 const whiscoImage2 = `${import.meta.env.BASE_URL}whisco-desktop-2.png`;
 
@@ -320,79 +318,36 @@ export const complementaryMissions: ComplementaryMission[] = [
 
 export const techWatchProjects: TechWatchProject[] = [
   {
-    name: "AdonisJS",
+    name: "Sonepar Libellés",
+    title: "Gestion libellés audit habilitation",
     description:
-      "API REST et interface serveur-rendue pour gérer mes recettes.",
-    image: recipeBookAdonisImage,
-    repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAdonisJs",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Inertia.js",
-      "AdonisJS",
-      "Lucid ORM",
-      "SQLite",
-    ],
-  },
-  {
-    name: "Django",
-    description:
-      "Implémentation full-stack classique avec Django, React et Inertia.js.",
-    repositoryUrl: "https://github.com/lionelp-dev/RecipeBookDjango",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Inertia.js",
-      "Python",
-      "Django",
-      "Django ORM",
-      "SQLite",
-    ],
-  },
-  {
-    name: "Symfony",
-    description: "Implémentation full-stack avec une approche classique.",
-    image: recipeBookSymfonyImage,
-    repositoryUrl:
-      "https://github.com/lionelp-dev/RecipeBookSymfony/tree/architecture/api-platform-react",
-    technologies: [
-      "React",
-      "TypeScript",
-      "PHP",
-      "Symfony",
-      "API Platform",
-      "Doctrine ORM",
-      "SQLite",
-    ],
-  },
-  {
-    name: "ASP.NET Core",
-    description:
-      "Exploration de l’écosystème Microsoft et de son outillage moderne.",
-    image: recipeBookDotNetImage,
-    repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAspNetCore",
+      "Un projet pédagogique pour mieux comprendre le travail d’une équipe de développeurs chez Sonepar chargée de la gestion des habilitations autour de l’ERP Infor M3.",
+    cardImage: soneparLibellesImage,
+    repositoryUrl: "https://github.com/lionelp-dev/sonepar_libelles",
     technologies: [
       "Angular",
       "TypeScript",
-      "C#",
-      "ASP.NET Core Web API",
-      "Entity Framework Core",
+      "Python",
+      "Django",
+      "Django REST Framework",
       "SQLite",
     ],
   },
   {
-    name: "Spring Boot",
-    description: "Version orientée API avec une structure claire et modulaire.",
-    image: recipeBookSpringBootImage,
-    repositoryUrl: "https://github.com/lionelp-dev/RecipeBookSpringBoot",
+    name: "AdonisJS",
+    title: "Carnet de recette",
+    description:
+      "Développement d’une même application dans différents environnements techniques afin d’élargir mes compétences en développement full stack.",
+    cardImage: recipeBookAdonisImage,
+    showLatestCommit: false,
+    repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAdonisJs",
+    projectUrl: "https://github.com/lionelp-dev#carnet-de-recettes",
     technologies: [
-      "Vue.js",
-      "TypeScript",
-      "Java",
+      "Django",
+      "AdonisJS",
+      "Symfony",
+      "ASP.NET Core",
       "Spring Boot",
-      "Spring Data JPA",
-      "Hibernate",
-      "SQLite",
     ],
   },
 ];
