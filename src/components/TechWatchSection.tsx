@@ -136,6 +136,7 @@ export function TechWatchSection() {
                       badges={project.technologies.slice(0, 5)}
                       highlightedBadgeVariant="soft"
                       className="badge-xs"
+                      showTechnologyIcons
                     />
                   ) : null}
 
