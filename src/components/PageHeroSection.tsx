@@ -50,11 +50,11 @@ export function PageHeroSection() {
             </div>
             <SlideUpIn as="div" delay={425}>
               <Typography as="p" variant="p2" className="font-light max-w-4xl">
-                Ce qui me passionne, c'est de transformer des besoins métier en
-                applications ou en solutions techniques, en travaillant aussi
-                bien sur les interfaces que sur la logique métier. Je
-                m'intéresse également à l'architecture, aux tests ainsi qu'aux
-                usages et à l'intégration de l'intelligence artificielle.
+                Ce qui me passionne, c’est de répondre à des besoins métier en
+                travaillant aussi bien sur les interfaces que sur la
+                logique métier. Je m’intéresse également à l’architecture, aux
+                tests ainsi qu’aux usages et à l’intégration de l’intelligence
+                artificielle.
               </Typography>
             </SlideUpIn>
           </div>
@@ -62,7 +62,7 @@ export function PageHeroSection() {
             <div className="flex flex-wrap items-center gap-2.5">
               <a
                 className="btn btn-secondary btn-md rounded-full"
-                href="#/portfolio#mealo-planner"
+                href="/#mealo-planner"
               >
                 <ArrowUpRight className="size-5 flex-none" />
                 Découvrir mes projets
@@ -99,38 +99,34 @@ export function PageHeroSection() {
           >
             <div className="flex items-center gap-3">
               <span
-                className="size-2.5 flex-none rounded-full animate-pulse bg-success"
+                className="size-2.5 flex-none animate-pulse rounded-full bg-success motion-reduce:animate-none"
                 aria-hidden="true"
               />
               <Typography
                 as="p"
                 variant="p4"
-                className=" text-success! text-extrabold! uppercase"
+                className="text-success! font-bold! uppercase"
               >
                 {trainingConfig.availabilityLabel}
               </Typography>
             </div>
 
             <div className="mt-6 flex min-w-0 items-start gap-4">
-              <div className="flex min-w-0 flex-col gap-2">
-                <Typography as="p" variant="p4">
-                  {trainingConfig.currentTrainingIntro}{" "}
-                  <strong>{trainingConfig.degreeName}</strong> au{" "}
-                  {trainingConfig.cfaName}.
-                </Typography>
-              </div>
+              <Typography as="p" variant="p4" className="min-w-0">
+                {trainingConfig.currentTrainingIntro}{" "}
+                <strong>{trainingConfig.degreeName}</strong> au{" "}
+                {trainingConfig.cfaName}.
+              </Typography>
               <span className="grid size-11 flex-none place-items-center rounded-xl bg-secondary/8 text-secondary ring-1 ring-secondary/10">
                 <GraduationCap className="size-6" aria-hidden="true" />
               </span>
             </div>
 
             <div className="mt-6 flex min-w-0 items-start gap-4 border-base-content/10 border-t pt-6">
-              <div className="flex min-w-0 flex-col gap-2">
-                <Typography as="p" variant="p4">
-                  <strong>{trainingConfig.search.lead}</strong>{" "}
-                  {trainingConfig.search.description}
-                </Typography>
-              </div>
+              <Typography as="p" variant="p4" className="min-w-0">
+                <strong>{trainingConfig.search.lead}</strong>{" "}
+                {trainingConfig.search.description}
+              </Typography>
               <span className="grid size-11 flex-none place-items-center rounded-xl bg-secondary/8 text-secondary ring-1 ring-secondary/10">
                 <ArrowLeftRight className="size-5.5" aria-hidden="true" />
               </span>

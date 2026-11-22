@@ -48,7 +48,7 @@ export function PersonalProjectsSection() {
         </ContentHeader.Root>
         <article className="flex min-w-0 flex-col text-base-content gap-5">
           <div className="grid gap-13 gap-y-10 lg:grid-cols-24 lg:items-stretch">
-            <div className="flex min-w-0 flex-col items-start gap-10 lg:order-1 lg:col-span-9 lg:pt-5">
+            <div className="flex min-w-0 flex-col items-start gap-10 lg:order-1 lg:col-span-8 lg:pt-5">
               <div className="flex w-full flex-col gap-4 md:gap-6.75">
                 <div className="flex w-full flex-col gap-4 md:gap-2.75">
                   <ContentHeader.Root className="w-full">
@@ -125,7 +125,7 @@ export function PersonalProjectsSection() {
                 ) : null}
               </div>
             </div>
-            <div className="relative min-w-0 lg:order-2 lg:col-span-15 ">
+            <div className="relative min-w-0 lg:order-2 lg:col-span-16">
               <Hover3D className="w-full">
                 <PersonalProjectImageCarousel
                   features={personalProject.features}
@@ -164,11 +164,7 @@ export function PersonalProjectsSection() {
                       className="badge-sm md:badge-md"
                     />
                   ) : (
-                    <Typography
-                      as="p"
-                      variant="p6"
-                      className="text-[clamp(1rem,1.1vw,1.2rem)] leading-[1.5]"
-                    >
+                    <Typography as="p" variant="p6">
                       {description}
                     </Typography>
                   )}

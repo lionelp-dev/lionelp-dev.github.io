@@ -1,9 +1,8 @@
 import {
-  createHashHistory,
+  createBrowserHistory,
   createRootRoute,
   createRoute,
   createRouter,
-  Navigate,
   Outlet,
   RouterProvider,
 } from "@tanstack/react-router";
@@ -34,32 +33,14 @@ const rootRoute = createRootRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: () => <Navigate to="/portfolio" replace />,
-});
-
-const portfolioRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/portfolio",
   component: PortfolioPage,
 });
 
-const techWatchRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/tech-watch",
-  component: () => (
-    <Navigate to="/portfolio" hash="explorations-techniques" replace />
-  ),
-});
-
-const routeTree = rootRoute.addChildren([
-  indexRoute,
-  portfolioRoute,
-  techWatchRoute,
-]);
+const routeTree = rootRoute.addChildren([indexRoute]);
 
 const router = createRouter({
   routeTree,
-  history: createHashHistory(),
+  history: createBrowserHistory(),
 });
 
 declare module "@tanstack/react-router" {

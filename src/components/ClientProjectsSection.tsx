@@ -17,7 +17,7 @@ function ClientProjectsHeader() {
     <ContentHeader.Root>
       <ContentHeader.Title>
         <Typography as="p" variant="eyebrow">
-          Une sélection de mes réalisations en freelance
+          Mes réalisations en freelance
         </Typography>
         <Typography as="h2" variant="h3" font="serif">
           Conception et développement web
@@ -25,9 +25,9 @@ function ClientProjectsHeader() {
       </ContentHeader.Title>
       <ContentHeader.Description>
         <Typography as="p" variant="p2" className="max-w-5xl">
-          Des sites vitrines et e-commerce conçus et développés sur mesure pour
-          répondre aux besoins de mes clients, de la conception de l’interface
-          jusqu’à la mise en ligne et à la maintenance.
+          Une sélection de sites vitrines et e-commerce conçus et développés sur
+          mesure pour répondre aux besoins de mes clients, de la conception de
+          l’interface jusqu’à la mise en ligne et à la maintenance.
         </Typography>
       </ContentHeader.Description>
     </ContentHeader.Root>
@@ -49,7 +49,7 @@ export function ClientProjectsSection() {
 
   return (
     <PageSection
-      id="realisations-clients"
+      id="realisations-freelance"
       className="scroll-mt-(--section-scroll-offset)"
       contentClassName="pb-0!"
     >
@@ -95,7 +95,7 @@ export function ClientProjectsSection() {
                             className="h-full [&>div]:h-full"
                           >
                             <img
-                              className="size-full object-cover object-top"
+                              className="client-project-carousel-image size-full object-cover object-top"
                               src={activeSlide.image}
                               alt={`Aperçu ${activeSlide.imageIndex + 1}/${activeSlide.project.images.length} du projet ${activeSlide.project.name}`}
                               loading={activeIndex === 0 ? "eager" : "lazy"}

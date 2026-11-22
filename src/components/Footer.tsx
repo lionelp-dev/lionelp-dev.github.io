@@ -184,7 +184,7 @@ export function Footer() {
                   <a
                     key={item.sectionId}
                     className="transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-base-content"
-                    href={`#/portfolio#${item.anchorId}`}
+                    href={`/#${item.anchorId}`}
                   >
                     {item.label}
                   </a>

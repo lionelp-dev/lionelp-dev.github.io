@@ -19,7 +19,7 @@ export function ProjectDemoQrCode({
         className,
       )}
     >
-      <div className="flex size-27 flex-none items-center justify-center rounded-md bg-white p-1">
+      <div className="flex size-28 flex-none items-center justify-center rounded-md bg-white p-1">
         <img
           className="size-full"
           src={src}

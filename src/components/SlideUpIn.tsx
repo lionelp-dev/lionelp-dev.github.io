@@ -1,10 +1,4 @@
-import {
-  type PropsWithChildren,
-  type RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { type PropsWithChildren } from "react";
 import { cn } from "../lib/utils";
 
 type SlideUpInProps = PropsWithChildren<{
@@ -19,70 +13,13 @@ export function SlideUpIn({
   as: Element = "div",
   children,
   className,
-  duration = 400,
-  delay = 200,
-  variant = "slide-up",
+  duration: _duration,
+  delay: _delay,
+  variant: _variant,
 }: SlideUpInProps) {
-  const elementRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const element = elementRef.current;
-
-    if (!element) return;
-
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      !("IntersectionObserver" in window)
-    ) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-
-        setIsVisible(true);
-        observer.disconnect();
-      },
-      { threshold: 0.15 },
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <Element
-      ref={elementRef as RefObject<never>}
-      className={cn("relative", className)}
-    >
-      <Element
-        className={cn(
-          Element === "span" && "block",
-          isVisible &&
-            (variant === "slide-up"
-              ? "animate-[slide-up-in_ease-in-out_both]"
-              : "animate-[blur-in_ease-in-out_both]"),
-        )}
-        style={
-          isVisible
-            ? {
-                animationDuration: `${duration}ms`,
-                animationDelay: `${delay}ms`,
-              }
-            : {
-                opacity: 0,
-                filter: "blur(8px)",
-                transform:
-                  variant === "slide-up" ? "translateY(100%)" : undefined,
-              }
-        }
-      >
-        {children}
-      </Element>
+    <Element className={cn("relative", Element === "span" && "block", className)}>
+      {children}
     </Element>
   );
 }

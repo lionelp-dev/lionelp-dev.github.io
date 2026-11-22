@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, GitCommitHorizontal } from "lucide-react";
+import { ArrowRight, Code2 } from "lucide-react";
 import { useTechWatchProjects } from "../hooks/useTechWatchProjects";
 import { GitHubIcon } from "./GitHubIcon";
 import { ContentHeader } from "./layout/ContentHeader";
@@ -74,22 +74,21 @@ export function TechWatchSection() {
               variant="h3"
               font="serif"
             >
-              Développement full stack
+              Développement full-stack
             </Typography>
           </ContentHeader.Title>
           <ContentHeader.Description>
             <Typography as="p" variant="p2" className="max-w-5xl">
-              Ces projets sont l’occasion de découvrir de nouveaux
-              environnements techniques,
-              <br />
-              d’expérimenter et d’approfondir progressivement mes compétences.
+              Du développement d’applications et d’API à l’orchestration de
+              workflows d’IA générative, ces projets me permettent d’explorer
+              différentes technologies et d’enrichir mes compétences.
             </Typography>
           </ContentHeader.Description>
         </ContentHeader.Root>
       </SlideUpIn>
       <section aria-label="Implémentations techniques">
         <div className="grid items-stretch gap-x-8 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
-          {projectsSortedByDate.map(({ project, latestCommitDate }, index) => (
+          {projectsSortedByDate.map((project, index) => (
             <SlideUpIn
               key={project.name}
               delay={125 + index * 40}
@@ -106,7 +105,7 @@ export function TechWatchSection() {
                     <img
                       src={project.cardImage}
                       alt=""
-                      className="absolute top-6 left-[12%] w-[125%] max-w-none origin-bottom-left -rotate-6 rounded-md border border-base-100/50 shadow-2xl"
+                      className="h-full w-full object-cover object-top"
                     />
                   ) : (
                     <TechWatchProjectIcon
@@ -140,33 +139,9 @@ export function TechWatchSection() {
                     />
                   ) : null}
 
-                  <div className="mt-auto flex items-center justify-between gap-3 border-base-content/10 border-t pt-3">
-                    {project.showLatestCommit !== false ? (
-                      <div className="flex min-w-0 items-center gap-2 text-base-content/60">
-                        <GitCommitHorizontal
-                          className="size-4 shrink-0"
-                          aria-hidden="true"
-                        />
-                        <Typography as="p" variant="p6" className="truncate">
-                          {latestCommitDate ? (
-                            <>
-                              Dernier commit :{" "}
-                              <time dateTime={latestCommitDate}>
-                                {new Intl.DateTimeFormat("fr-FR", {
-                                  month: "long",
-                                  year: "numeric",
-                                }).format(new Date(latestCommitDate))}
-                              </time>
-                            </>
-                          ) : (
-                            "GitHub"
-                          )}
-                        </Typography>
-                      </div>
-                    ) : null}
-
+                  <div className="mt-auto flex items-center justify-end gap-3 border-base-content/10 border-t pt-3">
                     <a
-                      className="btn btn-soft btn-sm ml-auto inline-flex shrink-0 items-center gap-2 rounded-full no-underline"
+                      className="btn btn-soft btn-sm inline-flex shrink-0 items-center gap-2 rounded-full no-underline"
                       href={project.projectUrl ?? project.repositoryUrl}
                       target="_blank"
                       rel="noreferrer"

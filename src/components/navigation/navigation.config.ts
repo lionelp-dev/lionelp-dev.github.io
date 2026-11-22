@@ -20,8 +20,8 @@ export const navigationItems = [
   {
     kind: "anchor",
     label: "Réalisations freelance",
-    sectionId: "realisations-clients",
-    anchorId: "realisations-clients",
+    sectionId: "realisations-freelance",
+    anchorId: "realisations-freelance",
   },
   {
     kind: "anchor",

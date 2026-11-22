@@ -47,6 +47,26 @@ body.is-site-loading {
   .site-loader {
     transition-duration: 1ms;
   }
+
+  .client-project-carousel-image {
+    animation: none;
+  }
+}
+
+@keyframes client-project-image-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.client-project-carousel-image {
+  animation: client-project-image-in 350ms 250ms ease-in-out both;
 }
 
 @keyframes personal-project-position-indicator {
@@ -254,31 +274,6 @@ body.is-site-loading {
   box-shadow: 0 0.5rem 1.75rem rgb(0 0 0 / 0.2);
 }
 
-@keyframes slide-up-in {
-  from {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(100%);
-  }
-
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes blur-in {
-  from {
-    opacity: 0;
-    filter: blur(8px);
-  }
-
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
 
 @plugin "daisyui/theme" {
   name: "winter";

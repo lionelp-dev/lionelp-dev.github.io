@@ -68,8 +68,7 @@ export type TechWatchProject = {
   description: string;
   image?: string;
   cardImage?: string;
-  showLatestCommit?: boolean;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   projectUrl?: string;
   technologies: string[];
 };

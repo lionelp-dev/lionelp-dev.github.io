@@ -8,10 +8,10 @@ const beyondStoreImage4 = `${import.meta.env.BASE_URL}beyond-store-desktop-4.png
 const hairelookingImage = `${import.meta.env.BASE_URL}hairelooking-desktop.jpg`;
 const mealoPlannerImage = `${import.meta.env.BASE_URL}mealo-planner.png`;
 const meteoImage = `${import.meta.env.BASE_URL}meteo.png`;
+const apiImage = `${import.meta.env.BASE_URL}api.png`;
 const aiPreviewImage = `${import.meta.env.BASE_URL}product-preview-2.png`;
 const shoppingListPreviewImage = `${import.meta.env.BASE_URL}product-preview-3.png`;
 const recipeBookAdonisImage = `${import.meta.env.BASE_URL}recipe_book_adonis_js.png`;
-const soneparLibellesImage = `${import.meta.env.BASE_URL}sonepar-libelles.png`;
 const whiscoImage = `${import.meta.env.BASE_URL}whisco-desktop.jpg`;
 const whiscoImage2 = `${import.meta.env.BASE_URL}whisco-desktop-2.png`;
 
@@ -27,7 +27,7 @@ export const personalProject: PersonalProject = {
   name: "Mealo Planner",
   subtitle: "De l’idée du repas à la liste de courses.",
   description:
-    "Une application web qui aide à organiser ses repas au quotidien, à découvrir de nouvelles recettes grâce à l’IA et à simplifier les courses, seul ou à plusieurs.",
+    "Une application web qui permet de découvrir de nouvelles recettes grâce à l’IA, d’organiser ses repas au quotidien et de simplifier ses courses.",
   highlights: [
     "Découverte de recettes assistée par IA (LangChain / LangGraph)",
     "Planification de menus et listes de courses optimisées",
@@ -183,9 +183,9 @@ export const architectureItems: OverviewItem[] = [
   {
     title: "Microservice IA",
     technologies: [
+      "API REST",
       "Node.js",
       "AdonisJS",
-      "API REST",
       "LangGraph",
       "LangChain",
       "OpenRouter",
@@ -318,28 +318,28 @@ export const complementaryMissions: ComplementaryMission[] = [
 
 export const techWatchProjects: TechWatchProject[] = [
   {
-    name: "Sonepar Libellés",
-    title: "Gestion libellés audit habilitation",
+    name: "API IA de recettes",
+    title: "API de génération de recettes et de visuels",
     description:
-      "Un projet pédagogique pour mieux comprendre le travail d’une équipe de développeurs chez Sonepar chargée de la gestion des habilitations autour de l’ERP Infor M3.",
-    cardImage: soneparLibellesImage,
-    repositoryUrl: "https://github.com/lionelp-dev/sonepar_libelles",
+      "Développement de deux API en Node.js et Python, dédiées à la génération de recettes et de leurs visuels, afin d’expérimenter l’orchestration de workflows d’IA.",
+    cardImage: apiImage,
+    projectUrl:
+      "https://github.com/lionelp-dev#api-d%C3%A9di%C3%A9-%C3%A0-la-g%C3%A9n%C3%A9ration-de-recettes-par-intelligence-artificielle",
     technologies: [
-      "Angular",
-      "TypeScript",
+      "API REST",
+      "Node.js",
       "Python",
-      "Django",
-      "Django REST Framework",
-      "SQLite",
+      "LangChain",
+      "LangGraph",
+      "OpenRouter",
     ],
   },
   {
     name: "AdonisJS",
-    title: "Carnet de recette",
+    title: "Applications de découverte de recettes",
     description:
-      "Développement d’une même application dans différents environnements techniques afin d’élargir mes compétences en développement full stack.",
+      "Une même application déclinée dans plusieurs stacks techniques, s’appuyant sur les API de génération de recettes pour un périmètre fonctionnel commun.",
     cardImage: recipeBookAdonisImage,
-    showLatestCommit: false,
     repositoryUrl: "https://github.com/lionelp-dev/RecipeBookAdonisJs",
     projectUrl: "https://github.com/lionelp-dev#carnet-de-recettes",
     technologies: [

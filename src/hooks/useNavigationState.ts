@@ -27,12 +27,12 @@ const portfolioSections: readonly PortfolioSection[] = [
     navigationSectionId: "explorations-techniques",
   },
   {
-    elementId: "realisations-clients",
-    navigationSectionId: "realisations-clients",
+    elementId: "realisations-freelance",
+    navigationSectionId: "realisations-freelance",
   },
   {
     elementId: "complementary-activities",
-    navigationSectionId: "realisations-clients",
+    navigationSectionId: "realisations-freelance",
   },
   { elementId: "contact", navigationSectionId: "contact" },
 ];
@@ -62,7 +62,7 @@ export function useNavigationState() {
   }, []);
 
   useEffect(() => {
-    if (pathname !== "/portfolio") {
+    if (pathname !== "/") {
       pendingSectionRef.current = null;
       return;
     }
@@ -110,7 +110,7 @@ export function useNavigationState() {
   }, [pathname]);
 
   const isActive = (item: NavigationItem) =>
-    pathname === "/portfolio" && currentSection === item.sectionId;
+    pathname === "/" && currentSection === item.sectionId;
 
   return { pathname, hash, isActive };
 }
